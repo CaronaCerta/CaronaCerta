@@ -16,4 +16,13 @@ before_script:
   - adb wait-for-device
   - adb shell input keyevent 82 &
 
-script: ./gradlew connectedAndroidTest
+script: 
+  - ./gradlew connectedAndroidTest
+  - echo $TRAVIS_BUILD_DIR
+  - curl "http://testflightapp.com/api/builds.json"
+      -F file=@"$TRAVIS_BUILD_DIR/CaronaCerta/build/apk/CaronaCerta-debug.apk"
+      -F api_token="ce2496d285ce80182172db4cbffc05b1_MjEyMTI5MTIwMTQtMDktMTkgMjE6MzA6MzkuNjA0MDAy"
+      -F team_token="1d2c6a6511cae50e631d5424d8c50e22_NDM2NTc3MjAxNC0wOS0xOSAyMTozMTozMS44NTk3Mjk"
+      -F notes="Build by Travis CI"
+      -F notify=True
+      -F distribution_lists="CaronaCerta"
