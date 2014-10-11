@@ -6,8 +6,8 @@ import android.annotation.TargetApi;
 
 import android.app.Fragment;
 import android.app.LoaderManager.LoaderCallbacks;
-import android.content.ContentResolver;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
@@ -28,10 +28,15 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.SignInButton;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import com.google.android.gms.ads.AdRequest;
@@ -46,6 +51,8 @@ import com.google.android.gms.ads.AdView;
  * https://developers.google.com/+/mobile/android/getting-started#step_1_enable_the_google_api
  * and follow the steps in "Step 1" to create an OAuth 2.0 client for your package.
  */
+
+
 public class LoginActivity extends PlusBaseActivity implements LoaderCallbacks<Cursor>{
 
     /**
@@ -53,11 +60,31 @@ public class LoginActivity extends PlusBaseActivity implements LoaderCallbacks<C
      * TODO: remove after connecting to a real authentication system.
      */
     private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "foo@example.com:hello", "bar@example.com:world"
+            "cc@gmail.com:senha", "a@a.a:aaaaa"
     };
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
+
+    public enum TrackerName {
+        APP_TRACKER, // Tracker used only in this app.
+        GLOBAL_TRACKER, // Tracker used by all the apps from a company. eg: roll-up tracking.
+        ECOMMERCE_TRACKER, // Tracker used by all ecommerce transactions from a company.
+     }
+
+    synchronized Tracker getTracker(TrackerName trackerId) {
+        if (!mTrackers.containsKey(trackerId)) {
+
+            GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
+            Tracker t = analytics.newTracker(R.xml.app_tracker);
+            mTrackers.put(trackerId, t);
+
+        }
+        return mTrackers.get(trackerId);
+    }
+
+    HashMap<TrackerName, Tracker> mTrackers = new HashMap<TrackerName, Tracker>();
+
     private UserLoginTask mAuthTask = null;
 
     // UI references.
@@ -119,6 +146,22 @@ public class LoginActivity extends PlusBaseActivity implements LoaderCallbacks<C
         mProgressView = findViewById(R.id.login_progress);
         mEmailLoginFormView = findViewById(R.id.email_login_form);
         mSignOutButtons = findViewById(R.id.plus_sign_out_buttons);
+
+
+
+    // Get tracker.
+    Tracker t = this.getTracker(
+            TrackerName.APP_TRACKER);
+
+    // Enable Advertising Features.
+    t.enableAdvertisingIdCollection(true);
+
+    // Set screen name.
+    t.setScreenName("Login");
+
+    // Send a screen view.
+    t.send(new HitBuilders.AppViewBuilder().build());
+
     }
 
     private void populateAutoComplete() {
@@ -176,6 +219,8 @@ public class LoginActivity extends PlusBaseActivity implements LoaderCallbacks<C
             showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
+            Intent intent = new Intent(this, Home.class);
+            startActivity(intent);
         }
     }
     private boolean isEmailValid(String email) {
