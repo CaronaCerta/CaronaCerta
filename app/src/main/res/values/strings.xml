@@ -6,5 +6,16 @@
     <string name="title_activity_home">Home</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_login">Login</string>
+    <string name="register_title">Register</string>
+    <string name="login_title">Login</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="pwd">Password</string>
+    <string name="btnRegister">Register</string>
+    <string name="title_activity_register">Register</string>
+    <string name="name_hint">Digite seu nome</string>
+    <string name="email_hint">Digite seu email</string>
+    <string name="password_hint">Digite a sua senha</string>
 
 </resources>
