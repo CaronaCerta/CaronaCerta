@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,17 +13,30 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.common.SignInButton;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.BasicResponseHandler;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
+import java.io.IOException;
+import java.net.URL;
 import java.util.HashMap;
 
 /**
@@ -39,6 +53,13 @@ public class LoginActivity extends Activity {
     EditText emailET;
     // Passwprd Edit View Object
     EditText pwdET;
+
+    String URL = "http://caronacerta-rodrigoeg.rhcloud.com/users/";
+    String result = "";
+    String email;
+    String pass;
+    final String tag = "Your Logcat tag: ";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,11 +78,6 @@ public class LoginActivity extends Activity {
         prgDialog.setCancelable(false);
     }
 
-    /**
-     * Method gets triggered when Login button is clicked
-     *
-     * @param view
-     */
     public void loginUser(View view){
         // Get Email Edit View Value
         String email = emailET.getText().toString();
@@ -78,7 +94,7 @@ public class LoginActivity extends Activity {
                 // Put Http parameter password with value of Password Edit Value control
                 params.put("password", password);
                 // Invoke RESTful Web Service with Http parameters
-                invokeWS(params);
+                callWebService("login");
             }
             // When Email is invalid
             else{
@@ -90,64 +106,24 @@ public class LoginActivity extends Activity {
 
     }
 
-    /**
-     * Method that performs RESTful webservice invocations
-     *
-     * @param params
-     */
-    public void invokeWS(RequestParams params){
-        // Show Progress Dialog
-        prgDialog.show();
-        // Make RESTful webservice call using AsyncHttpClient object
-        AsyncHttpClient client = new AsyncHttpClient();
-        client.get("http://caronacerta-rodrigoeg.rhcloud.com/users/login",params ,new AsyncHttpResponseHandler() {
-            // When the response returned by REST has Http response code '200'
-            @Override
-            public void onSuccess(String response) {
-                // Hide Progress Dialog
-                prgDialog.hide();
-                try {
-                    // JSON Object
-                    JSONObject obj = new JSONObject(response);
-                    // When the JSON response has status boolean value assigned with true
-                    if(obj.getBoolean("status")){
-                        Toast.makeText(getApplicationContext(), "You are successfully logged in!", Toast.LENGTH_LONG).show();
-                        // Navigate to Home screen
-                        navigatetoHomeActivity();
-                    }
-                    // Else display error message
-                    else{
-                        errorMsg.setText(obj.getString("error_msg"));
-                        Toast.makeText(getApplicationContext(), obj.getString("error_msg"), Toast.LENGTH_LONG).show();
-                    }
-                } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    Toast.makeText(getApplicationContext(), "Error Occured [Server's JSON response might be invalid]!", Toast.LENGTH_LONG).show();
-                    e.printStackTrace();
-
-                }
-            }
-            // When the response returned by REST has Http response code other than '200'
-            @Override
-            public void onFailure(int statusCode, Throwable error,
-                                  String content) {
-                // Hide Progress Dialog
-                prgDialog.hide();
-                // When Http response code is '404'
-                if(statusCode == 404){
-                    Toast.makeText(getApplicationContext(), "Requested resource not found", Toast.LENGTH_LONG).show();
-                }
-                // When Http response code is '500'
-                else if(statusCode == 500){
-                    Toast.makeText(getApplicationContext(), "Something went wrong at server end", Toast.LENGTH_LONG).show();
-                }
-                // When Http response code other than 404, 500
-                else{
-                    Toast.makeText(getApplicationContext(), "Unexpected Error occcured! [Most common Error: Device might not be connected to Internet or remote server is not up and running]", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-    }
+    public void callWebService(String serviceEndPoint){
+        HttpClient httpclient = new DefaultHttpClient();
+        HttpGet request = new HttpGet(URL + serviceEndPoint);
+        //add the parameters to your request
+        request.addHeader("email", email);
+        request.addHeader("password", pass);
+        ResponseHandler<String> handler = new BasicResponseHandler();
+        try {
+            result = httpclient.execute(request, handler);
+            Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
+        } catch (ClientProtocolException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        httpclient.getConnectionManager().shutdown();
+        Log.i(tag, result);
+    } // end callWebService()
 
     /**
      * Method which navigates from Login Activity to Home Activity
