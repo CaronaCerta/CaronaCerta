@@ -76,7 +76,7 @@ public class RegisterActivity extends Activity {
                 // Put Http parameter password with value of Password Edit View control
                 params.put("password", password);
                 // Invoke RESTful Web Service with Http parameters
-                invokeWS(params);
+                //invokeWS(params);
             }
             // When Email is invalid
             else{
@@ -94,7 +94,7 @@ public class RegisterActivity extends Activity {
      * Method that performs RESTful webservice invocations
      *
      * @param params
-     */
+     *
     public void invokeWS(RequestParams params){
         // Show Progress Dialog
         prgDialog.show();

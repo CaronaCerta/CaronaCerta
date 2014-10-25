@@ -5,7 +5,7 @@ import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.os.StrictMode;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,31 +13,30 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.analytics.GoogleAnalytics;
-import com.google.android.gms.analytics.HitBuilders;
-import com.google.android.gms.analytics.Tracker;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.google.android.gms.common.SignInButton;
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
-
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.ResponseHandler;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.BasicResponseHandler;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.json.JSONException;
-import org.json.JSONObject;
-
+import com.android.volley.VolleyError;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.Tracker;
+import com.loopj.android.http.RequestParams;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.net.URL;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  *
@@ -54,15 +53,13 @@ public class LoginActivity extends Activity {
     // Passwprd Edit View Object
     EditText pwdET;
 
-    String URL = "http://caronacerta-rodrigoeg.rhcloud.com/users/";
-    String result = "";
-    String email;
-    String pass;
-    final String tag = "Your Logcat tag: ";
+    String URL = "http://caronacerta-rodrigoeg.rhcloud.com/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
         setContentView(R.layout.activity_login);
         // Find Error Msg Text View control by ID
         errorMsg = (TextView)findViewById(R.id.login_error);
@@ -78,7 +75,7 @@ public class LoginActivity extends Activity {
         prgDialog.setCancelable(false);
     }
 
-    public void loginUser(View view){
+    public void loginUser(View view) throws VolleyError {
         // Get Email Edit View Value
         String email = emailET.getText().toString();
         // Get Password Edit View Value
@@ -90,11 +87,13 @@ public class LoginActivity extends Activity {
             // When Email entered is Valid
             if(Utility.validate(email)){
                 // Put Http parameter username with value of Email Edit View control
-                params.put("username", email);
+                params.put("email", email);
                 // Put Http parameter password with value of Password Edit Value control
-                params.put("password", password);
+                params.put("senha", password);
                 // Invoke RESTful Web Service with Http parameters
-                callWebService("login");
+                postData("login", email, password);
+
+
             }
             // When Email is invalid
             else{
@@ -106,24 +105,47 @@ public class LoginActivity extends Activity {
 
     }
 
-    public void callWebService(String serviceEndPoint){
+    public void postData(String service, String email, String password) {
+        // Create a new HttpClient and Post Header
         HttpClient httpclient = new DefaultHttpClient();
-        HttpGet request = new HttpGet(URL + serviceEndPoint);
-        //add the parameters to your request
-        request.addHeader("email", email);
-        request.addHeader("password", pass);
-        ResponseHandler<String> handler = new BasicResponseHandler();
+        HttpPost httppost = new HttpPost(URL + service);
+
         try {
-            result = httpclient.execute(request, handler);
-            Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
+            // Add your data
+            List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+            nameValuePairs.add(new BasicNameValuePair("email", email));
+            nameValuePairs.add(new BasicNameValuePair("senha", password));
+            httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+
+            // Execute HTTP Post Request
+            HttpResponse response = httpclient.execute(httppost);
+
+            Reader in = new BufferedReader(
+                    new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
+            StringBuilder builder= new StringBuilder();
+            char[] buf = new char[1000];
+            int l = 0;
+            while (l >= 0) {
+                builder.append(buf, 0, l);
+                l = in.read(buf);
+            }
+            JSONObject jsonObject = new JSONObject(builder.toString());
+
+
+
+            //Toast.makeText(getApplicationContext(), jsonObject.getJSONObject("session").getString("key"), Toast.LENGTH_LONG).show();
+
+            Toast.makeText(getApplicationContext(), jsonObject.toString(), Toast.LENGTH_LONG).show();
+
         } catch (ClientProtocolException e) {
-            e.printStackTrace();
+            // TODO Auto-generated catch block
         } catch (IOException e) {
+            // TODO Auto-generated catch block
+        } catch (Exception e) {
             e.printStackTrace();
+            Toast.makeText(getApplicationContext(), "ERRO", Toast.LENGTH_LONG).show();
         }
-        httpclient.getConnectionManager().shutdown();
-        Log.i(tag, result);
-    } // end callWebService()
+    }
 
     /**
      * Method which navigates from Login Activity to Home Activity
