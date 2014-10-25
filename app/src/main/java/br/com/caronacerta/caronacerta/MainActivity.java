@@ -1,17 +1,5 @@
 package br.com.caronacerta.caronacerta;
 
-import br.com.caronacerta.caronacerta.adapter.NavDrawerListAdapter;
-import br.com.caronacerta.caronacerta.fragment.CommunityFragment;
-import br.com.caronacerta.caronacerta.fragment.FindPeopleFragment;
-import br.com.caronacerta.caronacerta.fragment.HomeFragment;
-import br.com.caronacerta.caronacerta.fragment.PagesFragment;
-import br.com.caronacerta.caronacerta.fragment.PhotosFragment;
-import br.com.caronacerta.caronacerta.fragment.WhatsHotFragment;
-import br.com.caronacerta.caronacerta.model.NavDrawerItem;
-import br.com.caronacerta.caronacerta.util.SessionUtil;
-
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -28,6 +16,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
+import java.util.ArrayList;
+
+import br.com.caronacerta.caronacerta.adapter.NavDrawerListAdapter;
+import br.com.caronacerta.caronacerta.fragment.CommunityFragment;
+import br.com.caronacerta.caronacerta.fragment.FindPeopleFragment;
+import br.com.caronacerta.caronacerta.fragment.HomeFragment;
+import br.com.caronacerta.caronacerta.fragment.PagesFragment;
+import br.com.caronacerta.caronacerta.fragment.PhotosFragment;
+import br.com.caronacerta.caronacerta.fragment.WhatsHotFragment;
+import br.com.caronacerta.caronacerta.model.NavDrawerItem;
+import br.com.caronacerta.caronacerta.util.SessionUtil;
 
 public class MainActivity extends Activity {
     private DrawerLayout mDrawerLayout;

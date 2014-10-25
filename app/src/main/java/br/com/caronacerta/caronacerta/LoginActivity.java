@@ -3,16 +3,12 @@ package br.com.caronacerta.caronacerta;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.android.volley.VolleyError;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;

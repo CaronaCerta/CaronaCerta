@@ -1,10 +1,5 @@
 package br.com.caronacerta.caronacerta.adapter;
 
-import br.com.caronacerta.caronacerta.R;
-import br.com.caronacerta.caronacerta.model.NavDrawerItem;
-
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -13,6 +8,11 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+
+import br.com.caronacerta.caronacerta.R;
+import br.com.caronacerta.caronacerta.model.NavDrawerItem;
 
 public class NavDrawerListAdapter extends BaseAdapter {
 
