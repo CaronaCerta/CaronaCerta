@@ -1,47 +1,33 @@
 package br.com.caronacerta.caronacerta;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.VolleyError;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.analytics.GoogleAnalytics;
-import com.google.android.gms.analytics.Tracker;
-import com.loopj.android.http.RequestParams;
 
-import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.Reader;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
+import br.com.caronacerta.caronacerta.util.RequestUtil;
+import br.com.caronacerta.caronacerta.util.SessionUtil;
+import br.com.caronacerta.caronacerta.util.Validation;
+
 /**
- *
  * Login Activity Class
- *
  */
 public class LoginActivity extends Activity {
     // Progress Dialog Object
@@ -53,20 +39,26 @@ public class LoginActivity extends Activity {
     // Passwprd Edit View Object
     EditText pwdET;
 
-    String URL = "http://caronacerta-rodrigoeg.rhcloud.com/";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // User is already logged in
+        if (SessionUtil.isLoggedIn(getApplicationContext())) {
+            navigatetoMainActivity();
+            return;
+        }
+
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
+
         setContentView(R.layout.activity_login);
         // Find Error Msg Text View control by ID
-        errorMsg = (TextView)findViewById(R.id.login_error);
+        errorMsg = (TextView) findViewById(R.id.login_error);
         // Find Email Edit View control by ID
-        emailET = (EditText)findViewById(R.id.loginEmail);
+        emailET = (EditText) findViewById(R.id.loginEmail);
         // Find Password Edit View control by ID
-        pwdET = (EditText)findViewById(R.id.loginPassword);
+        pwdET = (EditText) findViewById(R.id.loginPassword);
         // Instantiate Progress Dialog object
         prgDialog = new ProgressDialog(this);
         // Set Progress Dialog Text
@@ -75,85 +67,51 @@ public class LoginActivity extends Activity {
         prgDialog.setCancelable(false);
     }
 
-    public void loginUser(View view) throws VolleyError {
+    public void loginUser(View view) throws JSONException {
         // Get Email Edit View Value
         String email = emailET.getText().toString();
         // Get Password Edit View Value
         String password = pwdET.getText().toString();
         // Instantiate Http Request Param Object
-        RequestParams params = new RequestParams();
         // When Email Edit View and Password Edit View have values other than Null
-        if(Utility.isNotNull(email) && Utility.isNotNull(password)){
+        if (Validation.isNotNull(email) && Validation.isNotNull(password)) {
             // When Email entered is Valid
-            if(Utility.validate(email)){
-                // Put Http parameter username with value of Email Edit View control
-                params.put("email", email);
-                // Put Http parameter password with value of Password Edit Value control
-                params.put("senha", password);
-                // Invoke RESTful Web Service with Http parameters
-                postData("login", email, password);
+            if (Validation.validateEmail(email)) {
+                List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+                nameValuePairs.add(new BasicNameValuePair("email", email));
+                nameValuePairs.add(new BasicNameValuePair("senha", password));
 
+                JSONObject jsonObject = RequestUtil.postData("usuario", nameValuePairs);
 
+                if (!jsonObject.getBoolean("error")) {
+                    String sessionkey = jsonObject.getJSONObject("session").getString("key");
+
+                    SessionUtil.saveSession(sessionkey, getApplicationContext());
+
+                    navigatetoMainActivity();
+                }
+                // Invalid login credentials
+                else {
+                    Toast.makeText(getApplicationContext(), "Error creating the user", Toast.LENGTH_LONG).show();
+                }
             }
             // When Email is invalid
-            else{
+            else {
                 Toast.makeText(getApplicationContext(), "Please enter valid email", Toast.LENGTH_LONG).show();
             }
-        } else{
+        } else {
             Toast.makeText(getApplicationContext(), "Please fill the form, don't leave any field blank", Toast.LENGTH_LONG).show();
         }
 
     }
 
-    public void postData(String service, String email, String password) {
-        // Create a new HttpClient and Post Header
-        HttpClient httpclient = new DefaultHttpClient();
-        HttpPost httppost = new HttpPost(URL + service);
-
-        try {
-            // Add your data
-            List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
-            nameValuePairs.add(new BasicNameValuePair("email", email));
-            nameValuePairs.add(new BasicNameValuePair("senha", password));
-            httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-
-            // Execute HTTP Post Request
-            HttpResponse response = httpclient.execute(httppost);
-
-            Reader in = new BufferedReader(
-                    new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
-            StringBuilder builder= new StringBuilder();
-            char[] buf = new char[1000];
-            int l = 0;
-            while (l >= 0) {
-                builder.append(buf, 0, l);
-                l = in.read(buf);
-            }
-            JSONObject jsonObject = new JSONObject(builder.toString());
-
-
-
-            //Toast.makeText(getApplicationContext(), jsonObject.getJSONObject("session").getString("key"), Toast.LENGTH_LONG).show();
-
-            Toast.makeText(getApplicationContext(), jsonObject.toString(), Toast.LENGTH_LONG).show();
-
-        } catch (ClientProtocolException e) {
-            // TODO Auto-generated catch block
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-        } catch (Exception e) {
-            e.printStackTrace();
-            Toast.makeText(getApplicationContext(), "ERRO", Toast.LENGTH_LONG).show();
-        }
-    }
-
     /**
      * Method which navigates from Login Activity to Home Activity
      */
-    public void navigatetoHomeActivity(){
-        Intent homeIntent = new Intent(getApplicationContext(),HomeActivity.class);
-        homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(homeIntent);
+    public void navigatetoMainActivity() {
+        Intent mainIntent = new Intent(getApplicationContext(), MainActivity.class);
+        mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(mainIntent);
     }
 
     /**
@@ -161,97 +119,31 @@ public class LoginActivity extends Activity {
      *
      * @param view
      */
-    public void navigatetoRegisterActivity(View view){
-        Intent loginIntent = new Intent(getApplicationContext(),RegisterActivity.class);
+    public void navigatetoRegisterActivity(View view) {
+        Intent loginIntent = new Intent(getApplicationContext(), RegisterActivity.class);
         loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(loginIntent);
     }
 
-
-    /**
-     * This class makes the ad request and loads the ad.
-     */
-    public static class AdFragment extends Fragment {
-
-        private AdView mAdView;
-
-        public AdFragment() {
-        }
-
-        @Override
-        public void onActivityCreated(Bundle bundle) {
-            super.onActivityCreated(bundle);
-
-            // Gets the ad view defined in layout/ad_fragment.xml with ad unit ID set in
-            // values/strings.xml.
-            mAdView = (AdView) getView().findViewById(R.id.adView);
-
-            // Create an ad request. Check logcat output for the hashed device ID to
-            // get test ads on a physical device. e.g.
-            // "Use AdRequest.Builder.addTestDevice("ABCDEF012345") to get test ads on this device."
-            AdRequest adRequest = new AdRequest.Builder()
-                    .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                    .build();
-
-            // Start loading the ad in the background.
-            mAdView.loadAd(adRequest);
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.fragment_ad, container, false);
-        }
-
-        /** Called when leaving the activity */
-        @Override
-        public void onPause() {
-            if (mAdView != null) {
-                mAdView.pause();
-            }
-            super.onPause();
-        }
-
-        /** Called when returning to the activity */
-        @Override
-        public void onResume() {
-            super.onResume();
-            if (mAdView != null) {
-                mAdView.resume();
-            }
-        }
-
-        /** Called before the activity is destroyed */
-        @Override
-        public void onDestroy() {
-            if (mAdView != null) {
-                mAdView.destroy();
-            }
-            super.onDestroy();
-        }
-
-    }
-
-    public enum TrackerName {
-        APP_TRACKER, // Tracker used only in this app.
-        GLOBAL_TRACKER, // Tracker used by all the apps from a company. eg: roll-up tracking.
-        ECOMMERCE_TRACKER, // Tracker used by all ecommerce transactions from a company.
-     }
-
-    synchronized Tracker getTracker(TrackerName trackerId) {
-        if (!mTrackers.containsKey(trackerId)) {
-
-            GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
-            Tracker t = analytics.newTracker(R.xml.app_tracker);
-            mTrackers.put(trackerId, t);
-
-        }
-        return mTrackers.get(trackerId);
-    }
-
-    HashMap<TrackerName, Tracker> mTrackers = new HashMap<TrackerName, Tracker>();
+//    public enum TrackerName {
+//        APP_TRACKER, // Tracker used only in this app.
+//        GLOBAL_TRACKER, // Tracker used by all the apps from a company. eg: roll-up tracking.
+//        ECOMMERCE_TRACKER, // Tracker used by all ecommerce transactions from a company.
+//     }
+//
+//    synchronized Tracker getTracker(TrackerName trackerId) {
+//        if (!mTrackers.containsKey(trackerId)) {
+//
+//            GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
+//            Tracker t = analytics.newTracker(R.xml.app_tracker);
+//            mTrackers.put(trackerId, t);
+//
+//        }
+//        return mTrackers.get(trackerId);
+//    }
+//
+//    HashMap<TrackerName, Tracker> mTrackers = new HashMap<TrackerName, Tracker>();
 }
-
 
 
 /**

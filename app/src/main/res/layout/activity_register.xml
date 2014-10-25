@@ -14,7 +14,7 @@
 
     <fragment
         android:id="@+id/adFragment"
-        android:name= "br.com.caronacerta.caronacerta.LoginActivity$AdFragment"
+        android:name= "br.com.caronacerta.caronacerta.fragment.AdFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
