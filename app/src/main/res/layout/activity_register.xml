@@ -14,7 +14,7 @@
 
     <fragment
         android:id="@+id/adFragment"
-        android:name= "br.com.caronacerta.caronacerta.fragment.AdFragment"
+        android:name="br.com.caronacerta.caronacerta.fragment.AdFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -22,13 +22,13 @@
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" >
+        android:layout_height="fill_parent">
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="5dip" >
+            android:padding="5dip">
 
             <!-- View Title Label -->
 
@@ -51,7 +51,7 @@
                 android:id="@+id/registerName"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/name_hint"/>
+                android:hint="@string/name_hint" />
 
             <!-- Email Label -->
 

@@ -68,7 +68,7 @@ public class RegisterActivity extends Activity {
      *
      * @param view
      */
-    public void registerUser(View view) throws JSONException{
+    public void registerUser(View view) throws JSONException {
         // Get NAme ET control value
         String name = nameET.getText().toString();
         // Get Email ET control value

@@ -20,9 +20,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 /**
  * Class which has Utility methods
- *
  */
 public class Validation {
     private static Pattern pattern;
@@ -44,14 +44,15 @@ public class Validation {
         return matcher.matches();
 
     }
+
     /**
      * Checks for Null String object
      *
      * @param txt
      * @return true for not null and false for null String object
      */
-    public static boolean isNotNull(String txt){
-        return txt!=null && txt.trim().length()>0 ? true: false;
+    public static boolean isNotNull(String txt) {
+        return txt != null && txt.trim().length() > 0 ? true : false;
     }
 
 

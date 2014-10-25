@@ -25,7 +25,7 @@ public class RequestUtil {
 
         try {
             // Add your data
-            httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs,  "UTF-8"));
+            httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs, "UTF-8"));
 
             // Execute HTTP Post Request
             HttpResponse response = httpclient.execute(httppost);

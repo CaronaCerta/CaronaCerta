@@ -9,15 +9,16 @@ import android.view.ViewGroup;
 import br.com.caronacerta.caronacerta.R;
 
 public class CommunityFragment extends Fragment {
-	
-	public CommunityFragment(){}
-	
-	@Override
+
+    public CommunityFragment() {
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
- 
+                             Bundle savedInstanceState) {
+
         View rootView = inflater.inflate(R.layout.fragment_community, container, false);
-         
+
         return rootView;
     }
 }
