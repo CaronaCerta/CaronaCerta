@@ -33,7 +33,7 @@ public class LoginActivity extends Activity {
     // Email Edit View Object
     EditText emailET;
     // Passwprd Edit View Object
-    EditText pwdET;
+    EditText passwordET;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +41,7 @@ public class LoginActivity extends Activity {
 
         // User is already logged in
         if (SessionUtil.isLoggedIn(getApplicationContext())) {
-            navigatetoMainActivity();
+            navigateToMainActivity();
             return;
         }
 
@@ -50,15 +50,15 @@ public class LoginActivity extends Activity {
 
         setContentView(R.layout.activity_login);
         // Find Error Msg Text View control by ID
-        errorMsg = (TextView) findViewById(R.id.login_error);
+        errorMsg = (TextView) findViewById(R.id.loginError);
         // Find Email Edit View control by ID
         emailET = (EditText) findViewById(R.id.loginEmail);
         // Find Password Edit View control by ID
-        pwdET = (EditText) findViewById(R.id.loginPassword);
+        passwordET = (EditText) findViewById(R.id.loginPassword);
         // Instantiate Progress Dialog object
         prgDialog = new ProgressDialog(this);
         // Set Progress Dialog Text
-        prgDialog.setMessage("Please wait...");
+        prgDialog.setMessage(getString(R.string.process_dialog));
         // Set Cancelable as False
         prgDialog.setCancelable(false);
     }
@@ -67,7 +67,7 @@ public class LoginActivity extends Activity {
         // Get Email Edit View Value
         String email = emailET.getText().toString();
         // Get Password Edit View Value
-        String password = pwdET.getText().toString();
+        String password = passwordET.getText().toString();
         // Instantiate Http Request Param Object
         // When Email Edit View and Password Edit View have values other than Null
         if (Validation.isNotNull(email) && Validation.isNotNull(password)) {
@@ -77,37 +77,28 @@ public class LoginActivity extends Activity {
                 nameValuePairs.add(new BasicNameValuePair("email", email));
                 nameValuePairs.add(new BasicNameValuePair("senha", password));
 
-                JSONObject jsonObject = RequestUtil.postData("usuario", nameValuePairs);
+                JSONObject jsonObject = RequestUtil.postData("login", nameValuePairs);
 
                 if (!jsonObject.getBoolean("error")) {
                     String sessionkey = jsonObject.getJSONObject("session").getString("key");
 
                     SessionUtil.saveSession(sessionkey, getApplicationContext());
 
-                    navigatetoMainActivity();
+                    navigateToMainActivity();
                 }
                 // Invalid login credentials
                 else {
-                    Toast.makeText(getApplicationContext(), "Error creating the user", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.login_invalid_credentials_message, Toast.LENGTH_LONG).show();
                 }
             }
             // When Email is invalid
             else {
-                Toast.makeText(getApplicationContext(), "Please enter valid email", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), R.string.login_invalid_email_message, Toast.LENGTH_LONG).show();
             }
         } else {
-            Toast.makeText(getApplicationContext(), "Please fill the form, don't leave any field blank", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), R.string.login_null_fields_message, Toast.LENGTH_LONG).show();
         }
 
-    }
-
-    /**
-     * Method which navigates from Login Activity to Home Activity
-     */
-    public void navigatetoMainActivity() {
-        Intent mainIntent = new Intent(getApplicationContext(), MainActivity.class);
-        mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(mainIntent);
     }
 
     /**
@@ -115,10 +106,20 @@ public class LoginActivity extends Activity {
      *
      * @param view
      */
-    public void navigatetoRegisterActivity(View view) {
+    public void navigateToRegisterActivity(View view) {
         Intent loginIntent = new Intent(getApplicationContext(), RegisterActivity.class);
         loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(loginIntent);
+    }
+
+    /**
+     * Method which navigates from Login Activity to Home Activity
+     */
+    public void navigateToMainActivity() {
+        Intent mainIntent = new Intent(getApplicationContext(), MainActivity.class);
+        mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(mainIntent);
+        finish();
     }
 
 //    public enum TrackerName {

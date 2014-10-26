@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_activity_register">Register</string>
+    <string name="register_title">Register</string>
+
+    <string name="register_email">Email</string>
+    <string name="register_email_hint">Digite seu email</string>
+
+    <string name="register_password">Senha</string>
+    <string name="register_password_hint">Digite a sua senha</string>
+
+    <string name="register_name">Nome</string>
+    <string name="register_name_hint">Digite seu nome</string>
+
+    <string name="register_birthday">Data de nascimento</string>
+    <string name="register_birthday_hint">Digite sua data de nascimento</string>
+
+    <string name="register_phone">Telefone</string>
+    <string name="register_phone_hint">Digite seu telefone</string>
+
+    <string name="register_address">Endereço</string>
+    <string name="register_address_hint">Digite seu endereço</string>
+
+    <string name="register_city">Cidade</string>
+    <string name="register_city_hint">Digite sua cidade</string>
+
+    <string name="register_button">Register</string>
+    <string name="register_login_link">Login</string>
+
+    <string name="register_error_message">Error creating the user</string>
+    <string name="register_invalid_email_message">Please enter valid email</string>
+    <string name="register_null_fields_message">Please fill the form, don\'t leave any field blank</string>
+</resources>

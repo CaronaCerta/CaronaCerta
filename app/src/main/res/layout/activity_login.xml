@@ -37,28 +37,34 @@
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dip"
+                android:text="@string/login_email" />
+
             <EditText
                 android:id="@+id/loginEmail"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter your Email ID"
+                android:hint="@string/login_email_hint"
                 android:inputType="textEmailAddress" />
 
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dip"
-                android:text="@string/pwd" />
+                android:text="@string/login_password" />
 
             <EditText
                 android:id="@+id/loginPassword"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter Password"
+                android:hint="@string/login_password_hint"
                 android:inputType="textPassword" />
 
             <TextView
-                android:id="@+id/login_error"
+                android:id="@+id/loginError"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dip"
@@ -72,7 +78,7 @@
                 android:layout_marginTop="20dip"
                 android:background="#ff6347"
                 android:onClick="loginUser"
-                android:text="Login"
+                android:text="@string/login_button"
                 android:textColor="#fff" />
 
             <Button
@@ -81,8 +87,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dip"
                 android:background="@null"
-                android:onClick="navigatetoRegisterActivity"
-                android:text="Signup"
+                android:onClick="navigateToRegisterActivity"
+                android:text="@string/login_signup_link"
                 android:textColor="#228b22"
                 android:textStyle="bold" />
         </LinearLayout>

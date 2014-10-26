@@ -10,8 +10,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.loopj.android.http.RequestParams;
-
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
@@ -32,33 +30,56 @@ public class RegisterActivity extends Activity {
     ProgressDialog prgDialog;
     // Error Msg TextView Object
     TextView errorMsg;
-    // Name Edit View Object
-    EditText nameET;
     // Email Edit View Object
     EditText emailET;
-    // Passwprd Edit View Object
-    EditText pwdET;
+    // Password Edit View Object
+    EditText passwordET;
+    // Name Edit View Object
+    EditText nameET;
+    // Birthday Edit View Object
+    EditText birthdayET;
+    // Phone Edit View Object
+    EditText phoneET;
+    // Address Edit View Object
+    EditText addressET;
+    // City Edit View Object
+    EditText cityET;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // User is already logged in
+        if (SessionUtil.isLoggedIn(getApplicationContext())) {
+            navigateToMainActivity();
+            return;
+        }
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
         setContentView(R.layout.activity_register);
         // Find Error Msg Text View control by ID
-        errorMsg = (TextView) findViewById(R.id.register_error);
-        // Find Name Edit View control by ID
-        nameET = (EditText) findViewById(R.id.registerName);
+        errorMsg = (TextView) findViewById(R.id.registerError);
         // Find Email Edit View control by ID
         emailET = (EditText) findViewById(R.id.registerEmail);
         // Find Password Edit View control by ID
-        pwdET = (EditText) findViewById(R.id.registerPassword);
+        passwordET = (EditText) findViewById(R.id.registerPassword);
+        // Find Name Edit View control by ID
+        nameET = (EditText) findViewById(R.id.registerName);
+        // Find Birthday Edit View control by ID
+        birthdayET = (EditText) findViewById(R.id.registerBirthday);
+        // Find Phone Edit View control by ID
+        phoneET = (EditText) findViewById(R.id.registerPhone);
+        // Find Address Edit View control by ID
+        addressET = (EditText) findViewById(R.id.registerAddress);
+        // Find City Edit View control by ID
+        cityET = (EditText) findViewById(R.id.registerCity);
+
         // Instantiate Progress Dialog object
         prgDialog = new ProgressDialog(this);
         // Set Progress Dialog Text
-        prgDialog.setMessage("Please wait...");
+        prgDialog.setMessage(getString(R.string.process_dialog));
         // Set Cancelable as False
         prgDialog.setCancelable(false);
     }
@@ -69,44 +90,62 @@ public class RegisterActivity extends Activity {
      * @param view
      */
     public void registerUser(View view) throws JSONException {
-        // Get NAme ET control value
-        String name = nameET.getText().toString();
         // Get Email ET control value
         String email = emailET.getText().toString();
         // Get Password ET control value
-        String password = pwdET.getText().toString();
-        // Instantiate Http Request Param Object
-        RequestParams params = new RequestParams();
+        String password = passwordET.getText().toString();
+        // Get Name ET control value
+        String name = nameET.getText().toString();
+        // Get Birthday ET control value
+        String birthday = birthdayET.getText().toString();
+        // Get Phone ET control value
+        String phone = phoneET.getText().toString();
+        // Get Address ET control value
+        String address = addressET.getText().toString();
+        // Get City ET control value
+        String city = cityET.getText().toString();
         // When Name Edit View, Email Edit View and Password Edit View have values other than Null
-        if (Validation.isNotNull(name) && Validation.isNotNull(email) && Validation.isNotNull(password)) {
+        if (Validation.isNotNull(email) &&
+                Validation.isNotNull(password) &&
+                Validation.isNotNull(name) &&
+                Validation.isNotNull(birthday) &&
+                Validation.isNotNull(phone) &&
+                Validation.isNotNull(address) &&
+                Validation.isNotNull(city)
+                ) {
             // When Email entered is Valid
             if (Validation.validateEmail(email)) {
-                List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+                List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(7);
                 nameValuePairs.add(new BasicNameValuePair("email", email));
                 nameValuePairs.add(new BasicNameValuePair("senha", password));
+                nameValuePairs.add(new BasicNameValuePair("nome", name));
+                nameValuePairs.add(new BasicNameValuePair("data_nascimento", birthday));
+                nameValuePairs.add(new BasicNameValuePair("telefone", phone));
+                nameValuePairs.add(new BasicNameValuePair("endereco", address));
+                nameValuePairs.add(new BasicNameValuePair("cidade", city));
 
-                JSONObject jsonObject = RequestUtil.postData("login", nameValuePairs);
+                JSONObject jsonObject = RequestUtil.postData("usuario", nameValuePairs);
 
                 if (!jsonObject.getBoolean("error")) {
                     String sessionkey = jsonObject.getJSONObject("session").getString("key");
 
                     SessionUtil.saveSession(sessionkey, getApplicationContext());
 
-                    navigatetoMainActivity();
+                    navigateToMainActivity();
                 }
-                // Invalid login credentials
+                // Some error returned
                 else {
-                    Toast.makeText(getApplicationContext(), "Invalid credentials", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), R.string.register_error_message, Toast.LENGTH_LONG).show();
                 }
             }
             // When Email is invalid
             else {
-                Toast.makeText(getApplicationContext(), "Please enter valid email", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), R.string.register_invalid_email_message, Toast.LENGTH_LONG).show();
             }
         }
         // When any of the Edit View control left blank
         else {
-            Toast.makeText(getApplicationContext(), "Please fill the form, don't leave any field blank", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), R.string.register_null_fields_message, Toast.LENGTH_LONG).show();
         }
 
     }
@@ -114,7 +153,7 @@ public class RegisterActivity extends Activity {
     /**
      * Method which navigates from Register Activity to Login Activity
      */
-    public void navigatetoLoginActivity(View view) {
+    public void navigateToLoginActivity(View view) {
         Intent loginIntent = new Intent(getApplicationContext(), LoginActivity.class);
         // Clears History of Activity
         loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -124,9 +163,10 @@ public class RegisterActivity extends Activity {
     /**
      * Method which navigates from Login Activity to Home Activity
      */
-    public void navigatetoMainActivity() {
+    public void navigateToMainActivity() {
         Intent mainIntent = new Intent(getApplicationContext(), MainActivity.class);
         mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(mainIntent);
+        finish();
     }
 }

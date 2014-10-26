@@ -17,7 +17,6 @@
         android:name="br.com.caronacerta.caronacerta.fragment.AdFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         tools:layout="@layout/fragment_ad" />
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -31,7 +30,6 @@
             android:padding="5dip">
 
             <!-- View Title Label -->
-
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -39,55 +37,107 @@
                 android:text="@string/register_title"
                 android:textSize="25sp"
                 android:textStyle="bold" />
-            <!-- Name Label -->
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/name" />
-            <!-- Name TextField -->
-
-            <EditText
-                android:id="@+id/registerName"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/name_hint" />
 
             <!-- Email Label -->
-
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/email" />
-            <!-- Email TextField -->
+                android:text="@string/register_email" />
 
+            <!-- Email TextField -->
             <EditText
                 android:id="@+id/registerEmail"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/email_hint"
+                android:hint="@string/register_email_hint"
                 android:inputType="textEmailAddress" />
 
             <!-- Password Label -->
-
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dip"
-                android:text="@string/pwd" />
-            <!-- Password TextField -->
+                android:text="@string/register_password" />
 
+            <!-- Password TextField -->
             <EditText
                 android:id="@+id/registerPassword"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/password_hint"
+                android:hint="@string/register_password_hint"
                 android:inputType="textPassword" />
 
-            <!-- Error message -->
-
+            <!-- Name Label -->
             <TextView
-                android:id="@+id/register_error"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/register_name" />
+
+            <!-- Name TextField -->
+            <EditText
+                android:id="@+id/registerName"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_name_hint"
+                android:inputType="textPersonName" />
+
+            <!-- Birthday Label -->
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/register_birthday" />
+
+            <!-- Birthday TextField -->
+            <EditText
+                android:id="@+id/registerBirthday"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_birthday_hint"
+                android:inputType="date" />
+
+            <!-- Phone Label -->
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/register_phone" />
+
+            <!-- Phone TextField -->
+            <EditText
+                android:id="@+id/registerPhone"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_phone_hint"
+                android:inputType="phone"/>
+
+            <!-- Address Label -->
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/register_address" />
+
+            <!-- Address TextField -->
+            <EditText
+                android:id="@+id/registerAddress"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_address_hint" />
+
+            <!-- City Label -->
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/register_city" />
+
+            <!-- City TextField -->
+            <EditText
+                android:id="@+id/registerCity"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_city_hint" />
+
+            <!-- Error message -->
+            <TextView
+                android:id="@+id/registerError"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -102,19 +152,18 @@
                 android:layout_marginTop="20dip"
                 android:background="#ff6347"
                 android:onClick="registerUser"
-                android:text="@string/btnRegister"
+                android:text="@string/register_button"
                 android:textColor="#fff" />
 
             <!-- Link to Login Screen -->
-
             <Button
                 android:id="@+id/btnLinkToLoginScreen"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dip"
                 android:background="@null"
-                android:onClick="navigatetoLoginActivity"
-                android:text="Login"
+                android:onClick="navigateToLoginActivity"
+                android:text="@string/register_login_link"
                 android:textColor="#228b22"
                 android:textStyle="bold" />
         </LinearLayout>

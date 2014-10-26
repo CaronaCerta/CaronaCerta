@@ -22,7 +22,4 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.google.android.gms:play-services:4.+'
-    compile 'org.webjars:Rest:1.1.0'
-    compile 'com.loopj.android:android-async-http:1.4.6'
-    compile files('libs/volley.jar')
 }
