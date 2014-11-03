@@ -8,4 +8,5 @@
     <!-- Action bar/menu -->
     <string name="action_settings">Settings</string>
     <string name="action_logout">Logout</string>
+    <string name="caronas_agendadas">Caronas Agendadas</string>
 </resources>

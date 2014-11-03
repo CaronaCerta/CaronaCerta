@@ -20,11 +20,11 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 import br.com.caronacerta.caronacerta.adapter.NavDrawerListAdapter;
-import br.com.caronacerta.caronacerta.fragment.CommunityFragment;
-import br.com.caronacerta.caronacerta.fragment.FindPeopleFragment;
+import br.com.caronacerta.caronacerta.fragment.AdicionarCaronasFragment;
+import br.com.caronacerta.caronacerta.fragment.AvaliarCaronasFragment;
+import br.com.caronacerta.caronacerta.fragment.CaronasFragment;
 import br.com.caronacerta.caronacerta.fragment.HomeFragment;
-import br.com.caronacerta.caronacerta.fragment.PagesFragment;
-import br.com.caronacerta.caronacerta.fragment.PhotosFragment;
+import br.com.caronacerta.caronacerta.fragment.ProcurarCaronasFragment;
 import br.com.caronacerta.caronacerta.fragment.WhatsHotFragment;
 import br.com.caronacerta.caronacerta.model.NavDrawerItem;
 import br.com.caronacerta.caronacerta.util.SessionUtil;
@@ -174,7 +174,7 @@ public class MainActivity extends Activity {
     }
 
     /**
-     * Diplaying fragment view for selected nav drawer list item
+     * Displaying fragment view for selected nav drawer list item
      */
     private void displayView(int position) {
         // update the main content by replacing fragments
@@ -184,16 +184,16 @@ public class MainActivity extends Activity {
                 fragment = new HomeFragment();
                 break;
             case 1:
-                fragment = new FindPeopleFragment();
+                fragment = new CaronasFragment();
                 break;
             case 2:
-                fragment = new PhotosFragment();
+                fragment = new ProcurarCaronasFragment();
                 break;
             case 3:
-                fragment = new CommunityFragment();
+                fragment = new AdicionarCaronasFragment();
                 break;
             case 4:
-                fragment = new PagesFragment();
+                fragment = new AvaliarCaronasFragment();
                 break;
             case 5:
                 fragment = new WhatsHotFragment();
