@@ -50,37 +50,28 @@ public class CaronasFragment extends Fragment {
         listDataChild = new HashMap<String, List<String>>();
 
         // Adding child data
-        listDataHeader.add("Top 250");
-        listDataHeader.add("Now Showing");
-        listDataHeader.add("Coming Soon..");
+        listDataHeader.add("25/10 - 14h00");
+        listDataHeader.add("29/10 - 19h00");
+        listDataHeader.add("01/11 - 18h00");
 
         // Adding child data
-        List<String> top250 = new ArrayList<String>();
-        top250.add("The Shawshank Redemption");
-        top250.add("The Godfather");
-        top250.add("The Godfather: Part II");
-        top250.add("Pulp Fiction");
-        top250.add("The Good, the Bad and the Ugly");
-        top250.add("The Dark Knight");
-        top250.add("12 Angry Men");
+        List<String> l1 = new ArrayList<String>();
+        l1.add("Xandão");
+        l1.add("Batata");
+        l1.add("PD");
 
-        List<String> nowShowing = new ArrayList<String>();
-        nowShowing.add("The Conjuring");
-        nowShowing.add("Despicable Me 2");
-        nowShowing.add("Turbo");
-        nowShowing.add("Grown Ups 2");
-        nowShowing.add("Red 2");
-        nowShowing.add("The Wolverine");
+        List<String> l2 = new ArrayList<String>();
+        l2.add("Oscar");
+        l2.add("Elizeu");
+        l2.add("PD");
 
-        List<String> comingSoon = new ArrayList<String>();
-        comingSoon.add("2 Guns");
-        comingSoon.add("The Smurfs 2");
-        comingSoon.add("The Spectacular Now");
-        comingSoon.add("The Canyons");
-        comingSoon.add("Europa Report");
+        List<String> l3 = new ArrayList<String>();
+        l3.add("Xandão");
+        l3.add("Tocha");
+        l3.add("Giu");
 
-        listDataChild.put(listDataHeader.get(0), top250); // Header, Child data
-        listDataChild.put(listDataHeader.get(1), nowShowing);
-        listDataChild.put(listDataHeader.get(2), comingSoon);
+        listDataChild.put(listDataHeader.get(0), l1); // Header, Child data
+        listDataChild.put(listDataHeader.get(1), l2);
+        listDataChild.put(listDataHeader.get(2), l3);
     }
 }
