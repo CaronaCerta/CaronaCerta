@@ -10,4 +10,7 @@
     <string name="action_logout">Logout</string>
     <string name="caronas_agendadas">Caronas Agendadas</string>
     <string name="welcome">Welcome User</string>
+    <string name="add_carona">Adicionar Carona</string>
+    <string name="autocomplete_origin">Origem</string>
+    <string name="autocomplete_destination">Destino</string>
 </resources>
