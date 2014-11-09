@@ -11,6 +11,11 @@
     <string name="caronas_agendadas">Caronas Agendadas</string>
     <string name="welcome">Welcome User</string>
     <string name="add_carona">Adicionar Carona</string>
-    <string name="autocomplete_origin">Origem</string>
+    <string name="add_carona_autocomplete_origin">Origem</string>
     <string name="autocomplete_destination">Destino</string>
+    <string name="add_carona_confirm">Adicionar</string>
+    <string name="add_carona_hint">Favor utilizar os resultados da lista.</string>
+    <string name="search_carona_autocomplete_origin">Origem</string>
+    <string name="search_carona_autocomplete_destination">Destino</string>
+    <string name="search_carona_confirm">Procurar</string>
 </resources>

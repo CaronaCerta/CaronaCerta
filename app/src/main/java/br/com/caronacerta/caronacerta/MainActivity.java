@@ -14,11 +14,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import br.com.caronacerta.caronacerta.adapter.NavDrawerListAdapter;
 import br.com.caronacerta.caronacerta.fragment.AdicionarCaronasFragment;
@@ -48,6 +49,10 @@ public class MainActivity extends Activity {
     private ArrayList<NavDrawerItem> navDrawerItems;
     private NavDrawerListAdapter adapter;
 
+    public static List<String> caronasAvailable;
+    public static List<String> caronasELVGroup;
+    public static HashMap<String, List<String>> caronasELVChild;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +61,10 @@ public class MainActivity extends Activity {
         StrictMode.setThreadPolicy(policy);
 
         setContentView(R.layout.activity_main);
+
+
+        // preparing list data
+        prepareListData();
 
         mTitle = mDrawerTitle = getTitle();
 
@@ -254,4 +263,41 @@ public class MainActivity extends Activity {
         startActivity(loginActivity);
     }
 
+
+    /*
+     * Preparing the list data
+     */
+    private void prepareListData() {
+        caronasELVGroup = new ArrayList<String>();
+        caronasELVChild = new HashMap<String, List<String>>();
+
+        // Adding child data
+        caronasELVGroup.add("25/10 - 14h00");
+        caronasELVGroup.add("29/10 - 19h00");
+        caronasELVGroup.add("01/11 - 18h00");
+
+        // Adding child data
+        List<String> l1 = new ArrayList<String>();
+        l1.add("Xandão");
+        l1.add("Batata");
+        l1.add("PD");
+
+        List<String> l2 = new ArrayList<String>();
+        l2.add("Oscar");
+        l2.add("Elizeu");
+        l2.add("PD");
+
+        List<String> l3 = new ArrayList<String>();
+        l3.add("Xandão");
+        l3.add("Tocha");
+        l3.add("Giu");
+
+        caronasELVChild.put(caronasELVGroup.get(0), l1); // Header, Child data
+        caronasELVChild.put(caronasELVGroup.get(1), l2);
+        caronasELVChild.put(caronasELVGroup.get(2), l3);
+
+        /* Caronas disponiveis */
+        caronasAvailable = new ArrayList<String>();
+
+    }
 }
