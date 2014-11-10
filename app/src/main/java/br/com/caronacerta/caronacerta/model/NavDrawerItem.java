@@ -16,11 +16,11 @@ public class NavDrawerItem {
         this.icon = icon;
     }
 
-    public NavDrawerItem(String title, int icon, boolean isCounterVisible, String count) {
+    public NavDrawerItem(String title, int icon, boolean isCounterVisible, Integer count) {
         this.title = title;
         this.icon = icon;
         this.isCounterVisible = isCounterVisible;
-        this.count = count;
+        this.count = count.toString();
     }
 
     public String getTitle() {
@@ -48,7 +48,7 @@ public class NavDrawerItem {
     }
 
     public void setCount(String count) {
-        this.count = count;
+        this.count = count.toString();
     }
 
     public void setCounterVisibility(boolean isCounterVisible) {

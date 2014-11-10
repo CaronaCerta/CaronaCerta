@@ -3,8 +3,10 @@ package br.com.caronacerta.caronacerta;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -128,8 +130,13 @@ public class RegisterActivity extends Activity {
 
                 if (!jsonObject.getBoolean("error")) {
                     String sessionkey = jsonObject.getJSONObject("session").getString("key");
-
+                    String user_name = jsonObject.getJSONObject("usuario").getString("nome");
                     SessionUtil.saveSession(sessionkey, getApplicationContext());
+
+                    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("Name",user_name);
+                    editor.apply();
 
                     navigateToMainActivity();
                 }

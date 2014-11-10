@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
@@ -27,9 +26,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 
-import br.com.caronacerta.caronacerta.MainActivity;
 import br.com.caronacerta.caronacerta.R;
-import br.com.caronacerta.caronacerta.adapter.PlacesAutoCompleteAdapter;
 
 public class AdicionarCaronasFragment extends Fragment {
 
@@ -42,11 +39,6 @@ public class AdicionarCaronasFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_adicionar_caronas, container, false);
 
-        final AutoCompleteTextView autoCompOriginView = (AutoCompleteTextView) rootView.findViewById(R.id.add_carona_autocomplete_origin);
-        final AutoCompleteTextView autoCompDestinView = (AutoCompleteTextView) rootView.findViewById(R.id.add_carona_autocomplete_destination);
-        autoCompOriginView.setAdapter(new PlacesAutoCompleteAdapter(this.getActivity(), R.layout.autocomplete_item));
-        autoCompDestinView.setAdapter(new PlacesAutoCompleteAdapter(this.getActivity(), R.layout.autocomplete_item));
-
         final TimePicker timePicker = (TimePicker) rootView.findViewById(R.id.timePicker);
         timePicker.setIs24HourView(true);
         timePicker.setCurrentMinute(0);
@@ -56,43 +48,16 @@ public class AdicionarCaronasFragment extends Fragment {
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                if(autoCompOriginView.getText().length() == 0 || autoCompDestinView.getText().length() == 0)
-                {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                    builder.setMessage("Termine de preencher os campos...")
-                            .setCancelable(false)
-                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    //do things
-                                }
-                            });
-                    AlertDialog alert = builder.create();
-                    alert.show();
-                }
-                else
-                {
-                    MainActivity.caronasAvailable.add(
-                            autoCompOriginView.getText() + " " +
-                                    autoCompDestinView.getText() + " " +
-                                    datePicker.getDayOfMonth() + "/" +
-                                    datePicker.getMonth() + "/" +
-                                    datePicker.getYear() + " " +
-                                    timePicker.getCurrentHour() + ":" +
-                                    timePicker.getCurrentMinute()
-                    );
-
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                    builder.setMessage("Carona adicionada com sucesso!")
-                            .setCancelable(false)
-                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    //do things
-                                }
-                            });
-                    AlertDialog alert = builder.create();
-                    alert.show();
-                }
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setMessage("Termine de preencher os campos...")
+                        .setCancelable(false)
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                //do things
+                            }
+                        });
+                AlertDialog alert = builder.create();
+                alert.show();
             }
         });
 
