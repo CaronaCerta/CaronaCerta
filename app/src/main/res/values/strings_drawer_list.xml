@@ -4,8 +4,8 @@
     <string-array name="nav_drawer_items">
         <item>Home</item>
         <item>Caronas</item>
-        <item>Procurar Caronas</item>
         <item>Adicionar Caronas</item>
+        <item>Procurar Caronas</item>
         <item>Avaliar Caronas</item>
         <item>Oferecer Caronas</item>
     </string-array>

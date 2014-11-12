@@ -2,8 +2,10 @@ package br.com.caronacerta.caronacerta;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
@@ -62,6 +64,25 @@ public class MainActivity extends Activity {
         StrictMode.setThreadPolicy(policy);
 
         setContentView(R.layout.activity_main);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Welcome to the Udacity preview of the Right Ride app.\n" +
+                            "This app was designed for the Brazilian market, " +
+                            "therefor it contains location-based elements targeting " +
+                            "the local region. " +
+                            "It was exclusively translated for this assignment.\n\n" +
+                            "Please, keep in mind that it relies heavily on server side " +
+                            "operations that are not fully operational yet. Some features " +
+                            "will be missing.")
+                .setCancelable(false)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        //do things
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
+
 
         // preparing list data
         prepareListData();
@@ -157,8 +178,8 @@ public class MainActivity extends Activity {
         }
         // Handle action bar actions click
         switch (item.getItemId()) {
-            case R.id.action_settings:
-                return true;
+//            case R.id.action_settings: TODO: create the edit profile here
+//               return true;
             case R.id.action_logout:
                 SessionUtil.logout(getApplicationContext());
                 navigatetoLogintActivity();
@@ -175,7 +196,7 @@ public class MainActivity extends Activity {
     public boolean onPrepareOptionsMenu(Menu menu) {
         // if nav drawer is opened, hide the action items
         boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-        menu.findItem(R.id.action_settings).setVisible(!drawerOpen);
+//      menu.findItem(R.id.action_settings).setVisible(!drawerOpen);
         return super.onPrepareOptionsMenu(menu);
     }
 
@@ -193,10 +214,10 @@ public class MainActivity extends Activity {
                 fragment = new CaronasFragment();
                 break;
             case 2:
-                fragment = new ProcurarCaronasFragment();
+                fragment = new AdicionarCaronasFragment();
                 break;
             case 3:
-                fragment = new AdicionarCaronasFragment();
+                fragment = new ProcurarCaronasFragment();
                 break;
             case 4:
                 fragment = new AvaliarCaronasFragment();

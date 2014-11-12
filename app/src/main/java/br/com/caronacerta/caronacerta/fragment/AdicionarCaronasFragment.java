@@ -2,15 +2,18 @@ package br.com.caronacerta.caronacerta.fragment;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -25,10 +28,14 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
+import br.com.caronacerta.caronacerta.MainActivity;
 import br.com.caronacerta.caronacerta.R;
 
 public class AdicionarCaronasFragment extends Fragment {
+
 
     public AdicionarCaronasFragment() {
     }
@@ -37,7 +44,7 @@ public class AdicionarCaronasFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_adicionar_caronas, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_adicionar_caronas, container, false);
 
         final TimePicker timePicker = (TimePicker) rootView.findViewById(R.id.timePicker);
         timePicker.setIs24HourView(true);
@@ -48,8 +55,59 @@ public class AdicionarCaronasFragment extends Fragment {
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
+                int index = -1;
+                Integer min_int = timePicker.getCurrentMinute();
+                String min_str = "00";
+                if (min_int != 0) min_str = min_int.toString();
+
+                String dateTime = (datePicker.getDayOfMonth() + "/" + datePicker.getMonth() +
+                                    " - " + timePicker.getCurrentHour() + "h" + min_str);
+
+                for (int i = 0; i < MainActivity.caronasELVGroup.size(); i++) {
+                    if (MainActivity.caronasELVGroup.get(i).equals(dateTime)) { index = i;}
+                }
+
+                MainActivity.caronasELVGroup.add(dateTime);
+                List<String> l = new ArrayList<String>();
+
+                EditText nameView1 = (EditText) rootView.findViewById(R.id.add_caronas_name_1);
+                EditText nameView2 = (EditText) rootView.findViewById(R.id.add_caronas_name_2);
+                EditText nameView3 = (EditText) rootView.findViewById(R.id.add_caronas_name_3);
+                EditText nameView4 = (EditText) rootView.findViewById(R.id.add_caronas_name_4);
+
+                EditText numView1 = (EditText) rootView.findViewById(R.id.add_caronas_num_1);
+                EditText numView2 = (EditText) rootView.findViewById(R.id.add_caronas_num_2);
+                EditText numView3 = (EditText) rootView.findViewById(R.id.add_caronas_num_3);
+                EditText numView4 = (EditText) rootView.findViewById(R.id.add_caronas_num_4);
+
+                if (nameView1.getText().length() != 0){
+                    l.add(nameView1.getText() + " - " + numView1.getText());
+                }
+
+                if (nameView2.getText().length() != 0){
+                    l.add(nameView2.getText() + " - " + numView2.getText());
+                }
+
+                if (nameView3.getText().length() != 0){
+                    l.add(nameView3.getText() + " - " + numView3.getText());
+                }
+
+                if (nameView4.getText().length() != 0){
+                    l.add(nameView4.getText() + " - " + numView4.getText());
+                }
+
+                if (index == -1) {
+                    MainActivity.caronasELVChild.put(MainActivity.caronasELVGroup.get(MainActivity.caronasELVGroup.size()-1), l);
+                }
+
+                else {
+                    MainActivity.caronasELVChild.put(MainActivity.caronasELVGroup.get(index), l);
+                }
+
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setMessage("Termine de preencher os campos...")
+                builder.setMessage("Caronas adicionadas com sucesso.")
                         .setCancelable(false)
                         .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
