@@ -10,10 +10,6 @@ import android.view.ViewGroup;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import br.com.caronacerta.caronacerta.MainActivity;
 import br.com.caronacerta.caronacerta.R;
 import br.com.caronacerta.caronacerta.adapter.PlacesAutoCompleteAdapter;
 
@@ -34,27 +30,31 @@ public class ProcurarCaronasFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-            if (autoCompOriginView.getText().length() == 0 || autoCompDestinView.getText().length() == 0) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setMessage("Termine de preencher os campos...")
-                        .setCancelable(false)
-                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                //do things
-                            }
-                        });
-                AlertDialog alert = builder.create();
-                alert.show();
-            } else {
-                List<Integer> indices = new ArrayList<Integer>();
-                for (int i = 0; i < MainActivity.caronasAvailable.size(); i++) {
-                    //add to ListView
+                if (autoCompOriginView.getText().length() == 0 || autoCompDestinView.getText().length() == 0) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    builder.setMessage("Termine de preencher os campos...")
+                            .setCancelable(false)
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    //do things
+                                }
+                            });
+                    AlertDialog alert = builder.create();
+                    alert.show();
+                } else {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    builder.setMessage("This section hasn't been implemented yet.")
+                            .setCancelable(false)
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    //do things
+                                }
+                            });
+                    AlertDialog alert = builder.create();
+                    alert.show();
                 }
             }
-                //Criar dialogo com resultados
-            }
         });
-
 
         return rootView;
     }

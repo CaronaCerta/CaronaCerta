@@ -2,14 +2,12 @@ package br.com.caronacerta.caronacerta.fragment;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -28,7 +26,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import br.com.caronacerta.caronacerta.MainActivity;
@@ -61,13 +58,13 @@ public class AdicionarCaronasFragment extends Fragment {
                 Integer min_int = timePicker.getCurrentMinute();
                 String min_str = "00";
                 if (min_int != 0) min_str = min_int.toString();
+                Integer hour_int = datePicker.getDayOfMonth();
+                String hour_str;
+                if (hour_int.toString().length() == 1) hour_str = "0" + hour_int.toString();
+                else hour_str = hour_int.toString();
 
-                String dateTime = (datePicker.getDayOfMonth() + "/" + datePicker.getMonth() +
+                String dateTime = (hour_str + "/" + datePicker.getMonth() +
                                     " - " + timePicker.getCurrentHour() + "h" + min_str);
-
-                for (int i = 0; i < MainActivity.caronasELVGroup.size(); i++) {
-                    if (MainActivity.caronasELVGroup.get(i).equals(dateTime)) { index = i;}
-                }
 
                 MainActivity.caronasELVGroup.add(dateTime);
                 List<String> l = new ArrayList<String>();
@@ -98,13 +95,7 @@ public class AdicionarCaronasFragment extends Fragment {
                     l.add(nameView4.getText() + " - " + numView4.getText());
                 }
 
-                if (index == -1) {
-                    MainActivity.caronasELVChild.put(MainActivity.caronasELVGroup.get(MainActivity.caronasELVGroup.size()-1), l);
-                }
-
-                else {
-                    MainActivity.caronasELVChild.put(MainActivity.caronasELVGroup.get(index), l);
-                }
+                MainActivity.caronasELVChild.put(MainActivity.caronasELVGroup.get(index), l);
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 builder.setMessage("Caronas adicionadas com sucesso.")

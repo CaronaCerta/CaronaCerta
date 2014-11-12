@@ -2,11 +2,16 @@
 <resources>
     <string name="login_title_activity">Login</string>
     <string name="login_title">Login</string>
-
+<!--
     <string name="login_email">Email</string>
     <string name="login_email_hint">Digite seu Email</string>
     <string name="login_password">Senha</string>
     <string name="login_password_hint">Digite sua senha</string>
+-->
+    <string name="login_email">Email</string>
+    <string name="login_email_hint">Type in your email address</string>
+    <string name="login_password">Password</string>
+    <string name="login_password_hint">Type in your password</string>
 
     <string name="login_button">Login</string>
     <string name="login_signup_link">Signup</string>

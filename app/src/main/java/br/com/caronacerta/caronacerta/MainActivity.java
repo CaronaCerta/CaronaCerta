@@ -103,10 +103,10 @@ public class MainActivity extends Activity {
 
         // adding nav drawer items to array
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons.getResourceId(0, -1)));
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons.getResourceId(1, -1), true, caronasELVGroup.size()));
+        navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons.getResourceId(1, -1)));
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1)));
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1), true, 22));
+        navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1)));
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1)));
 
 
@@ -290,25 +290,25 @@ public class MainActivity extends Activity {
         caronasELVChild = new HashMap<String, List<String>>();
 
         // Adding child data
-        caronasELVGroup.add("25/10 - 14h00");
+        caronasELVGroup.add("15/10 - 14h00");
         caronasELVGroup.add("29/10 - 19h00");
         caronasELVGroup.add("01/11 - 18h00");
 
         // Adding child data
         List<String> l1 = new ArrayList<String>();
-        l1.add("Xandão");
-        l1.add("Batata");
-        l1.add("PD");
+        l1.add("Xandão - 11 98456 1123");
+        l1.add("Elizeu - 19 98234 2267");
+        l1.add("PD - 19 9655 7234");
 
         List<String> l2 = new ArrayList<String>();
-        l2.add("Oscar");
-        l2.add("Elizeu");
-        l2.add("PD");
+        l2.add("Oscar - 11 97667 5543");
+        l2.add("Batata - 19 98738 9755");
+        l2.add("PD - 19 9655 7234");
 
         List<String> l3 = new ArrayList<String>();
-        l3.add("Xandão");
-        l3.add("Tocha");
-        l3.add("Giu");
+        l3.add("Xandão - 11 98456 1123");
+        l3.add("Batata - 19 98738 9755");
+        l3.add("Giu - 19 97656 9908");
 
         caronasELVChild.put(caronasELVGroup.get(0), l1); // Header, Child data
         caronasELVChild.put(caronasELVGroup.get(1), l2);

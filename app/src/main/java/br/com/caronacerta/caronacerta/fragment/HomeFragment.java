@@ -37,10 +37,6 @@ public class HomeFragment extends Fragment {
         }
         else user_name_view.append(" " + user_name);
 
-        TextView num_caronas_view = (TextView) rootView.findViewById(R.id.num_caronas);
-        Integer num_caronas = MainActivity.caronasELVGroup.size();
-        num_caronas_view.setText("Voce possui " + num_caronas + " caronas agendadas!");
-
         return rootView;
     }
 }
