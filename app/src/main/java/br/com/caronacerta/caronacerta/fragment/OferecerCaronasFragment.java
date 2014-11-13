@@ -11,9 +11,9 @@ import android.widget.Button;
 
 import br.com.caronacerta.caronacerta.R;
 
-public class OfferCaronasFragment extends Fragment {
+public class OferecerCaronasFragment extends Fragment {
 
-    public OfferCaronasFragment() {
+    public OferecerCaronasFragment() {
     }
 
 

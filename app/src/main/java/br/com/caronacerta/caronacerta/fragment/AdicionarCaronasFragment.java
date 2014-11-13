@@ -54,7 +54,6 @@ public class AdicionarCaronasFragment extends Fragment {
             public void onClick(View view) {
 
 
-                int index = -1;
                 Integer min_int = timePicker.getCurrentMinute();
                 String min_str = "00";
                 if (min_int != 0) min_str = min_int.toString();
@@ -95,10 +94,11 @@ public class AdicionarCaronasFragment extends Fragment {
                     l.add(nameView4.getText() + " - " + numView4.getText());
                 }
 
-                MainActivity.caronasELVChild.put(MainActivity.caronasELVGroup.get(index), l);
+                MainActivity.caronasELVChild.put(MainActivity.caronasELVGroup.get(MainActivity.caronasELVGroup.size()-1), l);
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setMessage("Caronas adicionadas com sucesso.")
+//                builder.setMessage("Caronas adicionadas com sucesso.")
+                builder.setMessage("Rides added successfully.")
                         .setCancelable(false)
                         .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {

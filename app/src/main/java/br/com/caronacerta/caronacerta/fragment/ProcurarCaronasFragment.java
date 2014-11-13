@@ -32,7 +32,8 @@ public class ProcurarCaronasFragment extends Fragment {
 
                 if (autoCompOriginView.getText().length() == 0 || autoCompDestinView.getText().length() == 0) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                    builder.setMessage("Termine de preencher os campos...")
+//                    builder.setMessage("Termine de preencher os campos...")
+                    builder.setMessage("Please, fill in all fields...")
                             .setCancelable(false)
                             .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {

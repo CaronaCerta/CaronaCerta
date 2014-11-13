@@ -2,10 +2,9 @@ package br.com.caronacerta.caronacerta;
 
 import android.app.ActionBar;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.content.DialogInterface;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
@@ -23,14 +22,16 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Vector;
 
 import br.com.caronacerta.caronacerta.adapter.NavDrawerListAdapter;
+import br.com.caronacerta.caronacerta.contract.RidesContract;
 import br.com.caronacerta.caronacerta.fragment.AdicionarCaronasFragment;
 import br.com.caronacerta.caronacerta.fragment.AvaliarCaronasFragment;
 import br.com.caronacerta.caronacerta.fragment.CaronasFragment;
 import br.com.caronacerta.caronacerta.fragment.HomeFragment;
+import br.com.caronacerta.caronacerta.fragment.OferecerCaronasFragment;
 import br.com.caronacerta.caronacerta.fragment.ProcurarCaronasFragment;
-import br.com.caronacerta.caronacerta.fragment.OfferCaronasFragment;
 import br.com.caronacerta.caronacerta.model.NavDrawerItem;
 import br.com.caronacerta.caronacerta.util.SessionUtil;
 
@@ -64,25 +65,6 @@ public class MainActivity extends Activity {
         StrictMode.setThreadPolicy(policy);
 
         setContentView(R.layout.activity_main);
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Welcome to the Udacity preview of the Right Ride app.\n" +
-                            "This app was designed for the Brazilian market, " +
-                            "therefor it contains location-based elements targeting " +
-                            "the local region. " +
-                            "It was exclusively translated for this assignment.\n\n" +
-                            "Please, keep in mind that it relies heavily on server side " +
-                            "operations that are not fully operational yet. Some features " +
-                            "will be missing.")
-                .setCancelable(false)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        //do things
-                    }
-                });
-        AlertDialog alert = builder.create();
-        alert.show();
-
 
         // preparing list data
         prepareListData();
@@ -223,7 +205,7 @@ public class MainActivity extends Activity {
                 fragment = new AvaliarCaronasFragment();
                 break;
             case 5:
-                fragment = new OfferCaronasFragment();
+                fragment = new OferecerCaronasFragment();
                 break;
 
             default:
@@ -313,6 +295,14 @@ public class MainActivity extends Activity {
         caronasELVChild.put(caronasELVGroup.get(0), l1); // Header, Child data
         caronasELVChild.put(caronasELVGroup.get(1), l2);
         caronasELVChild.put(caronasELVGroup.get(2), l3);
+
+        Vector<ContentValues> cVVector = new Vector<ContentValues>(caronasELVGroup.size());
+
+        if (cVVector.size() > 0) {
+            ContentValues[] cvArray = new ContentValues[cVVector.size()];
+            cVVector.toArray(cvArray);
+            this.getContentResolver().bulkInsert(RidesContract.RidesGroupEntry.CONTENT_URI, cvArray);
+        }
 
         /* Caronas disponiveis */
         caronasAvailable = new ArrayList<String>();
