@@ -102,21 +102,25 @@ public class LoginActivity extends Activity {
 
                 JSONObject jsonObject = RequestUtil.postData("login", nameValuePairs);
 
-                if (!jsonObject.getBoolean("error")) {
-                    String sessionkey = jsonObject.getJSONObject("session").getString("key");
-                    String user_name = jsonObject.getJSONObject("usuario").getString("nome");
-                    SessionUtil.saveSession(sessionkey, getApplicationContext());
+                try {
+                    if (!jsonObject.getBoolean("error")) {
+                        String sessionkey = jsonObject.getJSONObject("session").getString("key");
+                        String user_name = jsonObject.getJSONObject("usuario").getString("nome");
+                        SessionUtil.saveSession(sessionkey, getApplicationContext());
 
-                    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-                    SharedPreferences.Editor editor = preferences.edit();
-                    editor.putString("user_name",user_name);
-                    editor.apply();
+                        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putString("user_name", user_name);
+                        editor.apply();
 
-                    navigateToMainActivity();
-                }
-                // Invalid login credentials
-                else {
-                    Toast.makeText(getApplicationContext(), R.string.login_invalid_credentials_message, Toast.LENGTH_LONG).show();
+                        navigateToMainActivity();
+                    }
+                    // Invalid login credentials
+                    else {
+                        Toast.makeText(getApplicationContext(), R.string.login_invalid_credentials_message, Toast.LENGTH_LONG).show();
+                    }
+                }catch (Exception e){
+                    Toast.makeText(getApplicationContext(), "The server is not responding. Please, contact the admin at alexcreto@gmail.com", Toast.LENGTH_LONG).show();
                 }
             }
             // When Email is invalid
