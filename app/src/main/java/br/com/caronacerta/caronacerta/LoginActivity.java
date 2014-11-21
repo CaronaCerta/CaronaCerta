@@ -1,9 +1,7 @@
 package br.com.caronacerta.caronacerta;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -65,25 +63,6 @@ public class LoginActivity extends Activity {
         prgDialog.setMessage(getString(R.string.process_dialog));
         // Set Cancelable as False
         prgDialog.setCancelable(false);
-
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Welcome to the Udacity preview of the Right Ride app.\n" +
-                "This app was designed for the Brazilian market, " +
-                "therefor it contains location-based elements targeting " +
-                "the local region. " +
-                "It was exclusively translated for this assignment.\n\n" +
-                "Please, keep in mind that it relies heavily on server side " +
-                "operations that are not fully operational yet. Some features " +
-                "will be missing.")
-                .setCancelable(false)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        //do things
-                    }
-                });
-        AlertDialog alert = builder.create();
-        alert.show();
     }
 
     public void loginUser(View view) throws JSONException {

@@ -2,7 +2,7 @@
 <resources>
     <string name="title_activity_register">Register</string>
     <string name="register_title">Register</string>
-<!--
+
     <string name="register_email">Email</string>
     <string name="register_email_hint">Digite seu email</string>
 
@@ -23,30 +23,6 @@
 
     <string name="register_city">Cidade</string>
     <string name="register_city_hint">Digite sua cidade</string>
--->
-
-    <string name="register_email">Email</string>
-    <string name="register_email_hint">Type in your email address</string>
-
-    <string name="register_password">Password</string>
-    <string name="register_password_hint">Type in your password</string>
-
-    <string name="register_name">Name</string>
-    <string name="register_name_hint">Type in your name</string>
-
-    <string name="register_birthday">Date of Birth</string>
-    <string name="register_birthday_hint">Type in your date of birth</string>
-
-    <string name="register_phone">Mobile</string>
-    <string name="register_phone_hint">Type in your mobile phone</string>
-
-    <string name="register_address">Address</string>
-    <string name="register_address_hint">Type in your address</string>
-
-    <string name="register_city">Town</string>
-    <string name="register_city_hint">Type in your town</string>
-
-
 
     <string name="register_button">Register</string>
     <string name="register_login_link">Login</string>

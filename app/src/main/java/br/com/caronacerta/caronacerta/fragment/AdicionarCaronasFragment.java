@@ -97,8 +97,7 @@ public class AdicionarCaronasFragment extends Fragment {
                 MainActivity.caronasELVChild.put(MainActivity.caronasELVGroup.get(MainActivity.caronasELVGroup.size()-1), l);
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-//                builder.setMessage("Caronas adicionadas com sucesso.")
-                builder.setMessage("Rides added successfully.")
+                builder.setMessage("Caronas adicionadas com sucesso.")
                         .setCancelable(false)
                         .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
