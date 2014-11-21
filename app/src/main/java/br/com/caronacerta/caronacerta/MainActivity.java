@@ -26,7 +26,6 @@ import java.util.Vector;
 
 import br.com.caronacerta.caronacerta.adapter.NavDrawerListAdapter;
 import br.com.caronacerta.caronacerta.contract.RidesContract;
-import br.com.caronacerta.caronacerta.fragment.AdicionarCaronasFragment;
 import br.com.caronacerta.caronacerta.fragment.AvaliarCaronasFragment;
 import br.com.caronacerta.caronacerta.fragment.CaronasFragment;
 import br.com.caronacerta.caronacerta.fragment.HomeFragment;
@@ -89,7 +88,6 @@ public class MainActivity extends Activity {
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1)));
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1)));
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1)));
 
 
         // Recycle the typed array
@@ -196,16 +194,13 @@ public class MainActivity extends Activity {
                 fragment = new CaronasFragment();
                 break;
             case 2:
-                fragment = new AdicionarCaronasFragment();
+                fragment = new OferecerCaronasFragment();
                 break;
             case 3:
                 fragment = new ProcurarCaronasFragment();
                 break;
             case 4:
                 fragment = new AvaliarCaronasFragment();
-                break;
-            case 5:
-                fragment = new OferecerCaronasFragment();
                 break;
 
             default:

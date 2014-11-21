@@ -24,5 +24,6 @@
     <string name="offer_carona_hint">Favor utilizar os resultados da lista.</string>
     <string name="add_caronas_name_hint">Nome</string>
     <string name="add_caronas_num_hint">Celular</string>
+    <string name="add_minhas_caronas">Adicionar Minhas Caronas</string>
 
 </resources>

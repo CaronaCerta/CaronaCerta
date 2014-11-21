@@ -4,6 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_minhas_caronas"
+        android:id="@+id/add_minhas_caronas"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:padding="10sp"/>
+
     <ExpandableListView
         android:id="@+id/eLV"
         android:layout_width="wrap_content"
@@ -11,6 +20,10 @@
         tools:listitem="@android:layout/simple_expandable_list_item_2"
         android:clickable="true"
         android:layout_margin="20dp"
-        android:visibility="visible"/>
+        android:visibility="visible"
+        android:layout_above="@id/add_minhas_caronas"
+        android:layout_alignParentTop="true"
+        />
+
 
 </RelativeLayout>
