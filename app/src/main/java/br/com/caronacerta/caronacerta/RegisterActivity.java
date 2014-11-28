@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -22,6 +21,7 @@ import java.util.List;
 
 import br.com.caronacerta.caronacerta.util.RequestUtil;
 import br.com.caronacerta.caronacerta.util.SessionUtil;
+import br.com.caronacerta.caronacerta.util.SharedPreferencesUtil;
 import br.com.caronacerta.caronacerta.util.Validation;
 
 /**
@@ -131,13 +131,12 @@ public class RegisterActivity extends Activity {
                 try{
                     if (!jsonObject.getBoolean("error")) {
                         String sessionkey = jsonObject.getJSONObject("session").getString("key");
-                        String user_name = jsonObject.getJSONObject("usuario").getString("nome");
+                        String userName = jsonObject.getJSONObject("usuario").getString("nome");
                         SessionUtil.saveSession(sessionkey, getApplicationContext());
 
-                        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-                        SharedPreferences.Editor editor = preferences.edit();
-                        editor.putString("Name",user_name);
-                        editor.apply();
+                        SharedPreferences.Editor editor = SharedPreferencesUtil.getEditor(getApplicationContext());
+                        editor.putString("name", userName);
+                        editor.commit();
 
                         navigateToMainActivity();
                     }
