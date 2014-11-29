@@ -5,30 +5,111 @@ import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpDelete;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpPut;
+import org.apache.http.client.methods.HttpRequestBase;
+import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class RequestUtil {
     private static final String SERVICE_URL = "http://caronacerta-rodrigoeg.rhcloud.com/";
 
+    public static JSONObject postData(String service, String authToken) {
+        return postData(service, new ArrayList<NameValuePair>(), authToken);
+    }
+
     public static JSONObject postData(String service, List<NameValuePair> nameValuePairs) {
-        // Create a new HttpClient and Post Header
-        HttpClient httpclient = new DefaultHttpClient();
-        HttpPost httppost = new HttpPost(SERVICE_URL + service);
+        return postData(service, nameValuePairs, "");
+    }
+
+    public static JSONObject postData(String service, List<NameValuePair> nameValuePairs, String authToken) {
+        HttpPost httpPost = new HttpPost(SERVICE_URL + service);
 
         try {
             // Add your data
-            httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs, "UTF-8"));
+            httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs, "UTF-8"));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        return doRequest(httpPost, authToken);
+    }
+
+    public static JSONObject getData(String service, String authToken) {
+        return getData(service, new ArrayList<NameValuePair>(), authToken);
+    }
+
+    public static JSONObject getData(String service, List<NameValuePair> nameValuePairs) {
+        return getData(service, nameValuePairs, "");
+    }
+
+    public static JSONObject getData(String service, List<NameValuePair> nameValuePairs, String authToken) {
+        // Add your data
+        String paramString = URLEncodedUtils.format(nameValuePairs, "utf-8");
+        HttpGet httpGet = new HttpGet(SERVICE_URL + service + "?" + paramString);
+
+        return doRequest(httpGet, authToken);
+    }
+
+    public static JSONObject putData(String service, String authToken) {
+        return putData(service, new ArrayList<NameValuePair>(), authToken);
+    }
+
+    public static JSONObject putData(String service, List<NameValuePair> nameValuePairs) {
+        return putData(service, nameValuePairs, "");
+    }
+
+    public static JSONObject putData(String service, List<NameValuePair> nameValuePairs, String authToken) {
+        HttpPut httpPut = new HttpPut(SERVICE_URL + service);
+
+        try {
+            // Add your data
+            httpPut.setEntity(new UrlEncodedFormEntity(nameValuePairs, "UTF-8"));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        return doRequest(httpPut, authToken);
+    }
+
+    public static JSONObject deleteData(String service, String authToken) {
+        return deleteData(service, new ArrayList<NameValuePair>(), authToken);
+    }
+
+    public static JSONObject deleteData(String service, List<NameValuePair> nameValuePairs) {
+        return deleteData(service, nameValuePairs, null);
+    }
+
+    public static JSONObject deleteData(String service, List<NameValuePair> nameValuePairs, String authToken) {
+        // Add your data
+        String paramString = URLEncodedUtils.format(nameValuePairs, "utf-8");
+        HttpDelete httpDelete = new HttpDelete(SERVICE_URL + service + "?" + paramString);
+
+        return doRequest(httpDelete, authToken);
+    }
+
+    private static JSONObject doRequest(HttpRequestBase httpRequestBase, String authToken) {
+        // Create a new HttpClient
+        HttpClient httpclient = new DefaultHttpClient();
+        try {
+            httpRequestBase.setHeader("X-Auth-Token", authToken);
 
             // Execute HTTP Post Request
-            HttpResponse response = httpclient.execute(httppost);
+            HttpResponse response = httpclient.execute(httpRequestBase);
 
             Reader in = new BufferedReader(
                     new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
@@ -39,6 +120,7 @@ public class RequestUtil {
                 builder.append(buf, 0, l);
                 l = in.read(buf);
             }
+
             JSONObject jsonObject = new JSONObject(builder.toString());
 
             return jsonObject;
@@ -49,7 +131,7 @@ public class RequestUtil {
         } catch (IOException e) {
             e.printStackTrace();
             return null;
-        } catch (Exception e) {
+        } catch (JSONException e) {
             e.printStackTrace();
             return null;
         }

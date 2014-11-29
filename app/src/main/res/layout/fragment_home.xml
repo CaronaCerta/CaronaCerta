@@ -9,19 +9,68 @@
         android:layout_gravity="fill_vertical"
         android:layout_marginTop="20pt"
         android:gravity="center_horizontal"
-        android:text="@string/welcome"
+        android:text="@string/home_welcome"
         android:textSize="25sp"
         android:typeface="sans"
         android:id="@+id/welcome" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/num_caronas"
+        android:id="@+id/email"
+        android:text="@string/home_email"
         android:layout_alignTop="@+id/welcome"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="62dp" />
+        android:layout_marginTop="35dp" />
 
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/birthday"
+        android:text="@string/home_birthday"
+        android:layout_alignTop="@+id/email"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp" />
 
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/phone"
+        android:text="@string/home_phone"
+        android:layout_alignTop="@+id/birthday"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/address"
+        android:text="@string/home_address"
+        android:layout_alignTop="@+id/phone"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/city"
+        android:text="@string/home_city"
+        android:layout_alignTop="@+id/address"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/home_edit_account_link"
+        android:id="@+id/edit_account"
+        android:onClick="navigateToEditarContaFragment"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:padding="10sp"/>
 </RelativeLayout>

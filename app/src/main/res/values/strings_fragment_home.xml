@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_welcome">Bem vindo</string>
+    <string name="home_email">Email</string>
+    <string name="home_birthday">Data de nascimento</string>
+    <string name="home_phone">Telefone</string>
+    <string name="home_address">Endereço</string>
+    <string name="home_city">Cidade</string>
+    <string name="home_edit_account_link">Editar conta</string>
+</resources>

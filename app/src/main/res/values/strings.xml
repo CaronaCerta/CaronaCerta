@@ -5,10 +5,10 @@
     <string name="banner_ad_unit_id">ca-app-pub-8568033544084271/4437230943</string>
     <string name="process_dialog">Please wait…</string>
 
+    <string name="session_timeout">Session time out. Please login again.</string>
     <string name="action_settings">Settings</string>
     <string name="action_logout">Logout</string>
     <string name="caronas_agendadas">Caronas Agendadas</string>
-    <string name="welcome">Bem vindo</string>
     <string name="add_carona">Adicionar Carona</string>
     <string name="add_carona_autocomplete_origin">Origem</string>
     <string name="autocomplete_destination">Destino</string>

@@ -28,6 +28,7 @@ import br.com.caronacerta.caronacerta.adapter.NavDrawerListAdapter;
 import br.com.caronacerta.caronacerta.contract.RidesContract;
 import br.com.caronacerta.caronacerta.fragment.AvaliarCaronasFragment;
 import br.com.caronacerta.caronacerta.fragment.CaronasFragment;
+import br.com.caronacerta.caronacerta.fragment.EditarContaFragment;
 import br.com.caronacerta.caronacerta.fragment.HomeFragment;
 import br.com.caronacerta.caronacerta.fragment.OferecerCaronasFragment;
 import br.com.caronacerta.caronacerta.fragment.ProcurarCaronasFragment;
@@ -162,7 +163,7 @@ public class MainActivity extends Activity {
 //               return true;
             case R.id.action_logout:
                 SessionUtil.logout(getApplicationContext());
-                navigatetoLogintActivity();
+                navigatetoLoginActivity();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -252,7 +253,7 @@ public class MainActivity extends Activity {
     /**
      * Method which navigates from Login Activity to Home Activity
      */
-    public void navigatetoLogintActivity() {
+    public void navigatetoLoginActivity() {
         Intent loginActivity = new Intent(getApplicationContext(), LoginActivity.class);
         loginActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(loginActivity);
@@ -302,5 +303,17 @@ public class MainActivity extends Activity {
         /* Caronas disponiveis */
         caronasAvailable = new ArrayList<String>();
 
+    }
+
+    /**
+     * Method gets triggered when Edit account button is clicked
+     *
+     * @param view
+     */
+    public void navigateToEditarContaFragment(View view) {
+        Fragment fragment = new EditarContaFragment();
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.frame_container, fragment).commit();
     }
 }

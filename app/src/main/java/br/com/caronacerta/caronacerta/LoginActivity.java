@@ -84,12 +84,7 @@ public class LoginActivity extends Activity {
                 try {
                     if (!jsonObject.getBoolean("error")) {
                         String sessionkey = jsonObject.getJSONObject("session").getString("key");
-                        String userName = jsonObject.getJSONObject("usuario").getString("nome");
                         SessionUtil.saveSession(sessionkey, getApplicationContext());
-
-                        SharedPreferences.Editor editor = SharedPreferencesUtil.getEditor(getApplicationContext());
-                        editor.putString("name", userName);
-                        editor.commit();
 
                         navigateToMainActivity();
                     }

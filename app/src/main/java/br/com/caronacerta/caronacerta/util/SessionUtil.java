@@ -13,6 +13,7 @@ public class SessionUtil {
     }
 
     public static boolean isLoggedIn(android.content.Context applicationContext) {
+        // TODO try to validate sometimes in the server the session login
         SharedPreferences pref = SharedPreferencesUtil.getPref(applicationContext);
 
         return pref.getBoolean("logged_in", false);
