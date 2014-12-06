@@ -146,7 +146,7 @@ public class EditarContaFragment extends Fragment implements View.OnClickListene
 
                 JSONObject jsonObject = RequestUtil.putData("usuario/" + userId, nameValuePairs, SessionUtil.getToken(getActivity().getApplicationContext()));
 
-                try{
+                try {
                     if (!jsonObject.getBoolean("error")) {
                         Toast.makeText(getActivity().getApplicationContext(), R.string.editar_conta_success_message, Toast.LENGTH_LONG).show();
                         navigateToFragment(R.string.visualizar_conta_title, new VisualizarContaFragment());
@@ -155,7 +155,7 @@ public class EditarContaFragment extends Fragment implements View.OnClickListene
                     else {
                         Toast.makeText(getActivity().getApplicationContext(), R.string.editar_conta_error_message, Toast.LENGTH_LONG).show();
                     }
-                }catch (Exception e){
+                } catch (Exception e) {
                     Toast.makeText(getActivity().getApplicationContext(), "The server is not responding. Please, contact the admin at alexcreto@gmail.com", Toast.LENGTH_LONG).show();
                 }
             }

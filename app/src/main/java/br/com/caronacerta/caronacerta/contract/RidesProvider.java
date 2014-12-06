@@ -12,13 +12,9 @@ public class RidesProvider extends ContentProvider {
 
     // The URI Matcher used by this content provider.
     private static final UriMatcher sUriMatcher = buildUriMatcher();
-    private RidesDbHelper mOpenHelper;
-
     private static final int RIDES = 100;
-
     private static final SQLiteQueryBuilder sRidesQueryBuilder;
-
-    static{
+    static {
         sRidesQueryBuilder = new SQLiteQueryBuilder();
         sRidesQueryBuilder.setTables(
                 RidesContract.RidesGroupEntry.TABLE_NAME + " INNER JOIN " +
@@ -28,6 +24,7 @@ public class RidesProvider extends ContentProvider {
                         " = " + RidesContract.RidesGroupEntry.TABLE_NAME +
                         "." + RidesContract.RidesGroupEntry._ID);
     }
+    private RidesDbHelper mOpenHelper;
 
     private static UriMatcher buildUriMatcher() {
         // I know what you're thinking.  Why create a UriMatcher when you can use regular
@@ -101,7 +98,7 @@ public class RidesProvider extends ContentProvider {
         switch (match) {
             case RIDES: {
                 long _id = db.insert(RidesContract.RidesGroupEntry.TABLE_NAME, null, values);
-                if ( _id > 0 )
+                if (_id > 0)
                     returnUri = RidesContract.RidesGroupEntry.buildRidesUri(_id);
                 else
                     throw new android.database.SQLException("Failed to insert row into " + uri);

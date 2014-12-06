@@ -5,23 +5,23 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/title"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20pt"
         android:layout_gravity="fill_vertical"
+        android:layout_marginTop="20pt"
         android:gravity="center_horizontal"
         android:text="@string/editar_conta_title"
         android:textSize="25sp"
-        android:typeface="sans"
-        android:id="@+id/title" />
+        android:typeface="sans" />
 
     <!-- Email Label -->
     <TextView
+        android:id="@+id/editar_conta_email"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editar_conta_email"
-        android:text="@string/editar_conta_email"
-        android:layout_marginTop="35dp"/>
+        android:layout_marginTop="35dp"
+        android:text="@string/editar_conta_email" />
 
     <!-- Email TextField -->
     <EditText
@@ -29,7 +29,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:hint="@string/editar_conta_email_hint"
-        android:inputType="textEmailAddress"/>
+        android:inputType="textEmailAddress" />
 
     <!-- Password Label -->
     <TextView
@@ -86,7 +86,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:hint="@string/editar_conta_phone_hint"
-        android:inputType="phone"/>
+        android:inputType="phone" />
 
     <!-- Address Label -->
     <TextView

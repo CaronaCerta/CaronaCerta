@@ -63,7 +63,7 @@ public class FetchTask extends AsyncTask<String, Void, Void> {
         long rideID = addRideGroup(ride_group);
         Vector<ContentValues> cVVector = new Vector<ContentValues>(rideGroupArray.size());
 
-        for(int i = 0; i < rideGroupArray.size(); i++) {
+        for (int i = 0; i < rideGroupArray.size(); i++) {
 
             String rideGroupName = MainActivity.caronasELVGroup.get(i);
 

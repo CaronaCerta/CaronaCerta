@@ -47,11 +47,11 @@ public class PlacesAutoCompleteAdapter extends ArrayAdapter<String> implements F
             protected void publishResults(CharSequence constraint, Filter.FilterResults results) {
                 if (results != null && results.count > 0) {
                     notifyDataSetChanged();
-                }
-                else {
+                } else {
                     notifyDataSetInvalidated();
                 }
-            }};
+            }
+        };
         return filter;
     }
 }

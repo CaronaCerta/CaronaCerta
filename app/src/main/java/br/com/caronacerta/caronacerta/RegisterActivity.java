@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.apache.http.NameValuePair;
@@ -122,7 +121,7 @@ public class RegisterActivity extends Activity {
 
                 JSONObject jsonObject = RequestUtil.postData("usuario", nameValuePairs);
 
-                try{
+                try {
                     if (!jsonObject.getBoolean("error")) {
                         String sessionkey = jsonObject.getJSONObject("session").getString("key");
                         SessionUtil.saveSession(sessionkey, getApplicationContext());
@@ -133,7 +132,7 @@ public class RegisterActivity extends Activity {
                     else {
                         Toast.makeText(getApplicationContext(), R.string.register_error_message, Toast.LENGTH_LONG).show();
                     }
-                }catch (Exception e){
+                } catch (Exception e) {
                     Toast.makeText(getApplicationContext(), "The server is not responding. Please, contact the admin at alexcreto@gmail.com", Toast.LENGTH_LONG).show();
                 }
             }

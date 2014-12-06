@@ -17,18 +17,15 @@ import br.com.caronacerta.caronacerta.contract.RidesContract;
 
 public class CaronasFragment extends Fragment {
 
-    ExpandableListAdapter listAdapter;
-    ExpandableListView expListView;
-
-    private SimpleCursorAdapter mRidesAdapter;
-
     private static final int RIDES_LOADER = 0;
-    private String mRides;
-
     private static final String[] COLUMN_GROUP_NAME = {
             RidesContract.RidesGroupEntry.TABLE_NAME + "." + RidesContract.RidesGroupEntry._ID,
             RidesContract.RidesGroupEntry.COLUMN_GROUP_NAME,
     };
+    ExpandableListAdapter listAdapter;
+    ExpandableListView expListView;
+    private SimpleCursorAdapter mRidesAdapter;
+    private String mRides;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

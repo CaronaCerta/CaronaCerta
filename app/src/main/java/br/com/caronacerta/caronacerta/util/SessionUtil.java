@@ -27,7 +27,8 @@ public class SessionUtil {
 
     public static void logout(android.content.Context applicationContext) {
         // TODO make a request to /logout
-        SharedPreferences.Editor editor = SharedPreferencesUtil.getEditor(applicationContext);;
+        SharedPreferences.Editor editor = SharedPreferencesUtil.getEditor(applicationContext);
+        ;
 
         editor.clear();
         editor.commit();

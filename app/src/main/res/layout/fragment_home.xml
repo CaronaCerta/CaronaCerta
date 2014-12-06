@@ -5,6 +5,7 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/title"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="fill_vertical"
@@ -12,54 +13,53 @@
         android:gravity="center_horizontal"
         android:text="@string/home_welcome"
         android:textSize="25sp"
-        android:typeface="sans"
-        android:id="@+id/title" />
+        android:typeface="sans" />
 
     <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/email"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
         android:text="@string/home_email"
-        android:layout_marginTop="35dp" />
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/birthday"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
         android:text="@string/home_birthday"
-        android:layout_marginTop="25dp" />
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/phone"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
         android:text="@string/home_phone"
-        android:layout_marginTop="25dp" />
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/address"
-        android:text="@string/home_address"
-        android:layout_marginTop="25dp" />
-
-    <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginTop="25dp"
+        android:text="@string/home_address"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
         android:id="@+id/city"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
         android:text="@string/home_city"
-        android:layout_marginTop="25dp" />
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <Button
+        android:id="@+id/edit_account"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/home_edit_account_link"
-        android:id="@+id/edit_account"
+        android:layout_marginTop="25dp"
         android:onClick="navigateToEditarContaFragment"
-        android:layout_marginTop="25dp"/>
+        android:text="@string/home_edit_account_link" />
 </LinearLayout>

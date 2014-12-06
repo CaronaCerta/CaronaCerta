@@ -17,14 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
-
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,31 +34,24 @@ import br.com.caronacerta.caronacerta.fragment.OferecerCaronasFragment;
 import br.com.caronacerta.caronacerta.fragment.ProcurarCaronasFragment;
 import br.com.caronacerta.caronacerta.fragment.VisualizarContaFragment;
 import br.com.caronacerta.caronacerta.model.NavDrawerItem;
-import br.com.caronacerta.caronacerta.util.RequestUtil;
 import br.com.caronacerta.caronacerta.util.SessionUtil;
-import br.com.caronacerta.caronacerta.util.Validation;
 
 public class MainActivity extends Activity {
-    private DrawerLayout mDrawerLayout;
-    private ListView mDrawerList;
-    private ActionBarDrawerToggle mDrawerToggle;
-
-    // nav drawer title
-    private CharSequence mDrawerTitle;
-
-    // used to store app title
-    private CharSequence mTitle;
-
-    // slide menu items
-    private String[] navMenuTitles;
-    private TypedArray navMenuIcons;
-
-    private ArrayList<NavDrawerItem> navDrawerItems;
-    private NavDrawerListAdapter adapter;
-
     public static List<String> caronasAvailable;
     public static List<String> caronasELVGroup;
     public static HashMap<String, List<String>> caronasELVChild;
+    private DrawerLayout mDrawerLayout;
+    private ListView mDrawerList;
+    private ActionBarDrawerToggle mDrawerToggle;
+    // nav drawer title
+    private CharSequence mDrawerTitle;
+    // used to store app title
+    private CharSequence mTitle;
+    // slide menu items
+    private String[] navMenuTitles;
+    private TypedArray navMenuIcons;
+    private ArrayList<NavDrawerItem> navDrawerItems;
+    private NavDrawerListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -142,19 +128,6 @@ public class MainActivity extends Activity {
         }
     }
 
-    /**
-     * Slide menu item click listener
-     */
-    private class SlideMenuClickListener implements
-            ListView.OnItemClickListener {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position,
-                                long id) {
-            // display view for selected nav drawer item
-            displayView(position);
-        }
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
@@ -170,7 +143,7 @@ public class MainActivity extends Activity {
         // Handle action bar actions click
         switch (item.getItemId()) {
             case R.id.action_settings: // TODO: create the settings
-               return true;
+                return true;
             case R.id.action_profile:
                 navigateToFragment(R.string.visualizar_conta_title, new VisualizarContaFragment());
                 return true;
@@ -259,7 +232,6 @@ public class MainActivity extends Activity {
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
 
-
     /**
      * Method which navigates from Login Activity to Home Activity
      */
@@ -268,7 +240,6 @@ public class MainActivity extends Activity {
         loginActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(loginActivity);
     }
-
 
     /*
      * Preparing the list data
@@ -332,5 +303,18 @@ public class MainActivity extends Activity {
      */
     public void navigateToEditarContaFragment(View view) {
         navigateToFragment(R.string.action_profile, new EditarContaFragment());
+    }
+
+    /**
+     * Slide menu item click listener
+     */
+    private class SlideMenuClickListener implements
+            ListView.OnItemClickListener {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position,
+                                long id) {
+            // display view for selected nav drawer item
+            displayView(position);
+        }
     }
 }

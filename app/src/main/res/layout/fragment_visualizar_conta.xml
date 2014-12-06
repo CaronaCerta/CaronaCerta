@@ -5,69 +5,69 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/title"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="fill_vertical"
+        android:layout_marginTop="20pt"
         android:gravity="center_horizontal"
         android:text="@string/visualizar_conta_title"
-        android:layout_marginTop="20pt"
         android:textSize="25sp"
-        android:typeface="sans"
-        android:id="@+id/title" />
+        android:typeface="sans" />
 
     <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
         android:text="@string/visualizar_conta_name"
-        android:layout_marginTop="35dp" />
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/email"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
         android:text="@string/visualizar_conta_email"
-        android:layout_marginTop="35dp" />
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/birthday"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
         android:text="@string/visualizar_conta_birthday"
-        android:layout_marginTop="25dp" />
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/phone"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
         android:text="@string/visualizar_conta_phone"
-        android:layout_marginTop="25dp" />
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/address"
-        android:text="@string/visualizar_conta_address"
-        android:layout_marginTop="25dp" />
-
-    <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginTop="25dp"
+        android:text="@string/visualizar_conta_address"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
         android:id="@+id/city"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
         android:text="@string/visualizar_conta_city"
-        android:layout_marginTop="25dp" />
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <Button
+        android:id="@+id/edit_account"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/visualizar_conta_edit_account_link"
-        android:id="@+id/edit_account"
+        android:layout_marginTop="25dp"
         android:onClick="navigateToEditarContaFragment"
-        android:layout_marginTop="25dp"/>
+        android:text="@string/visualizar_conta_edit_account_link" />
 </LinearLayout>

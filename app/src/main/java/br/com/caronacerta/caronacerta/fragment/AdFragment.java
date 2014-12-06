@@ -3,7 +3,6 @@ package br.com.caronacerta.caronacerta.fragment;
 
 import android.app.Fragment;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
