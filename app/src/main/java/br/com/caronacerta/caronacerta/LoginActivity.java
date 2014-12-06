@@ -37,12 +37,6 @@ public class LoginActivity extends BasicActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // User is already logged in
-        if (SessionUtil.isLoggedIn(getApplicationContext())) {
-            navigateToMainActivity();
-            return;
-        }
-
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
