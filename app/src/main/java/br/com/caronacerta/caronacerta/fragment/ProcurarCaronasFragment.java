@@ -1,7 +1,6 @@
 package br.com.caronacerta.caronacerta.fragment;
 
 import android.app.AlertDialog;
-import android.app.Fragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,7 +12,7 @@ import android.widget.Button;
 import br.com.caronacerta.caronacerta.R;
 import br.com.caronacerta.caronacerta.adapter.PlacesAutoCompleteAdapter;
 
-public class ProcurarCaronasFragment extends Fragment {
+public class ProcurarCaronasFragment extends BasicFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

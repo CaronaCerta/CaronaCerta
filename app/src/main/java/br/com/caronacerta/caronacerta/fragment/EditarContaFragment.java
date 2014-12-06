@@ -1,7 +1,5 @@
 package br.com.caronacerta.caronacerta.fragment;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -26,7 +24,7 @@ import br.com.caronacerta.caronacerta.util.RequestUtil;
 import br.com.caronacerta.caronacerta.util.SessionUtil;
 import br.com.caronacerta.caronacerta.util.Validation;
 
-public class EditarContaFragment extends Fragment implements View.OnClickListener {
+public class EditarContaFragment extends BasicFragment implements View.OnClickListener {
     String userId = null;
 
     // Email Edit View Object
@@ -169,16 +167,6 @@ public class EditarContaFragment extends Fragment implements View.OnClickListene
             Toast.makeText(getActivity().getApplicationContext(), R.string.editar_conta_null_fields_message, Toast.LENGTH_LONG).show();
         }
 
-    }
-
-    public void navigateToFragment(int resId, Fragment fragment) {
-        navigateToFragment(getString(resId), fragment);
-    }
-
-    public void navigateToFragment(String title, Fragment fragment) {
-        getActivity().setTitle(title);
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.frame_container, fragment).commit();
     }
 
     @Override

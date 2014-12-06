@@ -1,8 +1,6 @@
 package br.com.caronacerta.caronacerta;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
@@ -25,7 +23,7 @@ import br.com.caronacerta.caronacerta.util.Validation;
 /**
  * Login Activity Class
  */
-public class LoginActivity extends Activity {
+public class LoginActivity extends BasicActivity {
     // Progress Dialog Object
     ProgressDialog prgDialog;
     // Error Msg TextView Object
@@ -104,24 +102,5 @@ public class LoginActivity extends Activity {
 
     }
 
-    /**
-     * Method gets triggered when Register button is clicked
-     *
-     * @param view
-     */
-    public void navigateToRegisterActivity(View view) {
-        Intent loginIntent = new Intent(getApplicationContext(), RegisterActivity.class);
-        loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(loginIntent);
-    }
 
-    /**
-     * Method which navigates from Login Activity to Home Activity
-     */
-    public void navigateToMainActivity() {
-        Intent mainIntent = new Intent(getApplicationContext(), MainActivity.class);
-        mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(mainIntent);
-        finish();
-    }
 }

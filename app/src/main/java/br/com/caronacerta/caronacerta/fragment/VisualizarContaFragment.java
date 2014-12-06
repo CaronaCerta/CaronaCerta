@@ -1,6 +1,5 @@
 package br.com.caronacerta.caronacerta.fragment;
 
-import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,7 +15,7 @@ import br.com.caronacerta.caronacerta.R;
 import br.com.caronacerta.caronacerta.util.RequestUtil;
 import br.com.caronacerta.caronacerta.util.SessionUtil;
 
-public class VisualizarContaFragment extends Fragment {
+public class VisualizarContaFragment extends BasicFragment {
 
     public VisualizarContaFragment() {
     }

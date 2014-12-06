@@ -14,6 +14,7 @@ public class RidesProvider extends ContentProvider {
     private static final UriMatcher sUriMatcher = buildUriMatcher();
     private static final int RIDES = 100;
     private static final SQLiteQueryBuilder sRidesQueryBuilder;
+
     static {
         sRidesQueryBuilder = new SQLiteQueryBuilder();
         sRidesQueryBuilder.setTables(
@@ -24,6 +25,7 @@ public class RidesProvider extends ContentProvider {
                         " = " + RidesContract.RidesGroupEntry.TABLE_NAME +
                         "." + RidesContract.RidesGroupEntry._ID);
     }
+
     private RidesDbHelper mOpenHelper;
 
     private static UriMatcher buildUriMatcher() {

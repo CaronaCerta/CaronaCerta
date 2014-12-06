@@ -1,7 +1,6 @@
 package br.com.caronacerta.caronacerta.fragment;
 
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +14,7 @@ import br.com.caronacerta.caronacerta.R;
 /**
  * This class makes the ad request and loads the ad.
  */
-public class AdFragment extends Fragment {
+public class AdFragment extends BasicFragment {
 
     private AdView mAdView;
 

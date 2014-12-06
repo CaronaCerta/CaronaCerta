@@ -1,7 +1,6 @@
 package br.com.caronacerta.caronacerta.fragment;
 
 import android.app.AlertDialog;
-import android.app.Fragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,7 +30,7 @@ import java.util.List;
 import br.com.caronacerta.caronacerta.MainActivity;
 import br.com.caronacerta.caronacerta.R;
 
-public class AdicionarCaronasFragment extends Fragment {
+public class AdicionarCaronasFragment extends BasicFragment {
 
 
     /* AUTOCOMPLETE API */
@@ -40,6 +39,7 @@ public class AdicionarCaronasFragment extends Fragment {
     public static final String TYPE_AUTOCOMPLETE = "/autocomplete";
     public static final String OUT_JSON = "/json";
     public static final String API_KEY = "AIzaSyC_n8kc6HNTM2yUlLm-ztqbTApWlueLhxo";
+
     public AdicionarCaronasFragment() {
     }
 

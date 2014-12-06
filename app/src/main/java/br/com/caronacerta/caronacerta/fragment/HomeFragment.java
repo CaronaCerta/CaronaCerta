@@ -1,7 +1,5 @@
 package br.com.caronacerta.caronacerta.fragment;
 
-import android.app.Fragment;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,12 +9,11 @@ import android.widget.Toast;
 
 import org.json.JSONObject;
 
-import br.com.caronacerta.caronacerta.LoginActivity;
 import br.com.caronacerta.caronacerta.R;
 import br.com.caronacerta.caronacerta.util.RequestUtil;
 import br.com.caronacerta.caronacerta.util.SessionUtil;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends BasicFragment {
 
     public HomeFragment() {
     }
@@ -29,9 +26,7 @@ public class HomeFragment extends Fragment {
         if (!SessionUtil.isLoggedIn(getActivity().getApplicationContext())) {
             SessionUtil.logout(getActivity().getApplicationContext());
             Toast.makeText(getActivity().getApplicationContext(), R.string.session_timeout, Toast.LENGTH_LONG).show();
-            Intent loginActivity = new Intent(getActivity().getApplicationContext(), LoginActivity.class);
-            loginActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(loginActivity);
+            navigateToLoginActivity();
         } else {
             JSONObject jsonObject = RequestUtil.getData("usuario/me", SessionUtil.getToken(getActivity().getApplicationContext()));
 
@@ -53,16 +48,12 @@ public class HomeFragment extends Fragment {
                 } else {
                     SessionUtil.logout(getActivity().getApplicationContext());
                     Toast.makeText(getActivity().getApplicationContext(), R.string.session_timeout, Toast.LENGTH_LONG).show();
-                    Intent loginActivity = new Intent(getActivity().getApplicationContext(), LoginActivity.class);
-                    loginActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(loginActivity);
+                    navigateToLoginActivity();
                 }
             } catch (Exception e) {
                 SessionUtil.logout(getActivity().getApplicationContext());
                 Toast.makeText(getActivity().getApplicationContext(), R.string.session_timeout, Toast.LENGTH_LONG).show();
-                Intent loginActivity = new Intent(getActivity().getApplicationContext(), LoginActivity.class);
-                loginActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(loginActivity);
+                navigateToLoginActivity();
                 e.printStackTrace();
             }
         }

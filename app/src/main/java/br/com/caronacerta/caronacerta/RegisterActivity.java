@@ -1,8 +1,6 @@
 package br.com.caronacerta.caronacerta;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
@@ -24,7 +22,7 @@ import br.com.caronacerta.caronacerta.util.Validation;
 /**
  * Register Activity Class
  */
-public class RegisterActivity extends Activity {
+public class RegisterActivity extends BasicActivity {
     // Progress Dialog Object
     ProgressDialog prgDialog;
     // Email Edit View Object
@@ -146,25 +144,5 @@ public class RegisterActivity extends Activity {
             Toast.makeText(getApplicationContext(), R.string.register_null_fields_message, Toast.LENGTH_LONG).show();
         }
 
-    }
-
-    /**
-     * Method which navigates from Register Activity to Login Activity
-     */
-    public void navigateToLoginActivity(View view) {
-        Intent loginIntent = new Intent(getApplicationContext(), LoginActivity.class);
-        // Clears History of Activity
-        loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(loginIntent);
-    }
-
-    /**
-     * Method which navigates from Login Activity to Home Activity
-     */
-    public void navigateToMainActivity() {
-        Intent mainIntent = new Intent(getApplicationContext(), MainActivity.class);
-        mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(mainIntent);
-        finish();
     }
 }

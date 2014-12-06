@@ -15,7 +15,7 @@ import br.com.caronacerta.caronacerta.R;
 import br.com.caronacerta.caronacerta.adapter.ExpandableListAdapter;
 import br.com.caronacerta.caronacerta.contract.RidesContract;
 
-public class CaronasFragment extends Fragment {
+public class CaronasFragment extends BasicFragment {
 
     private static final int RIDES_LOADER = 0;
     private static final String[] COLUMN_GROUP_NAME = {

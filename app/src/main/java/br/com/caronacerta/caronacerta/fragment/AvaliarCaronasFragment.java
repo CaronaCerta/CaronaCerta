@@ -1,7 +1,6 @@
 package br.com.caronacerta.caronacerta.fragment;
 
 import android.app.AlertDialog;
-import android.app.Fragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,7 +9,7 @@ import android.view.ViewGroup;
 
 import br.com.caronacerta.caronacerta.R;
 
-public class AvaliarCaronasFragment extends Fragment {
+public class AvaliarCaronasFragment extends BasicFragment {
 
     public AvaliarCaronasFragment() {
     }

@@ -1,11 +1,8 @@
 package br.com.caronacerta.caronacerta;
 
 import android.app.ActionBar;
-import android.app.Activity;
 import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.ContentValues;
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -28,7 +25,6 @@ import br.com.caronacerta.caronacerta.adapter.NavDrawerListAdapter;
 import br.com.caronacerta.caronacerta.contract.RidesContract;
 import br.com.caronacerta.caronacerta.fragment.AvaliarCaronasFragment;
 import br.com.caronacerta.caronacerta.fragment.CaronasFragment;
-import br.com.caronacerta.caronacerta.fragment.EditarContaFragment;
 import br.com.caronacerta.caronacerta.fragment.HomeFragment;
 import br.com.caronacerta.caronacerta.fragment.OferecerCaronasFragment;
 import br.com.caronacerta.caronacerta.fragment.ProcurarCaronasFragment;
@@ -36,7 +32,7 @@ import br.com.caronacerta.caronacerta.fragment.VisualizarContaFragment;
 import br.com.caronacerta.caronacerta.model.NavDrawerItem;
 import br.com.caronacerta.caronacerta.util.SessionUtil;
 
-public class MainActivity extends Activity {
+public class MainActivity extends BasicActivity {
     public static List<String> caronasAvailable;
     public static List<String> caronasELVGroup;
     public static HashMap<String, List<String>> caronasELVChild;
@@ -232,15 +228,6 @@ public class MainActivity extends Activity {
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
 
-    /**
-     * Method which navigates from Login Activity to Home Activity
-     */
-    public void navigateToLoginActivity() {
-        Intent loginActivity = new Intent(getApplicationContext(), LoginActivity.class);
-        loginActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(loginActivity);
-    }
-
     /*
      * Preparing the list data
      */
@@ -284,25 +271,6 @@ public class MainActivity extends Activity {
         /* Caronas disponiveis */
         caronasAvailable = new ArrayList<String>();
 
-    }
-
-    public void navigateToFragment(int resId, Fragment fragment) {
-        navigateToFragment(getString(resId), fragment);
-    }
-
-    public void navigateToFragment(String title, Fragment fragment) {
-        setTitle(title);
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.frame_container, fragment).commit();
-    }
-
-    /**
-     * Method gets triggered when Edit account button is clicked
-     *
-     * @param view
-     */
-    public void navigateToEditarContaFragment(View view) {
-        navigateToFragment(R.string.action_profile, new EditarContaFragment());
     }
 
     /**
