@@ -3,6 +3,8 @@ package br.com.caronacerta.caronacerta;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.support.v4.widget.DrawerLayout;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -24,10 +26,6 @@ import br.com.caronacerta.caronacerta.util.Validation;
  * Login Activity Class
  */
 public class LoginActivity extends BasicActivity {
-    // Progress Dialog Object
-    ProgressDialog prgDialog;
-    // Error Msg TextView Object
-    TextView errorMsg;
     // Email Edit View Object
     EditText emailET;
     // Passwprd Edit View Object
@@ -36,23 +34,15 @@ public class LoginActivity extends BasicActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
-
-        setContentView(R.layout.activity_login);
-        // Find Error Msg Text View control by ID
-        errorMsg = (TextView) findViewById(R.id.loginError);
+        setActionBarIcon(R.drawable.ic_launcher);
         // Find Email Edit View control by ID
         emailET = (EditText) findViewById(R.id.loginEmail);
         // Find Password Edit View control by ID
         passwordET = (EditText) findViewById(R.id.loginPassword);
-        // Instantiate Progress Dialog object
-        prgDialog = new ProgressDialog(this);
-        // Set Progress Dialog Text
-        prgDialog.setMessage(getString(R.string.process_dialog));
-        // Set Cancelable as False
-        prgDialog.setCancelable(false);
+    }
+
+    @Override protected int getLayoutResource() {
+        return R.layout.activity_login;
     }
 
     public void loginUser(View view) throws JSONException {

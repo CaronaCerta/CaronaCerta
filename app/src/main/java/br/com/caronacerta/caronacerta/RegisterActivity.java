@@ -2,7 +2,6 @@ package br.com.caronacerta.caronacerta;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -23,8 +22,6 @@ import br.com.caronacerta.caronacerta.util.Validation;
  * Register Activity Class
  */
 public class RegisterActivity extends BasicActivity {
-    // Progress Dialog Object
-    ProgressDialog prgDialog;
     // Email Edit View Object
     EditText emailET;
     // Password Edit View Object
@@ -43,17 +40,8 @@ public class RegisterActivity extends BasicActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setActionBarIcon(R.drawable.ic_launcher);
 
-        // User is already logged in
-        if (SessionUtil.isLoggedIn(getApplicationContext())) {
-            navigateToMainActivity();
-            return;
-        }
-
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
-
-        setContentView(R.layout.activity_register);
         // Find Email Edit View control by ID
         emailET = (EditText) findViewById(R.id.registerEmail);
         // Find Password Edit View control by ID
@@ -68,13 +56,11 @@ public class RegisterActivity extends BasicActivity {
         addressET = (EditText) findViewById(R.id.registerAddress);
         // Find City Edit View control by ID
         cityET = (EditText) findViewById(R.id.registerCity);
+    }
 
-        // Instantiate Progress Dialog object
-        prgDialog = new ProgressDialog(this);
-        // Set Progress Dialog Text
-        prgDialog.setMessage(getString(R.string.process_dialog));
-        // Set Cancelable as False
-        prgDialog.setCancelable(false);
+    @Override
+    protected int getLayoutResource() {
+        return R.layout.activity_register;
     }
 
     /**

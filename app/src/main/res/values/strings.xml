@@ -25,7 +25,4 @@
     <string name="add_caronas_name_hint">Nome</string>
     <string name="add_caronas_num_hint">Celular</string>
     <string name="add_minhas_caronas">Adicionar Minhas Caronas</string>
-    <string name="title_activity_slash">SlashActivity</string>
-    <string name="hello_world">Hello world!</string>
-
 </resources>

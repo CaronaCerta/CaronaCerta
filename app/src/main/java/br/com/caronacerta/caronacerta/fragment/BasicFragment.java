@@ -7,7 +7,7 @@ import android.content.Intent;
 import br.com.caronacerta.caronacerta.LoginActivity;
 import br.com.caronacerta.caronacerta.R;
 
-public class BasicFragment extends Fragment {
+public abstract class BasicFragment extends Fragment {
     public void navigateToFragment(int resId, Fragment fragment) {
         navigateToFragment(getString(resId), fragment);
     }

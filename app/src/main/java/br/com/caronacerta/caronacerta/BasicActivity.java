@@ -4,11 +4,38 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.os.Bundle;
+import android.os.StrictMode;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import br.com.caronacerta.caronacerta.fragment.EditarContaFragment;
 
-public class BasicActivity extends Activity {
+public abstract class BasicActivity extends ActionBarActivity {
+
+    private Toolbar toolbar;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
+        setContentView(getLayoutResource());
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        if (toolbar != null) {
+            setSupportActionBar(toolbar);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+    }
+
+    protected abstract int getLayoutResource();
+
+    protected void setActionBarIcon(int iconRes) {
+        toolbar.setNavigationIcon(iconRes);
+    }
 
     public void navigateToLoginActivity() {
         navigateToActivity(LoginActivity.class);

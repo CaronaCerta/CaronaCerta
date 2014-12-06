@@ -7,6 +7,10 @@
     android:orientation="vertical"
     tools:context=".RegisterActivity">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
+
     <fragment
         android:id="@+id/adFragment"
         android:name="br.com.caronacerta.caronacerta.fragment.AdFragment"
