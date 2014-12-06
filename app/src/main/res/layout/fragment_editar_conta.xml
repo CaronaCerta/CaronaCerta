@@ -1,7 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20pt"
+        android:layout_gravity="fill_vertical"
+        android:gravity="center_horizontal"
+        android:text="@string/editar_conta_title"
+        android:textSize="25sp"
+        android:typeface="sans"
+        android:id="@+id/title" />
 
-</RelativeLayout>
+    <!-- Email Label -->
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editar_conta_email"
+        android:text="@string/editar_conta_email"
+        android:layout_marginTop="35dp"/>
+
+    <!-- Email TextField -->
+    <EditText
+        android:id="@+id/editEmail"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/editar_conta_email_hint"
+        android:inputType="textEmailAddress"/>
+
+    <!-- Password Label -->
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dip"
+        android:text="@string/editar_conta_password" />
+
+    <!-- Password TextField -->
+    <EditText
+        android:id="@+id/editPassword"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/editar_conta_password_hint"
+        android:inputType="textPassword" />
+
+    <!-- Name Label -->
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/editar_conta_name" />
+
+    <!-- Name TextField -->
+    <EditText
+        android:id="@+id/editName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/editar_conta_name_hint"
+        android:inputType="textPersonName" />
+
+    <!-- Birthday Label -->
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/editar_conta_birthday" />
+
+    <!-- Birthday TextField -->
+    <EditText
+        android:id="@+id/editBirthday"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/editar_conta_birthday_hint"
+        android:inputType="date" />
+
+    <!-- Phone Label -->
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/editar_conta_phone" />
+
+    <!-- Phone TextField -->
+    <EditText
+        android:id="@+id/editPhone"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/editar_conta_phone_hint"
+        android:inputType="phone"/>
+
+    <!-- Address Label -->
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/editar_conta_address" />
+
+    <!-- Address TextField -->
+    <EditText
+        android:id="@+id/editAddress"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/editar_conta_address_hint"
+        android:inputType="text" />
+
+    <!-- City Label -->
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/editar_conta_city" />
+
+    <!-- City TextField -->
+    <EditText
+        android:id="@+id/editCity"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/editar_conta_city_hint"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/btnEdit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip"
+        android:background="#ff6347"
+        android:text="@string/editar_conta_button"
+        android:textColor="#fff" />
+</LinearLayout>

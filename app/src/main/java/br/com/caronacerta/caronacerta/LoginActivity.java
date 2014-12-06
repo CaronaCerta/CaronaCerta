@@ -3,7 +3,6 @@ package br.com.caronacerta.caronacerta;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
@@ -21,7 +20,6 @@ import java.util.List;
 
 import br.com.caronacerta.caronacerta.util.RequestUtil;
 import br.com.caronacerta.caronacerta.util.SessionUtil;
-import br.com.caronacerta.caronacerta.util.SharedPreferencesUtil;
 import br.com.caronacerta.caronacerta.util.Validation;
 
 /**

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="visualizar_conta_title">Conta</string>
+    <string name="visualizar_conta_name">Nome</string>
+    <string name="visualizar_conta_email">Email</string>
+    <string name="visualizar_conta_birthday">Data de nascimento</string>
+    <string name="visualizar_conta_phone">Telefone</string>
+    <string name="visualizar_conta_address">Endereço</string>
+    <string name="visualizar_conta_city">Cidade</string>
+    <string name="visualizar_conta_edit_account_link">Editar conta</string>
+</resources>

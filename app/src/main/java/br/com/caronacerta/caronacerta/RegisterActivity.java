@@ -3,7 +3,6 @@ package br.com.caronacerta.caronacerta;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
@@ -21,7 +20,6 @@ import java.util.List;
 
 import br.com.caronacerta.caronacerta.util.RequestUtil;
 import br.com.caronacerta.caronacerta.util.SessionUtil;
-import br.com.caronacerta.caronacerta.util.SharedPreferencesUtil;
 import br.com.caronacerta.caronacerta.util.Validation;
 
 /**
@@ -30,8 +28,6 @@ import br.com.caronacerta.caronacerta.util.Validation;
 public class RegisterActivity extends Activity {
     // Progress Dialog Object
     ProgressDialog prgDialog;
-    // Error Msg TextView Object
-    TextView errorMsg;
     // Email Edit View Object
     EditText emailET;
     // Password Edit View Object
@@ -61,8 +57,6 @@ public class RegisterActivity extends Activity {
         StrictMode.setThreadPolicy(policy);
 
         setContentView(R.layout.activity_register);
-        // Find Error Msg Text View control by ID
-        errorMsg = (TextView) findViewById(R.id.registerError);
         // Find Email Edit View control by ID
         emailET = (EditText) findViewById(R.id.registerEmail);
         // Find Password Edit View control by ID

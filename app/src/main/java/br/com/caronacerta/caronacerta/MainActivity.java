@@ -17,7 +17,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,8 +39,11 @@ import br.com.caronacerta.caronacerta.fragment.EditarContaFragment;
 import br.com.caronacerta.caronacerta.fragment.HomeFragment;
 import br.com.caronacerta.caronacerta.fragment.OferecerCaronasFragment;
 import br.com.caronacerta.caronacerta.fragment.ProcurarCaronasFragment;
+import br.com.caronacerta.caronacerta.fragment.VisualizarContaFragment;
 import br.com.caronacerta.caronacerta.model.NavDrawerItem;
+import br.com.caronacerta.caronacerta.util.RequestUtil;
 import br.com.caronacerta.caronacerta.util.SessionUtil;
+import br.com.caronacerta.caronacerta.util.Validation;
 
 public class MainActivity extends Activity {
     private DrawerLayout mDrawerLayout;
@@ -78,7 +88,7 @@ public class MainActivity extends Activity {
         navMenuIcons = getResources()
                 .obtainTypedArray(R.array.nav_drawer_icons);
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.main_layout);
         mDrawerList = (ListView) findViewById(R.id.list_slidermenu);
 
         navDrawerItems = new ArrayList<NavDrawerItem>();
@@ -159,11 +169,14 @@ public class MainActivity extends Activity {
         }
         // Handle action bar actions click
         switch (item.getItemId()) {
-//            case R.id.action_settings: TODO: create the edit profile here
-//               return true;
+            case R.id.action_settings: // TODO: create the settings
+               return true;
+            case R.id.action_profile:
+                navigateToFragment(R.string.visualizar_conta_title, new VisualizarContaFragment());
+                return true;
             case R.id.action_logout:
                 SessionUtil.logout(getApplicationContext());
-                navigatetoLoginActivity();
+                navigateToLoginActivity();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -209,14 +222,11 @@ public class MainActivity extends Activity {
         }
 
         if (fragment != null) {
-            FragmentManager fragmentManager = getFragmentManager();
-            fragmentManager.beginTransaction()
-                    .replace(R.id.frame_container, fragment).commit();
+            navigateToFragment(navMenuTitles[position], fragment);
 
             // update selected item and title, then close the drawer
             mDrawerList.setItemChecked(position, true);
             mDrawerList.setSelection(position);
-            setTitle(navMenuTitles[position]);
             mDrawerLayout.closeDrawer(mDrawerList);
         } else {
             // error in creating fragment
@@ -253,7 +263,7 @@ public class MainActivity extends Activity {
     /**
      * Method which navigates from Login Activity to Home Activity
      */
-    public void navigatetoLoginActivity() {
+    public void navigateToLoginActivity() {
         Intent loginActivity = new Intent(getApplicationContext(), LoginActivity.class);
         loginActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(loginActivity);
@@ -305,15 +315,22 @@ public class MainActivity extends Activity {
 
     }
 
+    public void navigateToFragment(int resId, Fragment fragment) {
+        navigateToFragment(getString(resId), fragment);
+    }
+
+    public void navigateToFragment(String title, Fragment fragment) {
+        setTitle(title);
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.frame_container, fragment).commit();
+    }
+
     /**
      * Method gets triggered when Edit account button is clicked
      *
      * @param view
      */
     public void navigateToEditarContaFragment(View view) {
-        Fragment fragment = new EditarContaFragment();
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.frame_container, fragment).commit();
+        navigateToFragment(R.string.action_profile, new EditarContaFragment());
     }
 }

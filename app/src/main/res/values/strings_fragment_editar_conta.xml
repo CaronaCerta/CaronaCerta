@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="editar_conta_title">Editar conta</string>
+
+    <string name="editar_conta_email">Email</string>
+    <string name="editar_conta_email_hint">Digite seu email</string>
+
+    <string name="editar_conta_password">Senha</string>
+    <string name="editar_conta_password_hint">Digite sua senha</string>
+
+    <string name="editar_conta_name">Nome</string>
+    <string name="editar_conta_name_hint">Digite seu nome</string>
+
+    <string name="editar_conta_birthday">Data de nascimento</string>
+    <string name="editar_conta_birthday_hint">Digite sua data de nascimento</string>
+
+    <string name="editar_conta_phone">Telefone</string>
+    <string name="editar_conta_phone_hint">Digite seu telefone</string>
+
+    <string name="editar_conta_address">Endereço</string>
+    <string name="editar_conta_address_hint">Digite seu endereço</string>
+
+    <string name="editar_conta_city">Cidade</string>
+    <string name="editar_conta_city_hint">Digite sua cidade</string>
+
+    <string name="editar_conta_button">Salvar</string>
+
+    <string name="editar_conta_success_message">Conta editada com sucesso</string>
+    <string name="editar_conta_error_message">Error creating the user</string>
+    <string name="editar_conta_invalid_email_message">Please enter valid email</string>
+    <string name="editar_conta_null_fields_message">Please fill the form, don\'t leave any field blank</string>
+</resources>

@@ -4,12 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".RegisterActivity">
 
     <fragment
@@ -27,7 +22,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="5dip">
+            android:padding="10dip">
 
             <!-- View Title Label -->
             <TextView
@@ -120,7 +115,8 @@
                 android:id="@+id/registerAddress"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/register_address_hint" />
+                android:hint="@string/register_address_hint"
+                android:inputType="text" />
 
             <!-- City Label -->
             <TextView
@@ -133,17 +129,8 @@
                 android:id="@+id/registerCity"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/register_city_hint" />
-
-            <!-- Error message -->
-            <TextView
-                android:id="@+id/registerError"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="10dip"
-                android:textColor="#e30000"
-                android:textStyle="bold" />
+                android:hint="@string/register_city_hint"
+                android:inputType="text" />
 
             <Button
                 android:id="@+id/btnRegister"
