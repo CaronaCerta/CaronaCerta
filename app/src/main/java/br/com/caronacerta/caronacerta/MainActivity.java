@@ -139,7 +139,8 @@ public class MainActivity extends BasicActivity {
         }
         // Handle action bar actions click
         switch (item.getItemId()) {
-            case R.id.action_settings: // TODO: create the settings
+            case R.id.action_settings:
+                navigateToSettingsActivity();
                 return true;
             case R.id.action_profile:
                 navigateToFragment(R.string.visualizar_conta_title, new VisualizarContaFragment());

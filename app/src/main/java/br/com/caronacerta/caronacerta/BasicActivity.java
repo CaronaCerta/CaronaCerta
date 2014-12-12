@@ -1,6 +1,5 @@
 package br.com.caronacerta.caronacerta;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
@@ -31,6 +30,16 @@ public abstract class BasicActivity extends ActionBarActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        FragmentManager fm = getFragmentManager();
+        if (fm.getBackStackEntryCount() > 0) {
+            fm.popBackStack();
+        } else {
+            super.onBackPressed();
+        }
+    }
+
     protected abstract int getLayoutResource();
 
     protected void setActionBarIcon(int iconRes) {
@@ -38,7 +47,11 @@ public abstract class BasicActivity extends ActionBarActivity {
     }
 
     public void navigateToLoginActivity() {
-        navigateToActivity(LoginActivity.class);
+        navigateToActivity(LoginActivity.class, true);
+    }
+
+    public void navigateToSettingsActivity() {
+        navigateToActivity(SettingsActivity.class);
     }
 
     /**
@@ -61,15 +74,21 @@ public abstract class BasicActivity extends ActionBarActivity {
      * Method which navigates from Login Activity to Home Activity
      */
     public void navigateToMainActivity() {
-        navigateToActivity(MainActivity.class);
-        finish();
+        navigateToActivity(MainActivity.class, true);
     }
 
     public void navigateToActivity(Class<?> cls) {
+        navigateToActivity(cls, false);
+    }
+
+    public void navigateToActivity(Class<?> cls, boolean finish) {
         Intent mainIntent = new Intent(getApplicationContext(), cls);
         mainIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(mainIntent);
-        finish();
+
+        if (finish) {
+            finish();
+        }
     }
 
 
@@ -90,6 +109,9 @@ public abstract class BasicActivity extends ActionBarActivity {
     public void navigateToFragment(String title, Fragment fragment) {
         setTitle(title);
         FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.frame_container, fragment).commit();
+        fragmentManager.beginTransaction()
+                .replace(R.id.frame_container, fragment)
+                .addToBackStack(null)
+                .commit();
     }
 }
