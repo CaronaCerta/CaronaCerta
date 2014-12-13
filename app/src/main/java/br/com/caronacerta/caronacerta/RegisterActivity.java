@@ -108,7 +108,8 @@ public class RegisterActivity extends BasicActivity {
                 try {
                     if (!jsonObject.getBoolean("error")) {
                         String sessionkey = jsonObject.getJSONObject("session").getString("key");
-                        SessionUtil.saveSession(sessionkey, getApplicationContext());
+                        String userId = jsonObject.getJSONObject("usuario").getString("id_usuario");
+                        SessionUtil.saveSession(sessionkey, userId, getApplicationContext());
 
                         navigateToMainActivity();
                     }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="editar_motorista_title">Editar motorista</string>
+
+    <string name="editar_motorista_licence_driver_number">Numero da habilitação</string>
+    <string name="editar_motorista_licence_driver_number_hint">Digite seu numero de habilitação</string>
+    <string name="editar_motorista_licence_driver_date">Data de habilitação</string>
+    <string name="editar_motorista_licence_driver_date_hint">Digite sua data de habilitação</string>
+
+    <string name="editar_motorista_button">Salvar</string>
+
+    <string name="editar_motorista_success_message">Conta editada com sucesso</string>
+    <string name="editar_motorista_error_message">Erro ao editar as informações</string>
+    <string name="editar_motorista_null_fields_message">Please fill the form, don\'t leave any field blank</string>
+</resources>

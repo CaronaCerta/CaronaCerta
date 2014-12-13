@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="visualizar_motorista_title">Informações do motorista</string>
+    <string name="visualizar_motorista_message">Você ainda não é motorista?</string>
+    <string name="visualizar_motorista_licence_driver_number">Numero da habilitação</string>
+    <string name="visualizar_motorista_licence_driver_date">Data de habilitação</string>
+    <string name="visualizar_motorista_criar_motorista_btn">Cadastrar</string>
+    <string name="visualizar_motorista_editar_motorista_btn">Editar</string>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="criar_motorista_title">Criar motorista</string>
+
+    <string name="criar_motorista_licence_driver_number">Numero da habilitação</string>
+    <string name="criar_motorista_licence_driver_number_hint">Digite seu numero de habilitação</string>
+    <string name="criar_motorista_licence_driver_date">Data de habilitação</string>
+    <string name="criar_motorista_licence_driver_date_hint">Digite sua data de habilitação</string>
+
+    <string name="criar_motorista_button">Criar</string>
+
+    <string name="criar_motorista_success_message">Conta criada com sucesso</string>
+    <string name="criar_motorista_error_message">Erro ao criar conta</string>
+    <string name="criar_motorista_null_fields_message">Please fill the form, don\'t leave any field blank</string>
+</resources>

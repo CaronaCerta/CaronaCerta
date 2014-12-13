@@ -3,11 +3,12 @@ package br.com.caronacerta.caronacerta.util;
 import android.content.SharedPreferences;
 
 public class SessionUtil {
-    public static void saveSession(String sessionkey, android.content.Context applicationContext) {
+    public static void saveSession(String sessionkey, String userId, android.content.Context applicationContext) {
         SharedPreferences.Editor editor = SharedPreferencesUtil.getEditor(applicationContext);
 
         editor.putBoolean("logged_in", true);
         editor.putString("session_key", sessionkey);
+        editor.putString("user_id", userId);
 
         editor.commit();
     }
@@ -25,10 +26,15 @@ public class SessionUtil {
         return pref.getString("session_key", "");
     }
 
+    public static String getUserId(android.content.Context applicationContext) {
+        SharedPreferences pref = SharedPreferencesUtil.getPref(applicationContext);
+
+        return pref.getString("user_id", "");
+    }
+
     public static void logout(android.content.Context applicationContext) {
         // TODO make a request to /logout
         SharedPreferences.Editor editor = SharedPreferencesUtil.getEditor(applicationContext);
-        ;
 
         editor.clear();
         editor.commit();

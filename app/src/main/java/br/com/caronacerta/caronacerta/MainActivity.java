@@ -30,6 +30,7 @@ import br.com.caronacerta.caronacerta.fragment.HomeFragment;
 import br.com.caronacerta.caronacerta.fragment.OferecerCaronasFragment;
 import br.com.caronacerta.caronacerta.fragment.ProcurarCaronasFragment;
 import br.com.caronacerta.caronacerta.fragment.VisualizarContaFragment;
+import br.com.caronacerta.caronacerta.fragment.VisualizarMotoristaFragment;
 import br.com.caronacerta.caronacerta.model.NavDrawerItem;
 import br.com.caronacerta.caronacerta.util.SessionUtil;
 
@@ -176,15 +177,18 @@ public class MainActivity extends BasicActivity {
                 fragment = new HomeFragment();
                 break;
             case 1:
-                fragment = new CaronasFragment();
-                break;
-            case 2:
-                fragment = new OferecerCaronasFragment();
+                fragment = new VisualizarMotoristaFragment();
                 break;
             case 3:
-                fragment = new ProcurarCaronasFragment();
+                fragment = new CaronasFragment();
                 break;
             case 4:
+                fragment = new OferecerCaronasFragment();
+                break;
+            case 5:
+                fragment = new ProcurarCaronasFragment();
+                break;
+            case 6:
                 fragment = new AvaliarCaronasFragment();
                 break;
 

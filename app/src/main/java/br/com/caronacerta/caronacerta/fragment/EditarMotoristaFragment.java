@@ -24,7 +24,7 @@ import br.com.caronacerta.caronacerta.util.RequestUtil;
 import br.com.caronacerta.caronacerta.util.SessionUtil;
 import br.com.caronacerta.caronacerta.util.Validation;
 
-public class EditarContaFragment extends BasicFragment implements View.OnClickListener {
+public class EditarMotoristaFragment extends BasicFragment implements View.OnClickListener {
     String userId = null;
 
     // Email Edit View Object
@@ -42,7 +42,7 @@ public class EditarContaFragment extends BasicFragment implements View.OnClickLi
     // City Edit View Object
     EditText cityET;
 
-    public EditarContaFragment() {
+    public EditarMotoristaFragment() {
     }
 
     @Override

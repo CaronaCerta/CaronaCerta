@@ -3,6 +3,7 @@
     <!-- Nav Drawer Menu Items -->
     <string-array name="nav_drawer_items">
         <item>Home</item>
+        <item>Informações do motorista</item>
         <item>Minhas Caronas</item>
         <item>Oferecer Caronas</item>
         <item>Procurar Caronas</item>
