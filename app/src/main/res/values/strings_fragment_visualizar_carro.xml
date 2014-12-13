@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="visualizar_carro_title">Informações do carro</string>
+    <string name="visualizar_carro_car_model">Modelo</string>
+    <string name="visualizar_carro_car_description">Descrição</string>
+    <string name="visualizar_carro_editar_carro_btn">Editar</string>
+</resources>

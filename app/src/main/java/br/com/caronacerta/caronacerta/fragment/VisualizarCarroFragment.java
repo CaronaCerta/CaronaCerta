@@ -21,49 +21,37 @@ import br.com.caronacerta.caronacerta.R;
 import br.com.caronacerta.caronacerta.util.RequestUtil;
 import br.com.caronacerta.caronacerta.util.SessionUtil;
 
-public class VisualizarMotoristaFragment extends BasicFragment {
+public class VisualizarCarroFragment extends BasicFragment {
 
-    public VisualizarMotoristaFragment() {
+    public VisualizarCarroFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_visualizar_motorista, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_visualizar_carro, container, false);
 
         List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
         nameValuePairs.add(new BasicNameValuePair("id_usuario", SessionUtil.getUserId(getActivity().getApplicationContext())));
         JSONObject jsonObject = RequestUtil.getData("motorista", nameValuePairs, SessionUtil.getToken(getActivity().getApplicationContext()));
 
-
         try {
             if (!jsonObject.getBoolean("error")) {
                 if (jsonObject.getJSONArray("motoristas").length() > 0) {
                     JSONObject driver = (JSONObject) jsonObject.getJSONArray("motoristas").get(0);
-                    String driverLicenseNumber = driver.getString("numero_habilitacao");
-                    String driverLicenseDate = driver.getString("data_habilitacao");
-                    ((TextView) rootView.findViewById(R.id.licence_driver_number)).append(" " + driverLicenseNumber);
-                    ((TextView) rootView.findViewById(R.id.licence_driver_date)).append(" " + driverLicenseDate);
-                    ((Button) rootView.findViewById(R.id.create_driver)).setVisibility(View.GONE);
-                    ((Button) rootView.findViewById(R.id.create_driver)).setVisibility(View.GONE);
-                    ((TextView) rootView.findViewById(R.id.no_driver_message)).setVisibility(View.GONE);
-
-
                     nameValuePairs = new ArrayList<NameValuePair>();
                     nameValuePairs.add(new BasicNameValuePair("id_motorista", driver.getString("id_motorista")));
                     JSONObject jsonObjectCar = RequestUtil.getData("carro", nameValuePairs, SessionUtil.getToken(getActivity().getApplicationContext()));
                     if (!jsonObjectCar.getBoolean("error")) {
                         if (jsonObjectCar.getJSONArray("carros").length() > 0) {
-                            ((Button) rootView.findViewById(R.id.create_car)).setVisibility(View.GONE);
-                        } else {
-                            ((Button) rootView.findViewById(R.id.view_car)).setVisibility(View.GONE);
+                            JSONObject car = (JSONObject) jsonObjectCar.getJSONArray("carros").get(0);
+                            String carModel = car.getString("modelo");
+                            String carDescription = car.getString("descricao");
+                            ((TextView) rootView.findViewById(R.id.model)).append(" " + carModel);
+                            ((TextView) rootView.findViewById(R.id.description)).append(" " + carDescription);
                         }
                     }
 
-                } else {
-                    ((Button) rootView.findViewById(R.id.edit_driver)).setVisibility(View.GONE);
-                    ((TextView) rootView.findViewById(R.id.licence_driver_number)).setVisibility(View.GONE);
-                    ((TextView) rootView.findViewById(R.id.licence_driver_date)).setVisibility(View.GONE);
                 }
 
             } else {

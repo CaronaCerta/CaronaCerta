@@ -9,9 +9,12 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import br.com.caronacerta.caronacerta.fragment.CriarCarroFragment;
 import br.com.caronacerta.caronacerta.fragment.CriarMotoristaFragment;
+import br.com.caronacerta.caronacerta.fragment.EditarCarroFragment;
 import br.com.caronacerta.caronacerta.fragment.EditarContaFragment;
 import br.com.caronacerta.caronacerta.fragment.EditarMotoristaFragment;
+import br.com.caronacerta.caronacerta.fragment.VisualizarCarroFragment;
 
 public abstract class BasicActivity extends ActionBarActivity {
 
@@ -109,6 +112,18 @@ public abstract class BasicActivity extends ActionBarActivity {
 
     public void navigateToCriarMotoristaFragment(View view) {
         navigateToFragment(R.string.criar_motorista_title, new CriarMotoristaFragment());
+    }
+
+    public void navigateToCriarCarroFragment(View view) {
+        navigateToFragment(R.string.criar_carro_title, new CriarCarroFragment());
+    }
+
+    public void navigateToEditarCarroFragment(View view) {
+        navigateToFragment(R.string.editar_carro_title, new EditarCarroFragment());
+    }
+
+    public void navigateToVisualizarCarroFragment(View view) {
+        navigateToFragment(R.string.visualizar_carro_title, new VisualizarCarroFragment());
     }
 
     public void navigateToFragment(int resId, Fragment fragment) {

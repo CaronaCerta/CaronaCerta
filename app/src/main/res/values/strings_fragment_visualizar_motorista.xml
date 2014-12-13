@@ -6,4 +6,6 @@
     <string name="visualizar_motorista_licence_driver_date">Data de habilitação</string>
     <string name="visualizar_motorista_criar_motorista_btn">Cadastrar</string>
     <string name="visualizar_motorista_editar_motorista_btn">Editar</string>
+    <string name="visualizar_motorista_visualizar_carro_btn">Visualizar Carro</string>
+    <string name="visualizar_motorista_criar_carro_btn">Criar Carro</string>
 </resources>

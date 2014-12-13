@@ -179,16 +179,16 @@ public class MainActivity extends BasicActivity {
             case 1:
                 fragment = new VisualizarMotoristaFragment();
                 break;
-            case 3:
+            case 2:
                 fragment = new CaronasFragment();
                 break;
-            case 4:
+            case 3:
                 fragment = new OferecerCaronasFragment();
                 break;
-            case 5:
+            case 4:
                 fragment = new ProcurarCaronasFragment();
                 break;
-            case 6:
+            case 5:
                 fragment = new AvaliarCaronasFragment();
                 break;
 

@@ -54,4 +54,20 @@
         android:layout_marginTop="25dp"
         android:onClick="navigateToEditarMotoristaFragment"
         android:text="@string/visualizar_motorista_editar_motorista_btn" />
+
+    <Button
+        android:id="@+id/view_car"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:onClick="navigateToVisualizarCarroFragment"
+        android:text="@string/visualizar_motorista_visualizar_carro_btn" />
+
+    <Button
+        android:id="@+id/create_car"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:onClick="navigateToCriarCarroFragment"
+        android:text="@string/visualizar_motorista_criar_carro_btn" />
 </LinearLayout>
