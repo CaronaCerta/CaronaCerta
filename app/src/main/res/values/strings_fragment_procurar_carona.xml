@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="procurar_carona_title">Procurar carona</string>
+
+    <string name="procurar_carona_hint">Favor utilizar os resultados da lista.</string>
+
+    <string name="procurar_carona_origin">Origem</string>
+    <string name="procurar_carona_origin_hint">Digite a origem</string>
+
+    <string name="procurar_carona_destination">Destino</string>
+    <string name="procurar_carona_destination_hint">Digite o destino</string>
+
+    <string name="procurar_carona_button">Procurar</string>
+
+    <string name="procurar_carona_error_message">Erro ao procurar caronas</string>
+    <string name="procurar_carona_no_results">Nenhum resultado encontrado</string>
+</resources>

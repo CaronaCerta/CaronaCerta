@@ -11,55 +11,51 @@
         android:layout_gravity="fill_vertical"
         android:layout_marginTop="10pt"
         android:gravity="center_horizontal"
-        android:text="@string/home_welcome"
+        android:text="@string/procurar_carona_title"
         android:textSize="25sp"
         android:typeface="sans" />
 
     <TextView
-        android:id="@+id/email"
+        android:id="@+id/offer_carona_hint"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
-        android:text="@string/home_email"
+        android:gravity="center_horizontal"
+        android:text="@string/procurar_carona_hint"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:id="@+id/birthday"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:text="@string/home_birthday"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:text="@string/procurar_carona_origin" />
+
+    <AutoCompleteTextView
+        android:id="@+id/origin"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/procurar_carona_origin_hint" />
 
     <TextView
-        android:id="@+id/phone"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:text="@string/home_phone"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:text="@string/procurar_carona_destination" />
 
-    <TextView
-        android:id="@+id/address"
+    <AutoCompleteTextView
+        android:id="@+id/destination"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:text="@string/home_address"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/city"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:text="@string/home_city"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:hint="@string/procurar_carona_destination_hint" />
 
     <Button
-        android:id="@+id/edit_account"
-        android:layout_width="fill_parent"
+        android:id="@+id/btnSearch"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:onClick="navigateToEditarContaFragment"
-        android:text="@string/home_edit_account_link" />
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:text="@string/procurar_carona_button" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/procurar_carona_results"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>

@@ -5,10 +5,9 @@ import android.content.ContentValues;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.os.StrictMode;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -27,8 +26,8 @@ import br.com.caronacerta.caronacerta.contract.RidesContract;
 import br.com.caronacerta.caronacerta.fragment.AvaliarCaronasFragment;
 import br.com.caronacerta.caronacerta.fragment.CaronasFragment;
 import br.com.caronacerta.caronacerta.fragment.HomeFragment;
-import br.com.caronacerta.caronacerta.fragment.OferecerCaronasFragment;
-import br.com.caronacerta.caronacerta.fragment.ProcurarCaronasFragment;
+import br.com.caronacerta.caronacerta.fragment.OferecerCaronaFragment;
+import br.com.caronacerta.caronacerta.fragment.ProcurarCaronaFragment;
 import br.com.caronacerta.caronacerta.fragment.VisualizarContaFragment;
 import br.com.caronacerta.caronacerta.fragment.VisualizarMotoristaFragment;
 import br.com.caronacerta.caronacerta.model.NavDrawerItem;
@@ -79,6 +78,7 @@ public class MainActivity extends BasicActivity {
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1)));
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1)));
+        navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(4, -1)));
 
 
         // Recycle the typed array
@@ -183,10 +183,10 @@ public class MainActivity extends BasicActivity {
                 fragment = new CaronasFragment();
                 break;
             case 3:
-                fragment = new OferecerCaronasFragment();
+                fragment = new OferecerCaronaFragment();
                 break;
             case 4:
-                fragment = new ProcurarCaronasFragment();
+                fragment = new ProcurarCaronaFragment();
                 break;
             case 5:
                 fragment = new AvaliarCaronasFragment();

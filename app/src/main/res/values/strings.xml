@@ -3,25 +3,13 @@
 
     <string name="app_name">Carona Certa</string>
     <string name="banner_ad_unit_id">ca-app-pub-8568033544084271/4437230943</string>
-    <string name="process_dialog">Please wait…</string>
     <string name="session_timeout">Session time out. Please login again.</string>
+
     <string name="action_settings">Configurações</string>
     <string name="action_profile">Perfil</string>
     <string name="action_logout">Logout</string>
-    <string name="caronas_agendadas">Caronas Agendadas</string>
-    <string name="add_carona">Adicionar Carona</string>
-    <string name="add_carona_autocomplete_origin">Origem</string>
-    <string name="autocomplete_destination">Destino</string>
+
     <string name="add_carona_confirm">Adicionar</string>
-    <string name="add_carona_hint">Favor utilizar os resultados da lista.</string>
-    <string name="search_carona_autocomplete_origin">Origem</string>
-    <string name="search_carona_autocomplete_destination">Destino</string>
-    <string name="search_carona_confirm">Procurar</string>
-    <string name="offer_carona_confirm">Oferecer</string>
-    <string name="offer_carona_autocomplete_origin">Origem</string>
-    <string name="offer_autocomplete_destination">Destino</string>
-    <string name="add_autocomplete_destination">Destino</string>
-    <string name="offer_carona_hint">Favor utilizar os resultados da lista.</string>
     <string name="add_caronas_name_hint">Nome</string>
     <string name="add_caronas_num_hint">Celular</string>
     <string name="add_minhas_caronas">Adicionar Minhas Caronas</string>

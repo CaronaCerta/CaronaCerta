@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill_vertical"
+        android:layout_marginTop="10pt"
+        android:gravity="center_horizontal"
+        android:text="@string/oferecer_carona_title"
+        android:textSize="25sp"
+        android:typeface="sans" />
+
+    <TextView
+        android:id="@+id/offer_carona_hint"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:gravity="center_horizontal"
+        android:text="@string/oferecer_carona_hint"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/oferecer_carona_origin" />
+
+    <AutoCompleteTextView
+        android:id="@+id/origin"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/oferecer_carona_origin_hint" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/oferecer_carona_destination" />
+
+    <AutoCompleteTextView
+        android:id="@+id/destination"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/oferecer_carona_destination_hint" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/oferecer_carona_date" />
+
+    <EditText
+        android:id="@+id/date"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/oferecer_carona_date_hint"
+        android:inputType="date" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/oferecer_carona_seats" />
+
+    <EditText
+        android:id="@+id/seats"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/oferecer_carona_seats_hint"
+        android:inputType="number" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/oferecer_carona_observations" />
+
+    <EditText
+        android:id="@+id/observations"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/oferecer_carona_observations_hint"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/btnCreate"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip"
+        android:background="#ff6347"
+        android:text="@string/oferecer_carona_button"
+        android:textColor="#fff" />
+</LinearLayout>

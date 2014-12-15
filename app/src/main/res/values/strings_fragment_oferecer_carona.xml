@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="oferecer_carona_title">Oferecer carona</string>
+
+    <string name="oferecer_carona_hint">Favor utilizar os resultados da lista.</string>
+
+    <string name="oferecer_carona_origin">Origem</string>
+    <string name="oferecer_carona_origin_hint">Digite a origem</string>
+
+    <string name="oferecer_carona_destination">Destino</string>
+    <string name="oferecer_carona_destination_hint">Digite o destino</string>
+
+    <string name="oferecer_carona_date">Data</string>
+    <string name="oferecer_carona_date_hint">Digite a data da carona</string>
+
+    <string name="oferecer_carona_seats">Lugares</string>
+    <string name="oferecer_carona_seats_hint">Digite os lugares disponíveis</string>
+
+    <string name="oferecer_carona_observations">Observações</string>
+    <string name="oferecer_carona_observations_hint">Digite as observações</string>
+
+    <string name="oferecer_carona_button">Oferecer</string>
+
+    <string name="oferecer_carona_success_message">Carona criada com sucesso</string>
+    <string name="oferecer_carona_error_message">Erro ao criar carona</string>
+    <string name="oferecer_carona_null_fields_message">Please fill the form, don\'t leave any field blank</string>
+</resources>

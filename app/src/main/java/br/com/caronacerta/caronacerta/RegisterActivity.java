@@ -1,6 +1,5 @@
 package br.com.caronacerta.caronacerta;
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
