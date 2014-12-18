@@ -1,10 +1,10 @@
 package br.com.caronacerta.caronacerta.model;
 
 public class Carona {
-    public static final String NAME_PREFIX = "Name_";
-    public static final String SURNAME_PREFIX = "Surname_";
-    public static final String EMAIL_PREFIX = "email_";
-    public String name;
-    public String surname;
-    public String email;
+    public String id_carona;
+    public String lugar_saida;
+    public String lugar_destino;
+    public String lugares_disponiveis;
+    public String data;
+    public String observacoes;
 }

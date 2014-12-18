@@ -14,4 +14,7 @@
 
     <string name="procurar_carona_error_message">Erro ao procurar caronas</string>
     <string name="procurar_carona_no_results">Nenhum resultado encontrado</string>
+
+    <string name="procurar_carona_entrar_carona_sucesso">Você acabou de entrar na carona</string>
+    <string name="procurar_carona_entrar_carona_erro">Erro ao tentar entrar na carona</string>
 </resources>

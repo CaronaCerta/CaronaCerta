@@ -54,8 +54,13 @@
         android:layout_marginTop="5dp"
         android:text="@string/procurar_carona_button" />
 
-    <android.support.v7.widget.RecyclerView
+    <ListView
         android:id="@+id/procurar_carona_results"
         android:layout_width="fill_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:choiceMode="singleChoice"
+        android:divider="@color/list_background_pressed"
+        android:dividerHeight="1dp"
+        android:paddingBottom="10dp"
+        android:theme="@style/Theme.AppCompat.Light"/>
 </LinearLayout>

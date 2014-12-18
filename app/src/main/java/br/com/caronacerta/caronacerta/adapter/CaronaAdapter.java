@@ -1,61 +1,75 @@
 package br.com.caronacerta.caronacerta.adapter;
 
-import android.support.v7.widget.RecyclerView;
+import android.app.Activity;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import br.com.caronacerta.caronacerta.R;
+import br.com.caronacerta.caronacerta.fragment.BasicFragment;
+import br.com.caronacerta.caronacerta.fragment.ProcurarCaronaFragment;
 import br.com.caronacerta.caronacerta.model.Carona;
 
-public class CaronaAdapter extends RecyclerView.Adapter<CaronaAdapter.CaronaViewHolder> {
+public class CaronaAdapter extends BaseAdapter {
 
-    private List<Carona> caronaList;
+    private Context context;
+    private ArrayList<Carona> caronas;
+    private BasicFragment fragment;
 
-    public CaronaAdapter(List<Carona> caronaList) {
-        this.caronaList = caronaList;
-    }
-
-
-    @Override
-    public int getItemCount() {
-        return caronaList.size();
-    }
-
-    @Override
-    public void onBindViewHolder(CaronaViewHolder caronaViewHolder, int i) {
-        Carona ci = caronaList.get(i);
-        caronaViewHolder.vName.setText(ci.name);
-        caronaViewHolder.vSurname.setText(ci.surname);
-        caronaViewHolder.vEmail.setText(ci.email);
-        caronaViewHolder.vTitle.setText(ci.name + " " + ci.surname);
+    public CaronaAdapter(Context context, ArrayList<Carona> caronas, BasicFragment fragment) {
+        this.context = context;
+        this.caronas = caronas;
+        this.fragment = fragment;
     }
 
     @Override
-    public CaronaViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View itemView = LayoutInflater.
-                from(viewGroup.getContext()).
-                inflate(R.layout.carona_card_layout, viewGroup, false);
-
-        return new CaronaViewHolder(itemView);
+    public int getCount() {
+        return caronas.size();
     }
 
-    public static class CaronaViewHolder extends RecyclerView.ViewHolder {
+    @Override
+    public Object getItem(int position) {
+        return caronas.get(position);
+    }
 
-        protected TextView vName;
-        protected TextView vSurname;
-        protected TextView vEmail;
-        protected TextView vTitle;
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
 
-        public CaronaViewHolder(View v) {
-            super(v);
-            vName = (TextView) v.findViewById(R.id.txtName);
-            vSurname = (TextView) v.findViewById(R.id.txtSurname);
-            vEmail = (TextView) v.findViewById(R.id.txtEmail);
-            vTitle = (TextView) v.findViewById(R.id.title);
+    @Override
+    public View getView(final int position, View convertView, ViewGroup parent) {
+        if (convertView == null) {
+            LayoutInflater mInflater = (LayoutInflater)
+                    context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+            convertView = mInflater.inflate(R.layout.carona_card_layout, null);
         }
+
+        Button entrarCarona = (Button) convertView.findViewById(R.id.btnEntrarCarona);
+        entrarCarona.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                String id_carona = caronas.get(position).id_carona;
+                ((ProcurarCaronaFragment) fragment).entrarCarona(id_carona);
+            }
+        });
+
+        TextView txtLugarSaida = (TextView) convertView.findViewById(R.id.lugar_saida);
+        TextView txtLugarDestino = (TextView) convertView.findViewById(R.id.lugar_destino);
+        TextView txtLugaresDisponiveis = (TextView) convertView.findViewById(R.id.lugares_disponiveis);
+        TextView txtData = (TextView) convertView.findViewById(R.id.data);
+        TextView txtObservacoes = (TextView) convertView.findViewById(R.id.observacoes);
+        txtLugarSaida.setText("Saida: " + caronas.get(position).lugar_saida);
+        txtLugarDestino.setText("Destino: " + caronas.get(position).lugar_destino);
+        txtLugaresDisponiveis.setText("Lugares: " + caronas.get(position).lugares_disponiveis);
+        txtData.setText("Data: " + caronas.get(position).data);
+        txtObservacoes.setText("Observações: " + caronas.get(position).observacoes);
+
+        return convertView;
     }
 }

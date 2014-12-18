@@ -76,7 +76,7 @@ public class CriarCarroFragment extends BasicFragment implements View.OnClickLis
             List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
             nameValuePairs.add(new BasicNameValuePair("id_motorista", driverId));
             nameValuePairs.add(new BasicNameValuePair("modelo", carModel));
-            nameValuePairs.add(new BasicNameValuePair("descricao=", carDescription));
+            nameValuePairs.add(new BasicNameValuePair("descricao", carDescription));
 
             JSONObject jsonObject = RequestUtil.postData("carro", nameValuePairs, SessionUtil.getToken(getActivity().getApplicationContext()));
 
