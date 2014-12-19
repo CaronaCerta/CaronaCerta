@@ -1,29 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <Button
-        android:id="@+id/add_minhas_caronas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:padding="10sp"
-        android:text="@string/add_minhas_caronas" />
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <ExpandableListView
         android:id="@+id/eLV"
-        android:layout_width="wrap_content"
-        android:layout_height="500dp"
-        android:layout_above="@id/add_minhas_caronas"
-        android:layout_alignParentTop="true"
+        android:layout_width="fill_parent"
+        android:layout_height="350dp"
         android:layout_margin="20dp"
         android:paddingBottom="25sp"
         android:clickable="true"
         android:visibility="visible"
         tools:listitem="@android:layout/simple_expandable_list_item_2" />
 
+    <Button
+        android:id="@+id/add_minhas_caronas"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="10sp"
+        android:text="@string/add_minhas_caronas" />
 
-</RelativeLayout>
+</LinearLayout>

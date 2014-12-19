@@ -9,7 +9,7 @@
     <ListView
         android:id="@+id/row"
         android:layout_width="wrap_content"
-        android:layout_height="500dp" />
+        android:layout_height="390dp" />
 
     <Button
         android:id="@+id/avaliar"
