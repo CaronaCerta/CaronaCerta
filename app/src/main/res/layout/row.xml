@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
         android:numStars="5"
         android:stepSize="1"
+        android:textColor="@color/list_item_title"
         android:rating="3" />
     <TextView
         android:id="@+id/label"
@@ -16,6 +17,7 @@
         android:paddingRight="2px"
         android:paddingTop="2px"
         android:textSize="24sp"
+        android:textColor="@color/list_item_title"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"/>
 </LinearLayout>

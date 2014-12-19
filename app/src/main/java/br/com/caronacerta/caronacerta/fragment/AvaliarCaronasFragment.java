@@ -1,20 +1,17 @@
 package br.com.caronacerta.caronacerta.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RatingBar;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import br.com.caronacerta.caronacerta.R;
-import br.com.caronacerta.caronacerta.adapter.RatingListAdapter;
-import br.com.caronacerta.caronacerta.adapter.ViewWrapper;
+import br.com.caronacerta.caronacerta.adapter.RatingAdapter;
+import br.com.caronacerta.caronacerta.model.RowModel;
 
 public class AvaliarCaronasFragment extends BasicFragment {
 
@@ -27,14 +24,14 @@ public class AvaliarCaronasFragment extends BasicFragment {
 
         View rootView = inflater.inflate(R.layout.fragment_avaliar_caronas, container, false);
 
-        ArrayList<RatingListAdapter.RowModel> list = new ArrayList<RatingListAdapter.RowModel>();
+        ArrayList<RowModel> list = new ArrayList<RowModel>();
 
         for (String s : SmartPhones) {
-            list.add(new RatingListAdapter().new                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                RowModel(s));
+            list.add(new RowModel(s));
         }
 
         ListView viewList = (ListView) rootView.findViewById(R.id.row);
-        viewList.setAdapter(new RatingListAdapter().new RatingAdapter(list));
+        viewList.setAdapter(new RatingAdapter(getActivity().getApplicationContext(), list));
 
         return rootView;
     }
