@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.RatingBar;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,6 +38,8 @@ public class MainActivity extends BasicActivity {
     public static List<String> caronasAvailable;
     public static List<String> caronasELVGroup;
     public static HashMap<String, List<String>> caronasELVChild;
+    public static List<String> avaliarELVGroup;
+    public static HashMap<String, RatingBar> avaliarELVChild;
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
@@ -265,6 +268,27 @@ public class MainActivity extends BasicActivity {
         caronasELVChild.put(caronasELVGroup.get(0), l1); // Header, Child data
         caronasELVChild.put(caronasELVGroup.get(1), l2);
         caronasELVChild.put(caronasELVGroup.get(2), l3);
+
+
+
+        avaliarELVGroup = new ArrayList<String>();
+        avaliarELVChild = new HashMap<String, RatingBar>();
+
+        avaliarELVGroup.add("Alexandre - 15/10 - 14h00");
+        avaliarELVGroup.add("Bruno - 29/10 - 19h00");
+        avaliarELVGroup.add("Carlos - 01/11 - 18h00");
+
+        RatingBar r1 = new RatingBar(this);
+        RatingBar r2 = new RatingBar(this);
+        RatingBar r3 = new RatingBar(this);
+
+        r1.setNumStars(5);
+        r2.setNumStars(5);
+        r3.setNumStars(5);
+
+        avaliarELVChild.put(avaliarELVGroup.get(0), r1);
+        avaliarELVChild.put(avaliarELVGroup.get(1), r2);
+        avaliarELVChild.put(avaliarELVGroup.get(2), r3);
 
         Vector<ContentValues> cVVector = new Vector<ContentValues>(caronasELVGroup.size());
 

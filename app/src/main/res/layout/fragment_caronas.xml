@@ -20,6 +20,7 @@
         android:layout_above="@id/add_minhas_caronas"
         android:layout_alignParentTop="true"
         android:layout_margin="20dp"
+        android:paddingBottom="25sp"
         android:clickable="true"
         android:visibility="visible"
         tools:listitem="@android:layout/simple_expandable_list_item_2" />

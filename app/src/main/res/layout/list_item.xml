@@ -11,7 +11,6 @@
         android:background="#43777777"
         android:paddingBottom="5dp"
         android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft"
-        android:paddingStart="?android:attr/expandableListPreferredChildPaddingLeft"
         android:paddingTop="5dp"
         android:textSize="17sp" />
 

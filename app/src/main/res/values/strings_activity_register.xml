@@ -12,7 +12,7 @@
     <string name="register_name">Nome</string>
     <string name="register_name_hint">Digite seu nome</string>
 
-    <string name="register_birthday">Data de nascimento</string>
+    <string name="register_birthday">Data de nascimento (AAAA-MM-DD)</string>
     <string name="register_birthday_hint">Digite sua data de nascimento</string>
 
     <string name="register_phone">Telefone</string>
