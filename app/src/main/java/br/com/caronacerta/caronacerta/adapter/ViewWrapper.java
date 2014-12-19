@@ -11,18 +11,18 @@ public class ViewWrapper {
     RatingBar rate=null;
     TextView label=null;
 
-    ViewWrapper(View base) {
+    public ViewWrapper(View base) {
         this.base=base;
     }
 
-    RatingBar getRatingBar() {
+    public RatingBar getRatingBar() {
         if (rate==null) {
             rate=(RatingBar)base.findViewById(R.id.rate);
         }
         return(rate);
     }
 
-    TextView getLabel() {
+    public TextView getLabel() {
         if (label==null) {
             label=(TextView)base.findViewById(R.id.label);
         }

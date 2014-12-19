@@ -16,7 +16,7 @@
     <ExpandableListView
         android:id="@+id/eLV"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="500dp"
         android:layout_above="@id/add_minhas_caronas"
         android:layout_alignParentTop="true"
         android:layout_margin="20dp"

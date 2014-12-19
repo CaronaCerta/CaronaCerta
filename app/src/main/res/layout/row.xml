@@ -13,11 +13,11 @@
         android:rating="3" />
     <TextView
         android:id="@+id/label"
-        android:paddingLeft="2px"
-        android:paddingRight="2px"
-        android:paddingTop="2px"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
         android:textSize="24sp"
         android:textColor="@color/list_item_title"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical" />
 </LinearLayout>

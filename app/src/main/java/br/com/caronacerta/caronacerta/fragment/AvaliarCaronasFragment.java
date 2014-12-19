@@ -1,6 +1,5 @@
 package br.com.caronacerta.caronacerta.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,9 +36,7 @@ public class AvaliarCaronasFragment extends BasicFragment {
     }
 
     static final String[] SmartPhones = new String[]{
-            "HTC Rezound", "Samsung Galaxy S II Skyrocket",
-            "Samsung Galaxy Nexus", "Motorola Droid Razr",
-            "Samsung Galaxy S", "Samsung Epic Touch 4G",
-            "iPhone 4S", "HTC Titan"
+            "Alexandre - 17/10", "Bruno - 21/10",
+            "Carlos - 29/10", "Daniel - 03/11"
     };
 }                                                     
