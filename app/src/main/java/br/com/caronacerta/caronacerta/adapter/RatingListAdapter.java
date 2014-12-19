@@ -23,7 +23,7 @@ public class RatingListAdapter extends ListActivity {
     }
 
     public class RatingAdapter extends ArrayAdapter<RowModel> {
-        RatingAdapter(ArrayList<RowModel> list) {
+        public RatingAdapter(ArrayList<RowModel> list) {
             super(RatingListAdapter.this, R.layout.row, list);
         }
 
@@ -68,11 +68,11 @@ public class RatingListAdapter extends ListActivity {
         }
     }
 
-    private class RowModel {
+    public class RowModel {
         String label;
         float rating = 2.0f;
 
-        RowModel(String label) {
+        public RowModel(String label) {
             this.label = label;
         }
 

@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -26,13 +27,14 @@ public class AvaliarCaronasFragment extends BasicFragment {
 
         View rootView = inflater.inflate(R.layout.fragment_avaliar_caronas, container, false);
 
-        ArrayList<RowModel> list = new ArrayList<RowModel>();
+        ArrayList<RatingListAdapter.RowModel> list = new ArrayList<RatingListAdapter.RowModel>();
 
         for (String s : SmartPhones) {
-            list.add(new RowModel(s));
+            list.add(new RatingListAdapter().new                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                RowModel(s));
         }
 
-        setListAdapter(new RatingAdapter(list));
+        ListView viewList = (ListView) rootView.findViewById(R.id.row);
+        viewList.setAdapter(new RatingListAdapter().new RatingAdapter(list));
 
         return rootView;
     }
@@ -43,20 +45,4 @@ public class AvaliarCaronasFragment extends BasicFragment {
             "Samsung Galaxy S", "Samsung Epic Touch 4G",
             "iPhone 4S", "HTC Titan"
     };
-
-    private class RowModel {
-        String label;
-        float rating = 2.0f;
-
-        RowModel(String label) {
-            this.label = label;
-        }
-
-        public String toString() {
-            if (rating >= 3.0) {
-                return (label.toUpperCase());
-            }
-            return (label);
-        }
-    }
-}
+}                                                     

@@ -39,6 +39,7 @@ public abstract class BasicActivity extends ActionBarActivity {
     public void onBackPressed() {
         FragmentManager fm = getFragmentManager();
         if (fm.getBackStackEntryCount() > 0) {
+//            getActivity().setTitle(title);
             fm.popBackStack();
         } else {
             super.onBackPressed();
@@ -135,7 +136,7 @@ public abstract class BasicActivity extends ActionBarActivity {
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction()
                 .replace(R.id.frame_container, fragment)
-                .addToBackStack(null)
+                .addToBackStack(title)
                 .commit();
     }
 }

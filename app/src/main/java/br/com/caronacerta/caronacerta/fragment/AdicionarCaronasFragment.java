@@ -164,6 +164,8 @@ public class AdicionarCaronasFragment extends BasicFragment {
                         });
                 AlertDialog alert = builder.create();
                 alert.show();
+
+                navigateToFragment(R.string.add_minhas_caronas, new CaronasFragment());
             }
         });
 

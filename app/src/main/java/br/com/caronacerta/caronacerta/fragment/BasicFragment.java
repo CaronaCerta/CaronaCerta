@@ -15,7 +15,10 @@ public abstract class BasicFragment extends Fragment {
     public void navigateToFragment(String title, Fragment fragment) {
         getActivity().setTitle(title);
         FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.frame_container, fragment).commit();
+        fragmentManager.beginTransaction()
+                .replace(R.id.frame_container, fragment)
+                .addToBackStack(title)
+                .commit();
     }
 
     public void navigateToLoginActivity() {

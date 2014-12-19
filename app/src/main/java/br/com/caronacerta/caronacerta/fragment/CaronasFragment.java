@@ -53,6 +53,8 @@ public class CaronasFragment extends BasicFragment {
                 fragmentManager.beginTransaction()
                         .replace(R.id.frame_container, fragment).commit();
 
+//                Fragment fragment = new AdicionarCaronasFragment();
+//            navigateToFragment(R.string.add_minhas_caronas, fragment);
             }
         });
 
