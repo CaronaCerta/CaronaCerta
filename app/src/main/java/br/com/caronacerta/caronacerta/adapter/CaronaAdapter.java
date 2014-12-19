@@ -5,6 +5,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
@@ -16,31 +17,17 @@ import br.com.caronacerta.caronacerta.fragment.BasicFragment;
 import br.com.caronacerta.caronacerta.fragment.ProcurarCaronaFragment;
 import br.com.caronacerta.caronacerta.model.Carona;
 
-public class CaronaAdapter extends BaseAdapter {
+public class CaronaAdapter extends ArrayAdapter<Carona> {
 
     private Context context;
     private ArrayList<Carona> caronas;
     private BasicFragment fragment;
 
     public CaronaAdapter(Context context, ArrayList<Carona> caronas, BasicFragment fragment) {
+        super(context, R.layout.carona_card_layout, caronas);
         this.context = context;
         this.caronas = caronas;
         this.fragment = fragment;
-    }
-
-    @Override
-    public int getCount() {
-        return caronas.size();
-    }
-
-    @Override
-    public Object getItem(int position) {
-        return caronas.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
     }
 
     @Override
@@ -48,7 +35,7 @@ public class CaronaAdapter extends BaseAdapter {
         if (convertView == null) {
             LayoutInflater mInflater = (LayoutInflater)
                     context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-            convertView = mInflater.inflate(R.layout.carona_card_layout, null);
+            convertView = mInflater.inflate(R.layout.carona_card_layout, parent, false);
         }
 
         Button entrarCarona = (Button) convertView.findViewById(R.id.btnEntrarCarona);
