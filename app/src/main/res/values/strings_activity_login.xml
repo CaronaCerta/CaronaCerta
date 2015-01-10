@@ -9,11 +9,10 @@
     <string name="login_password_hint">Digite sua senha</string>
 
     <string name="login_button">Login</string>
-    <string name="login_signup_link">Signup</string>
+    <string name="login_signup_link">Registro</string>
 
-    <string name="login_invalid_credentials_message">Invalid credentials"</string>
-    <string name="login_invalid_email_message">Please enter valid email</string>
-    <string name="login_null_fields_message">Please fill the form, don\'t leave any field blank</string>
+    <string name="login_invalid_credentials_message">Credenciais invalidas</string>
+    <string name="login_invalid_email_message">Digite um email válido</string>
 
     <!-- Google plus integration -->
     <!--<string name="prompt_email">Email</string>-->

@@ -83,7 +83,7 @@ public class ProcurarCaronaFragment extends BasicFragment implements View.OnClic
                 Toast.makeText(getActivity().getApplicationContext(), R.string.procurar_carona_error_message, Toast.LENGTH_LONG).show();
             }
         } catch (Exception e) {
-            Toast.makeText(getActivity().getApplicationContext(), "The server is not responding. Please, contact the admin at alexcreto@gmail.com", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity().getApplicationContext(), R.string.server_response_error, Toast.LENGTH_LONG).show();
         }
 
 
@@ -108,7 +108,7 @@ public class ProcurarCaronaFragment extends BasicFragment implements View.OnClic
                 Toast.makeText(getActivity().getApplicationContext(), R.string.procurar_carona_entrar_carona_erro, Toast.LENGTH_LONG).show();
             }
         } catch (Exception e) {
-            Toast.makeText(getActivity().getApplicationContext(), "The server is not responding. Please, contact the admin at alexcreto@gmail.com", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity().getApplicationContext(), R.string.server_response_error, Toast.LENGTH_LONG).show();
         }
     }
 

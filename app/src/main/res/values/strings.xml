@@ -3,7 +3,9 @@
 
     <string name="app_name">Carona Certa</string>
     <string name="banner_ad_unit_id">ca-app-pub-8568033544084271/4437230943</string>
-    <string name="session_timeout">Session time out. Please login again.</string>
+    <string name="session_timeout">Sessão expirou. Por favor, faça login novamente.</string>
+    <string name="server_response_error">Servidor não está respondendo. Por favor, contacte o administrador em alexcreto@gmail.com</string>
+    <string name="required_fields_message">Preencha todos os campos obrigatórios</string>
 
     <string name="action_settings">Configurações</string>
     <string name="action_profile">Perfil</string>

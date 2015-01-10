@@ -110,13 +110,13 @@ public class EditarMotoristaFragment extends BasicFragment implements View.OnCli
                     Toast.makeText(getActivity().getApplicationContext(), R.string.editar_motorista_error_message, Toast.LENGTH_LONG).show();
                 }
             } catch (Exception e) {
-                Toast.makeText(getActivity().getApplicationContext(), "The server is not responding. Please, contact the admin at alexcreto@gmail.com", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity().getApplicationContext(), R.string.server_response_error, Toast.LENGTH_LONG).show();
             }
 
         }
         // When any of the Edit View control left blank
         else {
-            Toast.makeText(getActivity().getApplicationContext(), R.string.editar_motorista_null_fields_message, Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity().getApplicationContext(), R.string.required_fields_message, Toast.LENGTH_LONG).show();
         }
 
     }

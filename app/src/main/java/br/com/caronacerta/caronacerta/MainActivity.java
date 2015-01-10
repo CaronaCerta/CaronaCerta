@@ -140,9 +140,9 @@ public class MainActivity extends BasicActivity {
         }
         // Handle action bar actions click
         switch (item.getItemId()) {
-            case R.id.action_settings:
-                navigateToSettingsActivity();
-                return true;
+//            case R.id.action_settings:
+//                navigateToSettingsActivity();
+//                return true;
             case R.id.action_profile:
                 navigateToFragment(new VisualizarContaFragment());
                 return true;

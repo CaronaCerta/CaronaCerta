@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="editar_carro_title">Editar carro</string>
+    <string name="editar_carro_title">Editar Carro</string>
 
     <string name="editar_carro_car_model">Modelo</string>
     <string name="editar_carro_car_model_hint">Digite o modelo do carro</string>
@@ -11,5 +11,4 @@
 
     <string name="editar_carro_success_message">Carro editado com sucesso</string>
     <string name="editar_carro_error_message">Erro ao editar carro</string>
-    <string name="editar_carro_null_fields_message">Please fill the form, don\'t leave any field blank</string>
 </resources>

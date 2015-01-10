@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="editar_conta_title">Editar conta</string>
+    <string name="editar_conta_title">Editar Conta</string>
 
     <string name="editar_conta_email">Email</string>
     <string name="editar_conta_email_hint">Digite seu email</string>
@@ -26,7 +26,6 @@
     <string name="editar_conta_button">Salvar</string>
 
     <string name="editar_conta_success_message">Conta editada com sucesso</string>
-    <string name="editar_conta_error_message">Error creating the user</string>
-    <string name="editar_conta_invalid_email_message">Please enter valid email</string>
-    <string name="editar_conta_null_fields_message">Please fill the form, don\'t leave any field blank</string>
+    <string name="editar_conta_error_message">Erro ao editar conta</string>
+    <string name="editar_conta_invalid_email_message">Digite um email válido</string>
 </resources>

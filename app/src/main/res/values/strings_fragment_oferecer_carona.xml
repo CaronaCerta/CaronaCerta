@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="oferecer_carona_title">Oferecer carona</string>
+    <string name="oferecer_carona_title">Oferecer Carona</string>
 
     <string name="oferecer_carona_hint">Favor utilizar os resultados da lista.</string>
 
@@ -23,5 +23,4 @@
 
     <string name="oferecer_carona_success_message">Carona criada com sucesso</string>
     <string name="oferecer_carona_error_message">Erro ao criar carona</string>
-    <string name="oferecer_carona_null_fields_message">Please fill the form, don\'t leave any field blank</string>
 </resources>

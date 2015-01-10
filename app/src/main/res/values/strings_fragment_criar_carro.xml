@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="criar_carro_title">Criar carro</string>
+    <string name="criar_carro_title">Criar Carro</string>
 
     <string name="criar_carro_car_model">Modelo</string>
     <string name="criar_carro_car_model_hint">Digite o modelo do carro</string>
@@ -11,5 +11,4 @@
 
     <string name="criar_carro_success_message">Carro criado com sucesso</string>
     <string name="criar_carro_error_message">Erro ao criar carro</string>
-    <string name="criar_carro_null_fields_message">Please fill the form, don\'t leave any field blank</string>
 </resources>

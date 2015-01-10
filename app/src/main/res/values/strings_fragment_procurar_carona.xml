@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="procurar_carona_title">Procurar carona</string>
+    <string name="procurar_carona_title">Procurar Carona</string>
 
     <string name="procurar_carona_hint">Favor utilizar os resultados da lista.</string>
 

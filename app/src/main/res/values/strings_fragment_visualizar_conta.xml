@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="visualizar_conta_title">Conta</string>
+    <string name="visualizar_conta_title">Minha Conta</string>
     <string name="visualizar_conta_name">Nome</string>
     <string name="visualizar_conta_email">Email</string>
     <string name="visualizar_conta_birthday">Data de nascimento</string>
