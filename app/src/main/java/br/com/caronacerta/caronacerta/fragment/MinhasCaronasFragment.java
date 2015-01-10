@@ -39,6 +39,25 @@ public class MinhasCaronasFragment extends BasicFragment {
 
         // setting list adapter
         expListView.setAdapter(listAdapter);
+        expListView.setScrollContainer(false);
+
+        expListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+
+            @Override
+            public void onGroupExpand(int groupPosition) {
+                setExpandedListViewHeightBasedOnChildren(expListView, groupPosition);
+            }
+        });
+
+        expListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
+
+            @Override
+            public void onGroupCollapse(int groupPosition) {
+                setCollapseListViewHeightBasedOnChildren(expListView, groupPosition);
+            }
+        });
+
+        setListViewHeightBasedOnChildren(expListView);
 
         Button add_minhas_caronas = (Button) rootView.findViewById(R.id.add_minhas_caronas);
 
@@ -48,6 +67,7 @@ public class MinhasCaronasFragment extends BasicFragment {
                 navigateToFragment(new AdicionarMinhasCaronasFragment());
             }
         });
+
 
         return rootView;
 

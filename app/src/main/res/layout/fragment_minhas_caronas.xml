@@ -8,11 +8,10 @@
     <ExpandableListView
         android:id="@+id/eLV"
         android:layout_width="fill_parent"
-        android:layout_height="350dp"
+        android:layout_weight="1"
+        android:layout_height="0dp"
         android:layout_margin="20dp"
-        android:paddingBottom="25sp"
         android:clickable="true"
-        android:visibility="visible"
         tools:listitem="@android:layout/simple_expandable_list_item_2" />
 
     <Button

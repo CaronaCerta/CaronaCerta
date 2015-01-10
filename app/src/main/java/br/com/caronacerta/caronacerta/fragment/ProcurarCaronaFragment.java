@@ -74,6 +74,8 @@ public class ProcurarCaronaFragment extends BasicFragment implements View.OnClic
                 if (jsonObject.getJSONArray("caronas").length() > 0) {
                     ListAdapter ca = new CaronaAdapter(getActivity().getApplicationContext(), createList(jsonObject.getJSONArray("caronas")), this);
                     viewList.setAdapter(ca);
+                    viewList.setScrollContainer(false);
+                    setListViewHeightBasedOnChildren(viewList);
                 } else {
                     Toast.makeText(getActivity().getApplicationContext(), R.string.procurar_carona_no_results, Toast.LENGTH_LONG).show();
                 }

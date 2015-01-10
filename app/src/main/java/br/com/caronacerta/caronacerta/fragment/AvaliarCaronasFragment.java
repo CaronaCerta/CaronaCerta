@@ -31,13 +31,15 @@ public class AvaliarCaronasFragment extends BasicFragment {
 
         ListView viewList = (ListView) rootView.findViewById(R.id.row);
         viewList.setAdapter(new RatingAdapter(getActivity().getApplicationContext(), list));
+        viewList.setScrollContainer(false);
+        setListViewHeightBasedOnChildren(viewList);
 
         return rootView;
     }
 
     static final String[] SmartPhones = new String[]{
             "Alexandre - 17/10", "Bruno - 21/10",
-            "Carlos - 29/10", "Daniel - 03/11"
+            "Carlos - 29/10", "Daniel - 03/11",  "Daniel - 03/11"
     };
 
     @Override
