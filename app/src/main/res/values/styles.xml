@@ -18,7 +18,7 @@
         <item name="android:actionMenuTextColor">@android:color/white</item>
         <item name="windowActionBar">false</item>
         <item name="android:itemTextAppearance">@style/itemTextAppearance</item>
-        <item name="drawerArrowStyle">@style/MyDrawerArrowToggle</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowToggle</item>
         <item name="actionOverflowButtonStyle">@style/OverFlow</item>
         <!-- The rest of your attributes -->
         <!--
@@ -29,7 +29,7 @@
         <!--<item name="toolbarNavigationButtonStyle">@style/myToolbarNavigationButtonStyle</item>-->
     </style>
 
-    <style name="myToolbarNavigationButtonStyle" parent="@style/Widget.AppCompat.Toolbar.Button.Navigation">
+    <style name="ToolbarNavigationButtonStyle" parent="@style/Widget.AppCompat.Toolbar.Button.Navigation">
         <item name="android:minWidth">0dp</item>
         <item name="android:padding">12dp</item>
         <item name="android:scaleType">centerInside</item>
@@ -44,27 +44,26 @@
         <item name="android:textColor">@android:color/black</item>
     </style>
 
-    <style name="OverFlow" parent="Widget.AppCompat.ActionButton.Overflow">
-        <item name="android:src">@drawable/ic_more_vert_white</item>
-    </style>
-
     <style name="ThemeToolbarDarkOverflow" parent="AppBaseTheme">
         <item name="android:textColorPrimary">@android:color/white</item>
         <item name="actionMenuTextColor">@android:color/white</item>
         <item name="android:textColorSecondary">@android:color/white</item>
         <item name="android:textColor">@android:color/white</item>
-
     </style>
 
-    <style name="MyDrawerArrowToggle" parent="Widget.AppCompat.DrawerArrowToggle">
+    <style name="DrawerArrowToggle" parent="Widget.AppCompat.DrawerArrowToggle">
         <item name="color">@android:color/white</item>
     </style>
-
-    <style name="ActionBarPopupThemeOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="ToolbarTitle" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textColor">@android:color/white</item>
     </style>
+
+    <style name="OverFlow" parent="Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:src">@drawable/ic_more_vert_white</item>
+    </style>
+
+    <style name="ActionBarPopupThemeOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="SettingsTheme" parent="AppBaseTheme">
         <item name="android:windowNoTitle">false</item>
