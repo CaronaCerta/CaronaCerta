@@ -62,6 +62,8 @@ public class VisualizarMotoristaFragment extends BasicFragment {
 
                 } else {
                     ((Button) rootView.findViewById(R.id.edit_driver)).setVisibility(View.GONE);
+                    ((Button) rootView.findViewById(R.id.create_car)).setVisibility(View.GONE);
+                    ((Button) rootView.findViewById(R.id.view_car)).setVisibility(View.GONE);
                     ((TextView) rootView.findViewById(R.id.licence_driver_number)).setVisibility(View.GONE);
                     ((TextView) rootView.findViewById(R.id.licence_driver_date)).setVisibility(View.GONE);
                 }
