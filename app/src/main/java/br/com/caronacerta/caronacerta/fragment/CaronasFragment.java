@@ -1,7 +1,5 @@
 package br.com.caronacerta.caronacerta.fragment;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.view.LayoutInflater;
@@ -47,14 +45,7 @@ public class CaronasFragment extends BasicFragment {
         add_minhas_caronas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Fragment fragment = new AdicionarCaronasFragment();
-                FragmentManager fragmentManager = getFragmentManager();
-                fragmentManager.beginTransaction()
-                        .replace(R.id.frame_container, fragment).commit();
-
-//                Fragment fragment = new AdicionarCaronasFragment();
-//            navigateToFragment(R.string.add_minhas_caronas, fragment);
+                navigateToFragment(R.string.add_minhas_caronas, new AdicionarCaronasFragment());
             }
         });
 
