@@ -57,10 +57,10 @@
     <ListView
         android:id="@+id/procurar_carona_results"
         android:layout_width="fill_parent"
-        android:layout_weight="1"
         android:layout_height="0dp"
+        android:layout_weight="1"
         android:choiceMode="singleChoice"
         android:divider="@color/list_background_pressed"
         android:dividerHeight="1dp"
-        android:theme="@style/Theme.AppCompat.Light"/>
+        android:theme="@style/Theme.AppCompat.Light" />
 </LinearLayout>

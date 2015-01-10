@@ -8,24 +8,24 @@ import br.com.caronacerta.caronacerta.R;
 
 public class ViewWrapper {
     View base;
-    RatingBar rate=null;
-    TextView label=null;
+    RatingBar rate = null;
+    TextView label = null;
 
     public ViewWrapper(View base) {
-        this.base=base;
+        this.base = base;
     }
 
     public RatingBar getRatingBar() {
-        if (rate==null) {
-            rate=(RatingBar)base.findViewById(R.id.rate);
+        if (rate == null) {
+            rate = (RatingBar) base.findViewById(R.id.rate);
         }
-        return(rate);
+        return (rate);
     }
 
     public TextView getLabel() {
-        if (label==null) {
-            label=(TextView)base.findViewById(R.id.label);
+        if (label == null) {
+            label = (TextView) base.findViewById(R.id.label);
         }
-        return(label);
+        return (label);
     }
 }

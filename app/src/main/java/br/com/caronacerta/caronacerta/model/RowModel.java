@@ -1,8 +1,8 @@
 package br.com.caronacerta.caronacerta.model;
 
 public class RowModel {
-    String label;
     public float rating = 2.0f;
+    String label;
 
     public RowModel(String label) {
         this.label = label;

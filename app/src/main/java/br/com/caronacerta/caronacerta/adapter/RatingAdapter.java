@@ -1,9 +1,7 @@
 package br.com.caronacerta.caronacerta.adapter;
 
 import android.app.Activity;
-import android.app.ListActivity;
 import android.content.Context;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,7 +35,7 @@ public class RatingAdapter extends ArrayAdapter<RowModel> {
         RatingBar rate;
         if (row == null) {
             LayoutInflater inflater = (LayoutInflater)
-                    context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);;
+                    context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
             row = inflater.inflate(R.layout.row, parent, false);
             wrapper = new ViewWrapper(row);
             row.setTag(wrapper);

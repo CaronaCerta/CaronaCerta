@@ -3,21 +3,23 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
+
     <RatingBar
         android:id="@+id/rate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:numStars="5"
+        android:rating="3"
         android:stepSize="1"
-        android:textColor="@color/list_item_title"
-        android:rating="3" />
+        android:textColor="@color/list_item_title" />
+
     <TextView
         android:id="@+id/label"
-        android:paddingLeft="2dp"
-        android:paddingRight="2dp"
-        android:textSize="24sp"
-        android:textColor="@color/list_item_title"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical" />
+        android:layout_gravity="center_vertical"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:textColor="@color/list_item_title"
+        android:textSize="24sp" />
 </LinearLayout>

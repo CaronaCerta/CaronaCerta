@@ -29,21 +29,21 @@ public class RidesContract {
         // Table name
         public static final String TABLE_NAME = "rides";
         public static final String COLUMN_GROUP_NAME = "group_name";
-        public static final String COLUMN_CHILDREN_NAME = "children_name";        public static final String CONTENT_TYPE =
-                "vnd.android.cursor.dir/" + CONTENT_AUTHORITY + "/" + PATH_RIDES;
+        public static final String COLUMN_CHILDREN_NAME = "children_name";
 
         public static Uri buildRidesUri(long id) {
             return ContentUris.withAppendedId(CONTENT_URI, id);
-        }
+        }        public static final String CONTENT_TYPE =
+                "vnd.android.cursor.dir/" + CONTENT_AUTHORITY + "/" + PATH_RIDES;
 
         public static Uri buildRides(String locationSetting) {
             return CONTENT_URI.buildUpon().appendPath(locationSetting).build();
         }
 
+
+
         public static final String CONTENT_ITEM_TYPE =
                 "vnd.android.cursor.item/" + CONTENT_AUTHORITY + "/" + PATH_RIDES;
-
-
 
 
     }

@@ -14,6 +14,11 @@ import br.com.caronacerta.caronacerta.model.RowModel;
 
 public class AvaliarCaronasFragment extends BasicFragment {
 
+    static final String[] SmartPhones = new String[]{
+            "Alexandre - 17/10", "Bruno - 21/10",
+            "Carlos - 29/10", "Daniel - 03/11", "Daniel - 03/11"
+    };
+
     public AvaliarCaronasFragment() {
     }
 
@@ -36,11 +41,6 @@ public class AvaliarCaronasFragment extends BasicFragment {
 
         return rootView;
     }
-
-    static final String[] SmartPhones = new String[]{
-            "Alexandre - 17/10", "Bruno - 21/10",
-            "Carlos - 29/10", "Daniel - 03/11",  "Daniel - 03/11"
-    };
 
     @Override
     public void onResume() {
