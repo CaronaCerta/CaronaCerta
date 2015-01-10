@@ -35,6 +35,7 @@ public class AdFragment extends BasicFragment {
         AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .addTestDevice("7370BA9E6D387AF20EB158D893013BE3")
+                .addTestDevice("6959D3E70A17EB7B4BF2E5FF94886C0A")
                 .build();
 
         // Start loading the ad in the background.
