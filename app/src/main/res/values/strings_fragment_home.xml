@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="home_title">Home</string>
     <string name="home_welcome">Bem vindo</string>
     <string name="home_email">Email</string>
     <string name="home_birthday">Data de nascimento</string>

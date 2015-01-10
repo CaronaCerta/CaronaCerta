@@ -147,7 +147,7 @@ public class EditarContaFragment extends BasicFragment implements View.OnClickLi
                 try {
                     if (!jsonObject.getBoolean("error")) {
                         Toast.makeText(getActivity().getApplicationContext(), R.string.editar_conta_success_message, Toast.LENGTH_LONG).show();
-                        navigateToFragment(R.string.visualizar_conta_title, new VisualizarContaFragment());
+                        navigateToFragment(new VisualizarContaFragment());
                     }
                     // Some error returned
                     else {
@@ -176,5 +176,12 @@ public class EditarContaFragment extends BasicFragment implements View.OnClickLi
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Set title
+        getActivity().setTitle(R.string.editar_conta_title);
     }
 }

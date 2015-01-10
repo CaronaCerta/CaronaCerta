@@ -20,6 +20,6 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:padding="10sp"
-        android:text="@string/add_minhas_caronas" />
+        android:text="@string/adicionar_minhas_caronas_title" />
 
 </LinearLayout>

@@ -139,4 +139,11 @@ public class ProcurarCaronaFragment extends BasicFragment implements View.OnClic
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Set title
+        getActivity().setTitle(R.string.procurar_carona_title);
+    }
 }

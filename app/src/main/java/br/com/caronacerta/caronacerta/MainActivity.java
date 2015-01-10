@@ -24,7 +24,7 @@ import java.util.Vector;
 import br.com.caronacerta.caronacerta.adapter.NavDrawerListAdapter;
 import br.com.caronacerta.caronacerta.contract.RidesContract;
 import br.com.caronacerta.caronacerta.fragment.AvaliarCaronasFragment;
-import br.com.caronacerta.caronacerta.fragment.CaronasFragment;
+import br.com.caronacerta.caronacerta.fragment.MinhasCaronasFragment;
 import br.com.caronacerta.caronacerta.fragment.HomeFragment;
 import br.com.caronacerta.caronacerta.fragment.OferecerCaronaFragment;
 import br.com.caronacerta.caronacerta.fragment.ProcurarCaronaFragment;
@@ -144,7 +144,7 @@ public class MainActivity extends BasicActivity {
                 navigateToSettingsActivity();
                 return true;
             case R.id.action_profile:
-                navigateToFragment(R.string.visualizar_conta_title, new VisualizarContaFragment());
+                navigateToFragment(new VisualizarContaFragment());
                 return true;
             case R.id.action_logout:
                 SessionUtil.logout(getApplicationContext());
@@ -180,7 +180,7 @@ public class MainActivity extends BasicActivity {
                 fragment = new VisualizarMotoristaFragment();
                 break;
             case 2:
-                fragment = new CaronasFragment();
+                fragment = new MinhasCaronasFragment();
                 break;
             case 3:
                 fragment = new OferecerCaronaFragment();
@@ -197,7 +197,7 @@ public class MainActivity extends BasicActivity {
         }
 
         if (fragment != null) {
-            navigateToFragment(navMenuTitles[position], fragment);
+            navigateToFragment(fragment);
 
             // update selected item and title, then close the drawer
             mDrawerList.setItemChecked(position, true);

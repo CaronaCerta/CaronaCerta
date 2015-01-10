@@ -71,4 +71,11 @@ public class VisualizarCarroFragment extends BasicFragment {
 
         return rootView;
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Set title
+        getActivity().setTitle(R.string.visualizar_carro_title);
+    }
 }

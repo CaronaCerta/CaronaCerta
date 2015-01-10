@@ -8,16 +8,11 @@ import br.com.caronacerta.caronacerta.LoginActivity;
 import br.com.caronacerta.caronacerta.R;
 
 public abstract class BasicFragment extends Fragment {
-    public void navigateToFragment(int resId, Fragment fragment) {
-        navigateToFragment(getString(resId), fragment);
-    }
-
-    public void navigateToFragment(String title, Fragment fragment) {
-        getActivity().setTitle(title);
+    public void navigateToFragment(Fragment fragment) {
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction()
                 .replace(R.id.frame_container, fragment)
-                .addToBackStack(title)
+                .addToBackStack(null)
                 .commit();
     }
 

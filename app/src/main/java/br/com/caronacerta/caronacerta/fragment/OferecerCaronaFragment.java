@@ -122,7 +122,7 @@ public class OferecerCaronaFragment extends BasicFragment implements View.OnClic
             try {
                 if (!jsonObject.getBoolean("error")) {
                     Toast.makeText(getActivity().getApplicationContext(), R.string.oferecer_carona_success_message, Toast.LENGTH_LONG).show();
-                    navigateToFragment(R.string.home_welcome, new HomeFragment());
+                    navigateToFragment(new HomeFragment());
                 }
                 // Some error returned
                 else {
@@ -146,5 +146,12 @@ public class OferecerCaronaFragment extends BasicFragment implements View.OnClic
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Set title
+        getActivity().setTitle(R.string.oferecer_carona_title);
     }
 }

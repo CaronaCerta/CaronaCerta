@@ -84,4 +84,11 @@ public class VisualizarMotoristaFragment extends BasicFragment {
 
         return rootView;
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Set title
+        getActivity().setTitle(R.string.visualizar_motorista_title);
+    }
 }

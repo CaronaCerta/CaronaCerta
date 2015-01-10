@@ -7,7 +7,7 @@ import android.widget.Filterable;
 
 import java.util.ArrayList;
 
-import br.com.caronacerta.caronacerta.fragment.AdicionarCaronasFragment;
+import br.com.caronacerta.caronacerta.fragment.AdicionarMinhasCaronasFragment;
 
 public class PlacesAutoCompleteAdapter extends ArrayAdapter<String> implements Filterable {
     private ArrayList<String> resultList;
@@ -34,7 +34,7 @@ public class PlacesAutoCompleteAdapter extends ArrayAdapter<String> implements F
                 FilterResults filterResults = new FilterResults();
                 if (constraint != null) {
                     // Retrieve the autocomplete results.
-                    resultList = AdicionarCaronasFragment.autocomplete(constraint.toString());
+                    resultList = AdicionarMinhasCaronasFragment.autocomplete(constraint.toString());
 
                     // Assign the data to the FilterResults
                     filterResults.values = resultList;

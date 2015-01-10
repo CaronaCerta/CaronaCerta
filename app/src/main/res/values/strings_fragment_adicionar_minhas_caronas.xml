@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="adicionar_minhas_caronas_title">Adicionar Minhas Caronas</string>
+
+    <string name="adicionar_minhas_caronas_name_hint">Nome</string>
+    <string name="adicionar_minhas_caronas_num_hint">Celular</string>
+    <string name="adicionar_minhas_caronas_confirm">Adicionar</string>
+</resources>

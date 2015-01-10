@@ -39,7 +39,6 @@ public abstract class BasicActivity extends ActionBarActivity {
     public void onBackPressed() {
         FragmentManager fm = getFragmentManager();
         if (fm.getBackStackEntryCount() > 0) {
-//            getActivity().setTitle(title);
             fm.popBackStack();
         } else {
             super.onBackPressed();
@@ -104,39 +103,34 @@ public abstract class BasicActivity extends ActionBarActivity {
      * @param view
      */
     public void navigateToEditarContaFragment(View view) {
-        navigateToFragment(R.string.action_profile, new EditarContaFragment());
+        navigateToFragment(new EditarContaFragment());
     }
 
     public void navigateToEditarMotoristaFragment(View view) {
-        navigateToFragment(R.string.editar_motorista_title, new EditarMotoristaFragment());
+        navigateToFragment(new EditarMotoristaFragment());
     }
 
     public void navigateToCriarMotoristaFragment(View view) {
-        navigateToFragment(R.string.criar_motorista_title, new CriarMotoristaFragment());
+        navigateToFragment(new CriarMotoristaFragment());
     }
 
     public void navigateToCriarCarroFragment(View view) {
-        navigateToFragment(R.string.criar_carro_title, new CriarCarroFragment());
+        navigateToFragment(new CriarCarroFragment());
     }
 
     public void navigateToEditarCarroFragment(View view) {
-        navigateToFragment(R.string.editar_carro_title, new EditarCarroFragment());
+        navigateToFragment(new EditarCarroFragment());
     }
 
     public void navigateToVisualizarCarroFragment(View view) {
-        navigateToFragment(R.string.visualizar_carro_title, new VisualizarCarroFragment());
+        navigateToFragment(new VisualizarCarroFragment());
     }
 
-    public void navigateToFragment(int resId, Fragment fragment) {
-        navigateToFragment(getString(resId), fragment);
-    }
-
-    public void navigateToFragment(String title, Fragment fragment) {
-        setTitle(title);
+    public void navigateToFragment(Fragment fragment) {
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction()
                 .replace(R.id.frame_container, fragment)
-                .addToBackStack(title)
+                .addToBackStack(null)
                 .commit();
     }
 }

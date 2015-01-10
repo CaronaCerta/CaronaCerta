@@ -83,7 +83,7 @@ public class CriarCarroFragment extends BasicFragment implements View.OnClickLis
             try {
                 if (!jsonObject.getBoolean("error")) {
                     Toast.makeText(getActivity().getApplicationContext(), R.string.criar_carro_success_message, Toast.LENGTH_LONG).show();
-                    navigateToFragment(R.string.visualizar_carro_title, new VisualizarCarroFragment());
+                    navigateToFragment(new VisualizarCarroFragment());
                 }
                 // Some error returned
                 else {
@@ -107,5 +107,12 @@ public class CriarCarroFragment extends BasicFragment implements View.OnClickLis
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Set title
+        getActivity().setTitle(R.string.criar_carro_title);
     }
 }

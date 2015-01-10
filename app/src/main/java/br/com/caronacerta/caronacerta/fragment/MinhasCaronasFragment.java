@@ -13,7 +13,7 @@ import br.com.caronacerta.caronacerta.R;
 import br.com.caronacerta.caronacerta.adapter.ExpandableListAdapter;
 import br.com.caronacerta.caronacerta.contract.RidesContract;
 
-public class CaronasFragment extends BasicFragment {
+public class MinhasCaronasFragment extends BasicFragment {
 
     private static final int RIDES_LOADER = 0;
     private static final String[] COLUMN_GROUP_NAME = {
@@ -29,7 +29,7 @@ public class CaronasFragment extends BasicFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_caronas, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_minhas_caronas, container, false);
 
 
         // get the listview
@@ -45,11 +45,18 @@ public class CaronasFragment extends BasicFragment {
         add_minhas_caronas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navigateToFragment(R.string.add_minhas_caronas, new AdicionarCaronasFragment());
+                navigateToFragment(new AdicionarMinhasCaronasFragment());
             }
         });
 
         return rootView;
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Set title
+        getActivity().setTitle(R.string.minhas_caronas_title);
     }
 }

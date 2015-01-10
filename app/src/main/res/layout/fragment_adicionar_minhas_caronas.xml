@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="@string/add_carona_confirm" />
+        android:text="@string/adicionar_minhas_caronas_confirm" />
 
     <TimePicker
         android:id="@+id/timePicker"
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_column="0"
                 android:layout_weight="1"
-                android:hint="@string/add_caronas_name_hint"
+                android:hint="@string/adicionar_minhas_caronas_name_hint"
                 android:padding="10dp"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -55,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:layout_column="1"
                 android:layout_weight="1"
-                android:hint="@string/add_caronas_num_hint"
+                android:hint="@string/adicionar_minhas_caronas_num_hint"
                 android:inputType="phone"
                 android:padding="10dp"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -71,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:layout_column="0"
                 android:layout_weight="1"
-                android:hint="@string/add_caronas_name_hint"
+                android:hint="@string/adicionar_minhas_caronas_name_hint"
                 android:padding="10dp"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -81,7 +81,7 @@
                 android:layout_height="wrap_content"
                 android:layout_column="1"
                 android:layout_weight="1"
-                android:hint="@string/add_caronas_num_hint"
+                android:hint="@string/adicionar_minhas_caronas_num_hint"
                 android:inputType="phone"
                 android:padding="10dp"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -98,7 +98,7 @@
                 android:layout_height="wrap_content"
                 android:layout_column="0"
                 android:layout_weight="1"
-                android:hint="@string/add_caronas_name_hint"
+                android:hint="@string/adicionar_minhas_caronas_name_hint"
                 android:padding="10dp"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -108,7 +108,7 @@
                 android:layout_height="wrap_content"
                 android:layout_column="1"
                 android:layout_weight="1"
-                android:hint="@string/add_caronas_num_hint"
+                android:hint="@string/adicionar_minhas_caronas_num_hint"
                 android:inputType="phone"
                 android:padding="10dp"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -124,7 +124,7 @@
                 android:layout_height="wrap_content"
                 android:layout_column="0"
                 android:layout_weight="1"
-                android:hint="@string/add_caronas_name_hint"
+                android:hint="@string/adicionar_minhas_caronas_name_hint"
                 android:padding="10dp"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -134,7 +134,7 @@
                 android:layout_height="wrap_content"
                 android:layout_column="1"
                 android:layout_weight="1"
-                android:hint="@string/add_caronas_num_hint"
+                android:hint="@string/adicionar_minhas_caronas_num_hint"
                 android:inputType="phone"
                 android:padding="10dp"
                 android:textAppearance="?android:attr/textAppearanceMedium" />

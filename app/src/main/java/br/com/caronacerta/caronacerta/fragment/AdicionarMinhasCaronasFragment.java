@@ -30,7 +30,7 @@ import java.util.List;
 import br.com.caronacerta.caronacerta.MainActivity;
 import br.com.caronacerta.caronacerta.R;
 
-public class AdicionarCaronasFragment extends BasicFragment {
+public class AdicionarMinhasCaronasFragment extends BasicFragment {
 
 
     /* AUTOCOMPLETE API */
@@ -40,7 +40,7 @@ public class AdicionarCaronasFragment extends BasicFragment {
     public static final String OUT_JSON = "/json";
     public static final String API_KEY = "AIzaSyC_n8kc6HNTM2yUlLm-ztqbTApWlueLhxo";
 
-    public AdicionarCaronasFragment() {
+    public AdicionarMinhasCaronasFragment() {
     }
 
     static public ArrayList<String> autocomplete(String input) {
@@ -99,7 +99,7 @@ public class AdicionarCaronasFragment extends BasicFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        final View rootView = inflater.inflate(R.layout.fragment_adicionar_caronas, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_adicionar_minhas_caronas, container, false);
 
         final TimePicker timePicker = (TimePicker) rootView.findViewById(R.id.timePicker);
         timePicker.setIs24HourView(true);
@@ -165,7 +165,7 @@ public class AdicionarCaronasFragment extends BasicFragment {
                 AlertDialog alert = builder.create();
                 alert.show();
 
-                navigateToFragment(R.string.add_minhas_caronas, new CaronasFragment());
+                navigateToFragment(new MinhasCaronasFragment());
             }
         });
 
@@ -175,5 +175,12 @@ public class AdicionarCaronasFragment extends BasicFragment {
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
         String str = (String) adapterView.getItemAtPosition(position);
         Toast.makeText(this.getActivity(), str, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Set title
+        getActivity().setTitle(R.string.adicionar_minhas_caronas_title);
     }
 }

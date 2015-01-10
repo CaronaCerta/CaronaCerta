@@ -115,7 +115,7 @@ public class EditarCarroFragment extends BasicFragment implements View.OnClickLi
             try {
                 if (!jsonObject.getBoolean("error")) {
                     Toast.makeText(getActivity().getApplicationContext(), R.string.editar_carro_success_message, Toast.LENGTH_LONG).show();
-                    navigateToFragment(R.string.visualizar_carro_title, new VisualizarCarroFragment());
+                    navigateToFragment(new VisualizarCarroFragment());
                 }
                 // Some error returned
                 else {
@@ -138,5 +138,12 @@ public class EditarCarroFragment extends BasicFragment implements View.OnClickLi
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Set title
+        getActivity().setTitle(R.string.editar_carro_title);
     }
 }

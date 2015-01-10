@@ -103,7 +103,7 @@ public class EditarMotoristaFragment extends BasicFragment implements View.OnCli
             try {
                 if (!jsonObject.getBoolean("error")) {
                     Toast.makeText(getActivity().getApplicationContext(), R.string.editar_motorista_success_message, Toast.LENGTH_LONG).show();
-                    navigateToFragment(R.string.visualizar_motorista_title, new VisualizarMotoristaFragment());
+                    navigateToFragment(new VisualizarMotoristaFragment());
                 }
                 // Some error returned
                 else {
@@ -128,5 +128,12 @@ public class EditarMotoristaFragment extends BasicFragment implements View.OnCli
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Set title
+        getActivity().setTitle(R.string.editar_motorista_title);
     }
 }

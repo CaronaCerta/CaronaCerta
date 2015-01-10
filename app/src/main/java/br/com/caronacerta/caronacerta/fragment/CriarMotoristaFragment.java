@@ -70,7 +70,7 @@ public class CriarMotoristaFragment extends BasicFragment implements View.OnClic
             try {
                 if (!jsonObject.getBoolean("error")) {
                     Toast.makeText(getActivity().getApplicationContext(), R.string.criar_motorista_success_message, Toast.LENGTH_LONG).show();
-                    navigateToFragment(R.string.visualizar_motorista_title, new VisualizarMotoristaFragment());
+                    navigateToFragment(new VisualizarMotoristaFragment());
                 }
                 // Some error returned
                 else {
@@ -94,5 +94,12 @@ public class CriarMotoristaFragment extends BasicFragment implements View.OnClic
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Set title
+        getActivity().setTitle(R.string.criar_motorista_title);
     }
 }

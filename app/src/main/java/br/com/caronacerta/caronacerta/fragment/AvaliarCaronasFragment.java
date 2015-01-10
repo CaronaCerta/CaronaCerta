@@ -39,4 +39,11 @@ public class AvaliarCaronasFragment extends BasicFragment {
             "Alexandre - 17/10", "Bruno - 21/10",
             "Carlos - 29/10", "Daniel - 03/11"
     };
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Set title
+        getActivity().setTitle(R.string.avaliar_caronas_title);
+    }
 }                                                     
