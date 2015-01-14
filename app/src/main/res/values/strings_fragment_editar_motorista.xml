@@ -5,7 +5,7 @@
     <string name="editar_motorista_licence_driver_number">Numero da habilitação</string>
     <string name="editar_motorista_licence_driver_number_hint">Digite seu numero de habilitação</string>
     <string name="editar_motorista_licence_driver_date">Data de habilitação</string>
-    <string name="editar_motorista_licence_driver_date_hint">Digite sua data de habilitação</string>
+    <string name="editar_motorista_licence_driver_date_hint">Digite sua data de habilitação (AAAA-MM-DD)</string>
 
     <string name="editar_motorista_button">Salvar</string>
 

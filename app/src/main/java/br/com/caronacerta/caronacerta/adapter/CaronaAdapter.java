@@ -23,7 +23,7 @@ public class CaronaAdapter extends ArrayAdapter<Carona> {
     private BasicFragment fragment;
 
     public CaronaAdapter(Context context, ArrayList<Carona> caronas, BasicFragment fragment) {
-        super(context, R.layout.carona_card_layout, caronas);
+        super(context, R.layout.avaliar_card_layout, caronas);
         this.context = context;
         this.caronas = caronas;
         this.fragment = fragment;
@@ -34,7 +34,7 @@ public class CaronaAdapter extends ArrayAdapter<Carona> {
         if (convertView == null) {
             LayoutInflater mInflater = (LayoutInflater)
                     context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-            convertView = mInflater.inflate(R.layout.carona_card_layout, parent, false);
+            convertView = mInflater.inflate(R.layout.avaliar_card_layout, parent, false);
         }
 
         Button entrarCarona = (Button) convertView.findViewById(R.id.btnEntrarCarona);

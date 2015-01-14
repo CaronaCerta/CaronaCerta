@@ -7,4 +7,5 @@ public class Carona {
     public String lugares_disponiveis;
     public String data;
     public String observacoes;
+    public String motorista;
 }

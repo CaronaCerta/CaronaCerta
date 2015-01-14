@@ -3,4 +3,7 @@
     <string name="avaliar_caronas_title">Avaliar Caronas</string>
 
     <string name="avaliar_caronas_btn">Avaliar</string>
+
+    <string name="avaliar_carona_error_message">Erro ao procurar caronas para avaliar</string>
+    <string name="avaliar_carona_no_results">Nenhuma carona para avaliar</string>
 </resources>

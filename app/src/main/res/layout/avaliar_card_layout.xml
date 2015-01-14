@@ -24,17 +24,6 @@
         android:textColor="@color/list_item_title"
         android:textSize="10dp" />
 
-
-    <TextView
-        android:id="@+id/lugares_disponiveis"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/lugar_destino"
-        android:layout_marginTop="10dp"
-        android:text="Lugares"
-        android:textColor="@color/list_item_title"
-        android:textSize="10dp" />
-
     <TextView
         android:id="@+id/data"
         android:layout_width="match_parent"
@@ -44,22 +33,23 @@
         android:textColor="@color/list_item_title"
         android:textSize="10dp" />
 
-    <TextView
-        android:id="@+id/observacoes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center_vertical"
-        android:text="Observações"
-        android:textColor="@color/list_item_title"
-        android:textSize="10dp" />
-
     <Button
-        android:id="@+id/btnEntrarCarona"
-        android:layout_width="match_parent"
+        android:id="@+id/btnDislikeCarona"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:layout_gravity="start"
         android:textColor="@color/list_item_title"
         android:background="@color/button_material_light"
-        android:text="Entrar na carona" />
+        android:text="Dislike" />
+
+    <Button
+        android:id="@+id/btnLikeCarona"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-45dp"
+        android:layout_gravity="end"
+        android:textColor="@color/list_item_title"
+        android:background="@color/button_material_light"
+        android:text="Like" />
 </LinearLayout>
