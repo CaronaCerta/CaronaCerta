@@ -10,16 +10,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 
 import br.com.caronacerta.caronacerta.R;
+import br.com.caronacerta.caronacerta.fragment.AvaliarCaronasFragment;
 import br.com.caronacerta.caronacerta.fragment.BasicFragment;
-import br.com.caronacerta.caronacerta.fragment.HomeFragment;
 import br.com.caronacerta.caronacerta.model.Carona;
-import br.com.caronacerta.caronacerta.util.RequestUtil;
-import br.com.caronacerta.caronacerta.util.SessionUtil;
 
 public class AvaliarAdapter extends ArrayAdapter<Carona> {
 
@@ -52,28 +48,18 @@ public class AvaliarAdapter extends ArrayAdapter<Carona> {
         Button dislike = (Button) convertView.findViewById(R.id.btnDislikeCarona);
         dislike.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Dislike", Toast.LENGTH_SHORT).show();
-                JSONObject jsonObject = RequestUtil.postData("avaliacao/register", 20,1,1,1,0,3, SessionUtil.getToken(getActivity().getApplicationContext()));
-
-                try {
-                    if (!jsonObject.getBoolean("error")) {
-                        Toast.makeText(getActivity().getApplicationContext(), R.string.oferecer_carona_success_message, Toast.LENGTH_LONG).show();
-                        navigateToFragment(new HomeFragment());
-                    }
-                    // Some error returned
-                    else {
-                        Toast.makeText(getActivity().getApplicationContext(), R.string.oferecer_carona_error_message, Toast.LENGTH_LONG).show();
-                    }
-                } catch (Exception e) {
-                    Toast.makeText(getActivity().getApplicationContext(), R.string.server_response_error, Toast.LENGTH_LONG).show();
-                }
+                String id_carona = caronas.get(position).id_carona;
+                String nota = "0";
+                ((AvaliarCaronasFragment) fragment).avaliarCarona(id_carona, nota);
             }
         });
 
         Button like = (Button) convertView.findViewById(R.id.btnLikeCarona);
         like.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Like", Toast.LENGTH_SHORT).show();
+                String id_carona = caronas.get(position).id_carona;
+                String nota = "5";
+                ((AvaliarCaronasFragment) fragment).avaliarCarona(id_carona, nota);
             }
         });
 

@@ -34,7 +34,7 @@ public class CaronaAdapter extends ArrayAdapter<Carona> {
         if (convertView == null) {
             LayoutInflater mInflater = (LayoutInflater)
                     context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-            convertView = mInflater.inflate(R.layout.avaliar_card_layout, parent, false);
+            convertView = mInflater.inflate(R.layout.carona_card_layout, parent, false);
         }
 
         Button entrarCarona = (Button) convertView.findViewById(R.id.btnEntrarCarona);

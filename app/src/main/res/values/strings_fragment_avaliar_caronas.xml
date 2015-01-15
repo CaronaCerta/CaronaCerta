@@ -4,6 +4,9 @@
 
     <string name="avaliar_caronas_btn">Avaliar</string>
 
-    <string name="avaliar_carona_error_message">Erro ao procurar caronas para avaliar</string>
+    <string name="avaliar_carona_list_error_message">Erro ao procurar caronas para avaliar</string>
     <string name="avaliar_carona_no_results">Nenhuma carona para avaliar</string>
+
+    <string name="avaliar_carona_success_message">Carona avaliada com sucesso</string>
+    <string name="avaliar_carona_error_message">Erro ao avaliar carona</string>
 </resources>

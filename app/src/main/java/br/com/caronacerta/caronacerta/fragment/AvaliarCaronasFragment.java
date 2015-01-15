@@ -8,11 +8,14 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import br.com.caronacerta.caronacerta.R;
 import br.com.caronacerta.caronacerta.adapter.AvaliarAdapter;
@@ -50,7 +53,7 @@ public class AvaliarCaronasFragment extends BasicFragment {
             }
             // Some error returned
             else {
-                Toast.makeText(getActivity().getApplicationContext(), R.string.avaliar_carona_error_message, Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity().getApplicationContext(), R.string.avaliar_carona_list_error_message, Toast.LENGTH_LONG).show();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -71,30 +74,40 @@ public class AvaliarCaronasFragment extends BasicFragment {
             av.lugar_saida = carona.getString("lugar_saida");
             av.lugar_destino = carona.getString("lugar_destino");
             av.data = carona.getString("data");
-/*
-            JSONObject jsonObject = RequestUtil.getData("carro/"+carona.getString("id_carro"), SessionUtil.getToken(getActivity().getApplicationContext()));
-
-            try {
-                if (!jsonObject.getBoolean("error")) {
-                    av.motorista = jsonObject.getString("id_motorista");
-                }
-                // Some error returned
-                else {
-                    Toast.makeText(getActivity().getApplicationContext(), R.string.avaliar_carona_error_message, Toast.LENGTH_LONG).show();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-                Toast.makeText(getActivity().getApplicationContext(), R.string.server_response_error, Toast.LENGTH_LONG).show();
-            }
-
-            Toast.makeText(getActivity().getApplicationContext(), av.motorista, Toast.LENGTH_LONG).show();
-*/
 
             result.add(av);
         }
 
         return result;
     }
+
+    public void avaliarCarona(String id_carona, String nota) {
+        List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+        // TODO change id_atributo to be dynamic
+        nameValuePairs.add(new BasicNameValuePair("id_atributo", "1"));
+
+        nameValuePairs.add(new BasicNameValuePair("id_carona", id_carona));
+        nameValuePairs.add(new BasicNameValuePair("id_usuario_avaliador", SessionUtil.getUserId(getActivity().getApplicationContext())));
+        nameValuePairs.add(new BasicNameValuePair("id_usuario_avaliado", SessionUtil.getUserId(getActivity().getApplicationContext())));
+        nameValuePairs.add(new BasicNameValuePair("papel", "1"));
+        nameValuePairs.add(new BasicNameValuePair("nota", nota));
+
+        JSONObject jsonObject = RequestUtil.postData("avaliacao", nameValuePairs, SessionUtil.getToken(getActivity().getApplicationContext()));
+
+        try {
+            if (!jsonObject.getBoolean("error")) {
+                Toast.makeText(getActivity().getApplicationContext(), R.string.avaliar_carona_success_message, Toast.LENGTH_LONG).show();
+                navigateToFragment(new AvaliarCaronasFragment());
+            }
+            // Some error returned
+            else {
+                Toast.makeText(getActivity().getApplicationContext(), R.string.avaliar_carona_error_message, Toast.LENGTH_LONG).show();
+            }
+        } catch (Exception e) {
+            Toast.makeText(getActivity().getApplicationContext(), R.string.server_response_error, Toast.LENGTH_LONG).show();
+        }
+    }
+
 
     @Override
     public void onResume() {
