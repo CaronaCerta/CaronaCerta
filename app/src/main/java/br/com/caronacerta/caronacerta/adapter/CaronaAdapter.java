@@ -37,13 +37,26 @@ public class CaronaAdapter extends ArrayAdapter<Carona> {
             convertView = mInflater.inflate(R.layout.carona_card_layout, parent, false);
         }
 
-        Button entrarCarona = (Button) convertView.findViewById(R.id.btnEntrarCarona);
-        entrarCarona.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                String id_carona = caronas.get(position).id_carona;
-                ((ProcurarCaronaFragment) fragment).entrarCarona(id_carona);
-            }
-        });
+        if (caronas.get(position).id_passageiro == null) {
+            Button entrarCarona = (Button) convertView.findViewById(R.id.btnEntrarCarona);
+            entrarCarona.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    String id_carona = caronas.get(position).id_carona;
+                    ((ProcurarCaronaFragment) fragment).entrarCarona(id_carona);
+                }
+            });
+            entrarCarona.setVisibility(View.VISIBLE);
+        } else {
+            Button sairCarona = (Button) convertView.findViewById(R.id.btnSairCarona);
+            sairCarona.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    String id_passageiro = caronas.get(position).id_passageiro;
+                    ((ProcurarCaronaFragment) fragment).sairCarona(id_passageiro);
+                }
+            });
+            sairCarona.setVisibility(View.VISIBLE);
+        }
+
 
         TextView txtLugarSaida = (TextView) convertView.findViewById(R.id.lugar_saida);
         TextView txtLugarDestino = (TextView) convertView.findViewById(R.id.lugar_destino);

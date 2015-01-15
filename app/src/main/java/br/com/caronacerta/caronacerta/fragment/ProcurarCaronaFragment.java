@@ -104,10 +104,30 @@ public class ProcurarCaronaFragment extends BasicFragment implements View.OnClic
         try {
             if (!jsonObject.getBoolean("error")) {
                 Toast.makeText(getActivity().getApplicationContext(), R.string.procurar_carona_entrar_carona_sucesso, Toast.LENGTH_LONG).show();
+                navigateToFragment(new ProcurarCaronaFragment());
             }
             // Some error returned
             else {
                 Toast.makeText(getActivity().getApplicationContext(), R.string.procurar_carona_entrar_carona_erro, Toast.LENGTH_LONG).show();
+            }
+        } catch (Exception e) {
+            Toast.makeText(getActivity().getApplicationContext(), R.string.server_response_error, Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void sairCarona(String idPassageiro) {
+        String token = SessionUtil.getToken(getActivity().getApplicationContext());
+
+        JSONObject jsonObject = RequestUtil.deleteData("passageiro/" + idPassageiro, token);
+
+        try {
+            if (!jsonObject.getBoolean("error")) {
+                Toast.makeText(getActivity().getApplicationContext(), R.string.procurar_carona_sair_carona_sucesso, Toast.LENGTH_LONG).show();
+                navigateToFragment(new ProcurarCaronaFragment());
+            }
+            // Some error returned
+            else {
+                Toast.makeText(getActivity().getApplicationContext(), R.string.procurar_carona_sair_carona_erro, Toast.LENGTH_LONG).show();
             }
         } catch (Exception e) {
             Toast.makeText(getActivity().getApplicationContext(), R.string.server_response_error, Toast.LENGTH_LONG).show();
@@ -127,10 +147,35 @@ public class ProcurarCaronaFragment extends BasicFragment implements View.OnClic
             ci.data = carona.getString("data");
             ci.observacoes = carona.getString("observacoes");
 
+            ci.id_passageiro = findPassageiroId(ci.id_carona);
+
             result.add(ci);
         }
 
         return result;
+    }
+
+    private String findPassageiroId(String idCarona) {
+        String passageiroId = null;
+
+        String userId = SessionUtil.getUserId(getActivity().getApplicationContext());
+        String token = SessionUtil.getToken(getActivity().getApplicationContext());
+
+        List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+        nameValuePairs.add(new BasicNameValuePair("id_carona", idCarona));
+        nameValuePairs.add(new BasicNameValuePair("id_usuario", userId));
+
+        JSONObject jsonObject = RequestUtil.getData("passageiro", nameValuePairs, token);
+        try {
+            if (jsonObject.getJSONArray("passageiros").length() > 0) {
+                JSONArray passageiros = jsonObject.getJSONArray("passageiros");
+                passageiroId = ((JSONObject) passageiros.get(0)).getString("id_passageiro");
+            }
+        } catch (Exception e) {
+            // Do nothing
+        }
+
+        return passageiroId;
     }
 
     @Override

@@ -59,7 +59,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:textColor="@color/list_item_title"
         android:background="@color/button_material_light"
-        android:text="Entrar na carona" />
+        android:text="Entrar na carona"
+        android:textColor="@color/list_item_title"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btnSairCarona"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@color/button_material_light"
+        android:text="Sair da carona"
+        android:textColor="@color/list_item_title"
+        android:visibility="gone" />
 </LinearLayout>

@@ -17,4 +17,7 @@
 
     <string name="procurar_carona_entrar_carona_sucesso">Você acabou de entrar na carona</string>
     <string name="procurar_carona_entrar_carona_erro">Erro ao tentar entrar na carona</string>
+
+    <string name="procurar_carona_sair_carona_sucesso">Você acabou de sair da carona</string>
+    <string name="procurar_carona_sair_carona_erro">Erro ao tentar sair da carona</string>
 </resources>

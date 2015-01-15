@@ -8,4 +8,5 @@ public class Carona {
     public String data;
     public String observacoes;
     public String motorista;
+    public String id_passageiro;
 }
