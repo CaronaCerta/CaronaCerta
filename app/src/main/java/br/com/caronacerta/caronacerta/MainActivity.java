@@ -241,31 +241,6 @@ public class MainActivity extends BasicActivity {
         caronasELVGroup = new ArrayList<String>();
         caronasELVChild = new HashMap<String, List<String>>();
 
-        // Adding child data
-        caronasELVGroup.add("15/10 - 14h00");
-        caronasELVGroup.add("29/10 - 19h00");
-        caronasELVGroup.add("01/11 - 18h00");
-
-        // Adding child data
-        List<String> l1 = new ArrayList<String>();
-        l1.add("Xandão - 11 98456 1123");
-        l1.add("Elizeu - 19 98234 2267");
-        l1.add("PD - 19 9655 7234");
-
-        List<String> l2 = new ArrayList<String>();
-        l2.add("Oscar - 11 97667 5543");
-        l2.add("Batata - 19 98738 9755");
-        l2.add("PD - 19 9655 7234");
-
-        List<String> l3 = new ArrayList<String>();
-        l3.add("Xandão - 11 98456 1123");
-        l3.add("Batata - 19 98738 9755");
-        l3.add("Giu - 19 97656 9908");
-
-        caronasELVChild.put(caronasELVGroup.get(0), l1); // Header, Child data
-        caronasELVChild.put(caronasELVGroup.get(1), l2);
-        caronasELVChild.put(caronasELVGroup.get(2), l3);
-
         Vector<ContentValues> cVVector = new Vector<ContentValues>(caronasELVGroup.size());
 
         if (cVVector.size() > 0) {
